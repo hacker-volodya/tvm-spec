@@ -63,6 +63,7 @@ Based on [instructions.csv](https://github.com/ton-community/ton-docs/blob/main/
 | doc.description | Free-form markdown description of instruction. Optional.
 | doc.gas | Free-form description of gas amount used by instruction. Optional.
 | doc.fift | Free-form fift usage description. Optional.
+| doc.fift_examples | Optional array of usage examples in Fift. Each array element is object with `fift` and `description` keys.
 | bytecode | Information related to bytecode format of an instruction. Assuming that each instruction has format `prefix || operand_1 || operand_2 || ...` (also some operands may be refs, not bitstring part).
 | bytecode.doc_opcode | Free-form bytecode format description. Optional.
 | bytecode.tlb | TL-b bytecode format description. Required.
@@ -72,8 +73,8 @@ Based on [instructions.csv](https://github.com/ton-community/ton-docs/blob/main/
 | bytecode.operands[i].name | Operand variable name. Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore. Required.
 | bytecode.operands[i].loader | Loader function for operand. Must be one of `int`, `uint`, `ref`, `pushint_long`, `subslice`. Loaders are described below. Required.
 | bytecode.operands[i].loader_args | Arguments for loader function, specified below. Optional, no arguments in case of absence.
-| value_flow | Information related to usage of stack and registers by instruction.
-| value_flow.doc_stack | Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value).
+| value_flow | Information related to usage of stack and registers by instruction. Optional.
+| value_flow.doc_stack | Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value). Optional.
 
 ### Loaders specification and examples
 #### uint
@@ -179,4 +180,4 @@ Loads subslice of bit length `{bits_length_var} * 8 + bits_padding` and ref coun
 | doc_fift | Free-form fift usage description. Optional.
 | doc_stack | Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value).
 | description | Free-form markdown description of alias. Optional.
-| operands | Values of original instruction operands which are fixed in this alias. Currently it can be integer or slice without references which is represented by string of '0' and '1's. Type should be inferred from original instruction operand loaders.
+| operands | Values of original instruction operands which are fixed in this alias. Currently it can be integer or slice without references which is represented by string of '0' and '1's. Type should be inferred from original instruction operand loaders. Required.
