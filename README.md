@@ -6,6 +6,8 @@ This repo's goal is to provide machine-readable (JSON) description of TVM instru
 | -------- | -------------
 | 0        | [cp0.json](./cp0.json)
 
+JSON Schema of specifications is available in [schema.json](./schema.json). [quicktype.io](https://app.quicktype.io/) can be used to generate wrappers for specific programming language.
+
 Based on [instructions.csv](https://github.com/ton-community/ton-docs/blob/main/docs/learn/tvm-instructions/instructions.csv).
 
 ## Features
