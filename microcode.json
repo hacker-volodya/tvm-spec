@@ -1,0 +1,209 @@
+{
+    "microcode": [
+        {
+            "name": "xchg",
+            "arguments": [{"name": "i", "type": "integer"}, {"name": "j", "type": "integer"}]
+        },
+        {
+            "name": "blkpush",
+            "arguments": [{"name": "i", "type": "integer"}, {"name": "j", "type": "integer"}]
+        },
+        {
+            "name": "blkpop",
+            "arguments": [{"name": "i", "type": "integer"}, {"name": "j", "type": "integer"}]
+        },
+        {
+            "name": "reverse",
+            "arguments": [{"name": "i", "type": "integer"}, {"name": "j", "type": "integer"}]
+        },
+        {
+            "name": "push",
+            "arguments": [{"name": "i", "type": "integer"}],
+            "implementation": [
+                {"name": "blkpush", "operands": [{"type": "const", "value": 1}, {"type": "var", "value": "i"}]}
+            ]
+        },
+        {
+            "name": "pop",
+            "arguments": [{"name": "i", "type": "integer"}],
+            "implementation": [
+                {"name": "blkpop", "operands": [{"type": "const", "value": 1}, {"type": "var", "value": "i"}]}
+            ]
+        },
+        {
+            "name": "xchg3",
+            "arguments": [{"name": "i", "type": "integer"}, {"name": "j", "type": "integer"}, {"name": "k", "type": "integer"}],
+            "implementation": [
+                {"name": "xchg", "operands": [{"type": "const", "value": 2}, {"type": "var", "value": "i"}]},
+                {"name": "xchg", "operands": [{"type": "const", "value": 1}, {"type": "var", "value": "j"}]},
+                {"name": "xchg", "operands": [{"type": "const", "value": 0}, {"type": "var", "value": "k"}]}
+            ]
+        },
+        {
+            "name": "xchg2",
+            "arguments": [{"name": "i", "type": "integer"}, {"name": "j", "type": "integer"}, {"name": "k", "type": "integer"}],
+            "implementation": [
+                {"name": "xchg", "operands": [{"type": "const", "value": 1}, {"type": "var", "value": "i"}]},
+                {"name": "xchg", "operands": [{"type": "const", "value": 0}, {"type": "var", "value": "j"}]}
+            ]
+        },
+        {
+            "name": "xcpu",
+            "arguments": [{"name": "i", "type": "integer"}, {"name": "j", "type": "integer"}],
+            "implementation": [
+                {"name": "xchg", "operands": [{"type": "const", "value": 0}, {"type": "var", "value": "i"}]},
+                {"name": "push", "operands": [{"type": "var", "value": "j"}]}
+            ]
+        },
+        {
+            "name": "puxc",
+            "arguments": [{"name": "i", "type": "integer"}, {"name": "j", "type": "integer"}],
+            "implementation": [
+                {"name": "push", "operands": [{"type": "var", "value": "i"}]},
+                {"name": "xchg", "operands": [{"type": "const", "value": 0}, {"type": "const", "value": 1}]},
+                {"name": "xchg", "operands": [{"type": "const", "value": 0}, {"type": "var", "value": "j"}]}
+            ]
+        },
+        {
+            "name": "push2",
+            "arguments": [{"name": "i", "type": "integer"}, {"name": "j", "type": "integer"}],
+            "implementation": [
+                {"name": "push", "operands": [{"type": "var", "value": "i"}]},
+                {"name": "push", "operands": [{"type": "sum", "value": [{"type": "var", "value": "j"}, {"type": "const", "value": 1}]}]}
+            ]
+        },
+        {
+            "name": "xc2pu",
+            "arguments": [{"name": "i", "type": "integer"}, {"name": "j", "type": "integer"}, {"name": "k", "type": "integer"}],
+            "implementation": [
+                {"name": "xchg2", "operands": [{"type": "var", "value": "i"}, {"type": "var", "value": "j"}]},
+                {"name": "push", "operands": [{"type": "var", "value": "k"}]}
+            ]
+        },
+        {
+            "name": "xcpuxc",
+            "arguments": [{"name": "i", "type": "integer"}, {"name": "j", "type": "integer"}, {"name": "k", "type": "integer"}],
+            "implementation": [
+                {"name": "xchg", "operands": [{"type": "const", "value": 1}, {"type": "var", "value": "i"}]},
+                {"name": "puxc", "operands": [{"type": "var", "value": "j"}, {"type": "var", "value": "k"}]}
+            ]
+        },
+        {
+            "name": "xcpu2",
+            "arguments": [{"name": "i", "type": "integer"}, {"name": "j", "type": "integer"}, {"name": "k", "type": "integer"}],
+            "implementation": [
+                {"name": "xchg", "operands": [{"type": "const", "value": 0}, {"type": "var", "value": "i"}]},
+                {"name": "push2", "operands": [{"type": "var", "value": "j"}, {"type": "var", "value": "k"}]}
+            ]
+        },
+        {
+            "name": "puxc2",
+            "arguments": [{"name": "i", "type": "integer"}, {"name": "j", "type": "integer"}, {"name": "k", "type": "integer"}],
+            "implementation": [
+                {"name": "push", "operands": [{"type": "var", "value": "i"}]},
+                {"name": "xchg", "operands": [{"type": "const", "value": 0}, {"type": "const", "value": 2}]},
+                {"name": "xchg2", "operands": [{"type": "var", "value": "j"}, {"type": "var", "value": "k"}]}
+            ]
+        },
+        {
+            "name": "puxcpu",
+            "arguments": [{"name": "i", "type": "integer"}, {"name": "j", "type": "integer"}, {"name": "k", "type": "integer"}],
+            "implementation": [
+                {"name": "puxc", "operands": [{"type": "var", "value": "i"}, {"type": "var", "value": "j"}]},
+                {"name": "push", "operands": [{"type": "var", "value": "k"}]}
+            ]
+        },
+        {
+            "name": "pu2xc",
+            "arguments": [{"name": "i", "type": "integer"}, {"name": "j", "type": "integer"}, {"name": "k", "type": "integer"}],
+            "implementation": [
+                {"name": "push", "operands": [{"type": "var", "value": "i"}]},
+                {"name": "xchg", "operands": [{"type": "const", "value": 0}, {"type": "const", "value": 1}]},
+                {"name": "puxc", "operands": [{"type": "var", "value": "j"}, {"type": "var", "value": "k"}]}
+            ]
+        },
+        {
+            "name": "push3",
+            "arguments": [{"name": "i", "type": "integer"}, {"name": "j", "type": "integer"}, {"name": "k", "type": "integer"}],
+            "implementation": [
+                {"name": "push", "operands": [{"type": "var", "value": "i"}]},
+                {"name": "push2", "operands": [{"type": "sum", "value": [{"type": "var", "value": "j"}, {"type": "const", "value": 1}]}, {"type": "sum", "value": [{"type": "var", "value": "k"}, {"type": "const", "value": 1}]}]}
+            ]
+        },
+        {
+            "name": "blkswap",
+            "arguments": [{"name": "i", "type": "integer"}, {"name": "j", "type": "integer"}],
+            "implementation": [
+                {"name": "reverse", "operands": [{"type": "sum", "value": [{"type": "var", "value": "i"}, {"type": "const", "value": -2}]}, {"type": "var", "value": "j"}]},
+                {"name": "reverse", "operands": [{"type": "sum", "value": [{"type": "var", "value": "j"}, {"type": "const", "value": -2}]}, {"type": "const", "value": 0}]},
+                {"name": "reverse", "operands": [{"type": "sum", "value": [{"type": "var", "value": "i"}, {"type": "var", "value": "j"}, {"type": "const", "value": -2}]}, {"type": "const", "value": 0}]}
+            ]
+        },
+        {
+            "name": "rot",
+            "arguments": [],
+            "implementation": [
+                {"name": "xchg2", "operands": [{"type": "const", "value": 2}, {"type": "const", "value": 1}]}
+            ]
+        },
+        {
+            "name": "rotrev",
+            "arguments": [],
+            "implementation": [
+                {"name": "xchg2", "operands": [{"type": "const", "value": 2}, {"type": "const", "value": 2}]}
+            ]
+        },
+        {
+            "name": "swap2",
+            "arguments": [],
+            "implementation": [
+                {"name": "xchg2", "operands": [{"type": "const", "value": 3}, {"type": "const", "value": 2}]}
+            ]
+        },
+        {
+            "name": "drop2",
+            "arguments": [],
+            "implementation": [
+                {"name": "pop", "operands": [{"type": "const", "value": 0}]},
+                {"name": "pop", "operands": [{"type": "const", "value": 0}]}
+            ]
+        },
+        {
+            "name": "dup2",
+            "arguments": [],
+            "implementation": [
+                {"name": "push2", "operands": [{"type": "const", "value": 1}, {"type": "const", "value": 0}]}
+            ]
+        },
+        {
+            "name": "over2",
+            "arguments": [],
+            "implementation": [
+                {"name": "push2", "operands": [{"type": "const", "value": 3}, {"type": "const", "value": 2}]}
+            ]
+        },
+        {
+            "name": "blkdrop",
+            "arguments": [{"name": "i", "type": "integer"}],
+            "implementation": [
+                {"name": "blkpop", "operands": [{"type": "var", "value": "i"}, {"type": "const", "value": 0}]}
+            ]
+        },
+        {
+            "name": "tuck",
+            "arguments": [],
+            "implementation": [
+                {"name": "xcpu", "operands": [{"type": "const", "value": 1}, {"type": "const", "value": 1}]}
+            ]
+        },
+        {
+            "name": "blkdrop2",
+            "arguments": [{"name": "i", "type": "integer"}, {"name": "j", "type": "integer"}],
+            "implementation": [
+                {"name": "reverse", "operands": [{"type": "sum", "value": [{"type": "var", "value": "i"}, {"type": "var", "value": "j"}, {"type": "const", "value": -2}]}, {"type": "const", "value": 0}]},
+                {"name": "blkdrop", "operands": [{"type": "var", "value": "i"}]},
+                {"name": "reverse", "operands": [{"type": "sum", "value": [{"type": "var", "value": "j"}, {"type": "const", "value": -2}]}, {"type": "const", "value": 0}]}
+            ]
+        }
+    ]
+}

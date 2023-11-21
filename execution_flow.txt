@@ -1,0 +1,8 @@
+order of execution
+
+1. loading opcode
+2. loading inputs
+3. pre-processing
+4. executing implementation
+5. post-processing
+6. writing values to outputs. output name = variable generated in previous steps. cast types if it's possible and needed

@@ -1,0 +1,398 @@
+[
+    {
+        "mnemonic": "PUSHPOW2",
+        "doc": {
+            "category": "const_int",
+            "description": "(Quietly) pushes `2^(xx+1)` for `0 <= xx <= 255`.\n`2^256` is a `NaN`.",
+            "gas": "26",
+            "fift": "[xx+1] PUSHPOW2"
+        },
+        "bytecode": {
+            "doc_opcode": "83xx",
+            "tlb": "#83 xx:uint8",
+            "prefix": "83",
+            "operands_range_check": {
+                "length": 8,
+                "from": 0,
+                "to": 255
+            },
+            "operands": [
+                {
+                    "name": "x",
+                    "loader": "uint",
+                    "loader_args": {
+                        "size": 8
+                    }
+                }
+            ]
+        },
+        "value_flow": {
+            "doc_stack": "- 2^(xx+1)",
+            "inputs": {},
+            "outputs": {
+                "stack": [
+                    {
+                        "type": "simple",
+                        "name": "result",
+                        "value_types": ["Integer"]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "mnemonic": "ADD",
+        "doc": {
+            "category": "arithm_basic",
+            "description": "",
+            "gas": "18",
+            "fift": "ADD"
+        },
+        "bytecode": {
+            "doc_opcode": "A0",
+            "tlb": "#A0",
+            "prefix": "A0",
+            "operands": []
+        },
+        "value_flow": {
+            "doc_stack": "x y - x+y",
+            "inputs": {
+                "stack": [
+                    {
+                        "type": "simple",
+                        "name": "x",
+                        "value_types": ["Integer"]
+                    },
+                    {
+                        "type": "simple",
+                        "name": "y",
+                        "value_types": ["Integer"]
+                    }
+                ]
+            },
+            "outputs": {
+                "stack": [
+                    {
+                        "type": "simple",
+                        "name": "result",
+                        "value_types": ["Integer"]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "mnemonic": "PUSHCONT",
+        "doc": {
+            "category": "const_data",
+            "description": "Pushes a continuation made from `builder`.\n_Details:_ Pushes the simple ordinary continuation `cccc` made from the first `0 <= r <= 3` references and the first `0 <= xx <= 127` bytes of `cc.code`.",
+            "gas": "26",
+            "fift": "[builder] PUSHCONT\n[builder] CONT"
+        },
+        "bytecode": {
+            "doc_opcode": "8F_rxxcccc",
+            "tlb": "#8F_ r:(## 2) xx:(## 7) c:(r * ^Cell) ssss:((8 * xx) * Bit)",
+            "prefix": "8F_",
+            "operands": [
+                {
+                    "name": "r",
+                    "loader": "uint",
+                    "loader_args": {
+                        "size": 2
+                    }
+                },
+                {
+                    "name": "x",
+                    "loader": "uint",
+                    "loader_args": {
+                        "size": 7
+                    }
+                },
+                {
+                    "name": "s",
+                    "loader": "subslice",
+                    "loader_args": {
+                        "bits_length_var": "xx",
+                        "bits_padding": 0,
+                        "refs_length_var": "r"
+                    }
+                }
+            ]
+        },
+        "value_flow": {
+            "doc_stack": "- c",
+            "inputs": {},
+            "outputs": {
+                "stack": [
+                    {
+                        "type": "simple",
+                        "name": "s",
+                        "value_types": ["Continuation"]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "mnemonic": "TUPLE",
+        "doc": {
+            "category": "tuple",
+            "description": "Creates a new _Tuple_ `t=(x_1, \u0432\u0402\u00a6 ,x_n)` containing `n` values `x_1`,..., `x_n`.\n`0 <= n <= 15`",
+            "gas": "26+n",
+            "fift": "[n] TUPLE"
+        },
+        "bytecode": {
+            "doc_opcode": "6F0n",
+            "tlb": "#6F0 n:uint4",
+            "prefix": "6F0",
+            "operands": [
+                {
+                    "name": "n",
+                    "loader": "uint",
+                    "loader_args": {
+                        "size": 4
+                    }
+                }
+            ]
+        },
+        "value_flow": {
+            "doc_stack": "x_1 ... x_n - t",
+            "inputs": {
+                "stack": [
+                    {
+                        "type": "array",
+                        "name": "t",
+                        "length_var": "n"
+                    }
+                ]
+            },
+            "outputs": {
+                "stack": [
+                    {
+                        "type": "simple",
+                        "name": "t",
+                        "value_types": ["Tuple"]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "mnemonic": "EXPLODE",
+        "doc": {
+            "category": "tuple",
+            "description": "Unpacks a _Tuple_ `t=(x_1,...,x_m)` and returns its length `m`, but only if `m <= n <= 15`. Otherwise throws a type check exception.",
+            "gas": "26+m",
+            "fift": "[n] EXPLODE"
+        },
+        "bytecode": {
+            "doc_opcode": "6F4n",
+            "tlb": "#6F4 n:uint4",
+            "prefix": "6F4",
+            "operands": [
+                {
+                    "name": "n",
+                    "loader": "uint",
+                    "loader_args": {
+                        "size": 4
+                    }
+                }
+            ]
+        },
+        "value_flow": {
+            "doc_stack": "t - x_1 ... x_m m",
+            "inputs": {
+                "stack": [
+                    {
+                        "type": "simple",
+                        "name": "t",
+                        "value_types": ["Tuple"]
+                    }
+                ]
+            },
+            "outputs": {
+                "stack": [
+                    {
+                        "type": "array",
+                        "name": "x",
+                        "length_var": "m"
+                    },
+                    {
+                        "type": "simple",
+                        "name": "m",
+                        "value_types": ["Integer"]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "mnemonic": "INDEXQ",
+        "doc": {
+            "category": "tuple",
+            "description": "Returns the `k`-th element of a _Tuple_ `t`, where `0 <= k <= 15`. In other words, returns `x_{k+1}` if `t=(x_1,...,x_n)`. If `k>=n`, or if `t` is _Null_, returns a _Null_ instead of `x`.",
+            "gas": "26",
+            "fift": "[k] INDEXQ"
+        },
+        "bytecode": {
+            "doc_opcode": "6F6k",
+            "tlb": "#6F6 k:uint4",
+            "prefix": "6F6",
+            "operands": [
+                {
+                    "name": "k",
+                    "loader": "uint",
+                    "loader_args": {
+                        "size": 4
+                    }
+                }
+            ]
+        },
+        "value_flow": {
+            "doc_stack": "t - x",
+            "inputs": {
+                "stack": [
+                    {
+                        "type": "simple",
+                        "name": "t",
+                        "value_types": ["Tuple"]
+                    }
+                ]
+            },
+            "outputs": {
+                "stack": [
+                    {
+                        "type": "simple",
+                        "name": "x"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "mnemonic": "NULLSWAPIF2",
+        "doc": {
+            "category": "tuple",
+            "description": "Pushes two nulls under the topmost _Integer_ `x`, but only if `x!=0`.\nEquivalent to `NULLSWAPIF` `NULLSWAPIF`.",
+            "gas": "26",
+            "fift": "NULLSWAPIF2"
+        },
+        "bytecode": {
+            "doc_opcode": "6FA4",
+            "tlb": "#6FA4",
+            "prefix": "6FA4",
+            "operands": []
+        },
+        "value_flow": {
+            "doc_stack": "x - x or null null x",
+            "inputs": {
+                "stack": [
+                    {
+                        "type": "simple",
+                        "name": "x",
+                        "value_types": ["Integer"]
+                    }
+                ]
+            },
+            "outputs": {
+                "stack": [
+                    {
+                        "type": "conditional",
+                        "name": "x",
+                        "match": [
+                            {"value": 0, "stack": []}
+                        ],
+                        "else": [
+                            {
+                                "type": "const",
+                                "value": "Null",
+                                "value_type": "Null"
+                            },
+                            {
+                                "type": "const",
+                                "value": "Null",
+                                "value_type": "Null"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "simple",
+                        "name": "x",
+                        "value_types": ["Integer"]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "mnemonic": "DICTIGETNEXT",
+        "doc": {
+            "category": "dict_next",
+            "description": "Similar to `DICTGETNEXT`, but interprets all keys in dictionary `D` as big-endian signed `n`-bit integers, and computes the minimal key `i'` that is larger than _Integer_ `i` (which does not necessarily fit into `n` bits).",
+            "gas": "",
+            "fift": "DICTIGETNEXT"
+        },
+        "bytecode": {
+            "doc_opcode": "F478",
+            "tlb": "#F478",
+            "prefix": "F478",
+            "operands": []
+        },
+        "value_flow": {
+            "doc_stack": "i D n - x' i' -1 or 0",
+            "inputs": {
+                "stack": [
+                    {
+                        "type": "simple",
+                        "name": "i",
+                        "value_types": ["Integer"]
+                    },
+                    {
+                        "type": "simple",
+                        "name": "D",
+                        "value_types": ["Cell", "Null"]
+                    },
+                    {
+                        "type": "simple",
+                        "name": "n",
+                        "value_types": ["Integer"]
+                    }
+                ]
+            },
+            "outputs": {
+                "stack": [
+                    {
+                        "type": "conditional",
+                        "name": "status",
+                        "match": [
+                            {
+                                "value": 0, 
+                                "stack": []
+                            },
+                            {
+                                "value": -1, 
+                                "stack": [
+                                    {
+                                        "type": "simple",
+                                        "name": "x'",
+                                        "value_types": ["Slice"]
+                                    },
+                                    {
+                                        "type": "simple",
+                                        "name": "i'",
+                                        "value_types": ["Integer"]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "simple",
+                        "name": "status",
+                        "value_types": ["Integer"]
+                    }
+                ]
+            }
+        }
+    }
+]
