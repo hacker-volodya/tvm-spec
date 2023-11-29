@@ -1144,7 +1144,19 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "- depth"
+                "doc_stack": "- depth",
+                "inputs": {
+                    "stack": []
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "depth",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1162,7 +1174,20 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i -"
+                "doc_stack": "i -",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -1254,7 +1279,20 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": " - null"
+                "doc_stack": " - null",
+                "inputs": {
+                    "stack": [
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "const",
+                            "value": null,
+                            "value_type": "Null"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1272,7 +1310,25 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "x - ?"
+                "doc_stack": "x - ?",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1324,7 +1380,24 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "t - x"
+                "doc_stack": "t - x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1428,7 +1501,29 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "t x - t'"
+                "doc_stack": "t x - t'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t2",
+                            "value_types": ["Tuple"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1454,7 +1549,24 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "t - x"
+                "doc_stack": "t - x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple", "Null"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1480,7 +1592,29 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "t x - t'"
+                "doc_stack": "t x - t'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t2",
+                            "value_types": ["Tuple", "Null"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1516,7 +1650,29 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "t k - x"
+                "doc_stack": "t k - x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1588,7 +1744,34 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "t x k - t'"
+                "doc_stack": "t x k - t'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t2",
+                            "value_types": ["Tuple"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1606,7 +1789,29 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "t k - x"
+                "doc_stack": "t k - x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1624,7 +1829,34 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "t x k - t'"
+                "doc_stack": "t x k - t'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t2",
+                            "value_types": ["Tuple", "Null"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1642,7 +1874,25 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "t - n"
+                "doc_stack": "t - n",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1660,7 +1910,25 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "t - n or -1"
+                "doc_stack": "t - n or -1",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1678,7 +1946,25 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "t - ?"
+                "doc_stack": "t - ?",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1696,7 +1982,24 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "t - x"
+                "doc_stack": "t - x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1714,7 +2017,29 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "t x - t'"
+                "doc_stack": "t x - t'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t2",
+                            "value_types": ["Tuple"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1732,7 +2057,29 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "t - t' x"
+                "doc_stack": "t - t' x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t2",
+                            "value_types": ["Tuple"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1750,7 +2097,39 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "x - x or null x"
+                "doc_stack": "x - x or null x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "x",
+                            "match": [
+                                {"value": 0, "stack": []}
+                            ],
+                            "else": [
+                                {
+                                    "type": "const",
+                                    "value": null,
+                                    "value_type": "Null"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1768,7 +2147,42 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "x - x or null x"
+                "doc_stack": "x - x or null x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "x",
+                            "match": [
+                                {
+                                    "value": 0, 
+                                    "stack": [
+                                        {
+                                            "type": "const",
+                                            "value": null,
+                                            "value_type": "Null"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "else": []
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1786,7 +2200,47 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "x y - x y or null x y"
+                "doc_stack": "x y - x y or null x y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "y",
+                            "match": [
+                                {"value": 0, "stack": []}
+                            ],
+                            "else": [
+                                {
+                                    "type": "const",
+                                    "value": null,
+                                    "value_type": "Null"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1804,7 +2258,50 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "x y - x y or null x y"
+                "doc_stack": "x y - x y or null x y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "y",
+                            "match": [
+                                {
+                                    "value": 0, 
+                                    "stack": [
+                                        {
+                                            "type": "const",
+                                            "value": null,
+                                            "value_type": "Null"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "else": []
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1822,7 +2319,44 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "x - x or null null x"
+                "doc_stack": "x - x or null null x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "x",
+                            "match": [
+                                {"value": 0, "stack": []}
+                            ],
+                            "else": [
+                                {
+                                    "type": "const",
+                                    "value": null,
+                                    "value_type": "Null"
+                                },
+                                {
+                                    "type": "const",
+                                    "value": null,
+                                    "value_type": "Null"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1840,7 +2374,47 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "x - x or null null x"
+                "doc_stack": "x - x or null null x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "x",
+                            "match": [
+                                {
+                                    "value": 0,
+                                     "stack": [
+                                        {
+                                            "type": "const",
+                                            "value": null,
+                                            "value_type": "Null"
+                                        },
+                                        {
+                                            "type": "const",
+                                            "value": null,
+                                            "value_type": "Null"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "else": []
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1858,7 +2432,52 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "x y - x y or null null x y"
+                "doc_stack": "x y - x y or null null x y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "y",
+                            "match": [
+                                {"value": 0, "stack": []}
+                            ],
+                            "else": [
+                                {
+                                    "type": "const",
+                                    "value": null,
+                                    "value_type": "Null"
+                                },
+                                {
+                                    "type": "const",
+                                    "value": null,
+                                    "value_type": "Null"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1876,7 +2495,55 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "x y - x y or null null x y"
+                "doc_stack": "x y - x y or null null x y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "y",
+                            "match": [
+                                {
+                                    "value": 0, 
+                                    "stack": [
+                                        {
+                                            "type": "const",
+                                            "value": null,
+                                            "value_type": "Null"
+                                        },
+                                        {
+                                            "type": "const",
+                                            "value": null,
+                                            "value_type": "Null"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "else": []
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1909,7 +2576,24 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "t - x"
+                "doc_stack": "t - x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1949,7 +2633,24 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "t - x"
+                "doc_stack": "t - x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1975,7 +2676,19 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "- x"
+                "doc_stack": "- x",
+                "inputs": {
+                    "stack": []
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -2001,7 +2714,19 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "- xx"
+                "doc_stack": "- xx",
+                "inputs": {
+                    "stack": []
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -2111,7 +2836,19 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "- 2^(xx+1)"
+                "doc_stack": "- 2^(xx+1)",
+                "inputs": {
+                    "stack": []
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -2129,7 +2866,19 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "- NaN"
+                "doc_stack": "- NaN",
+                "inputs": {
+                    "stack": []
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "const",
+                            "value_type": "Integer",
+                            "value": null
+                        }
+                    ]
+                }
             }
         },
         {
@@ -2155,7 +2904,19 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "- 2^(xx+1)-1"
+                "doc_stack": "- 2^(xx+1)-1",
+                "inputs": {
+                    "stack": []
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -2181,7 +2942,19 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "- -2^(xx+1)"
+                "doc_stack": "- -2^(xx+1)",
+                "inputs": {
+                    "stack": []
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -2205,7 +2978,19 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "- c"
+                "doc_stack": "- c",
+                "inputs": {
+                    "stack": []
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Cell"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -2229,7 +3014,19 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "- s"
+                "doc_stack": "- s",
+                "inputs": {
+                    "stack": []
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -2253,7 +3050,19 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "- cont"
+                "doc_stack": "- cont",
+                "inputs": {
+                    "stack": []
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -2288,7 +3097,19 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "- s"
+                "doc_stack": "- s",
+                "inputs": {
+                    "stack": []
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -2332,7 +3153,19 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "- s"
+                "doc_stack": "- s",
+                "inputs": {
+                    "stack": []
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -2390,7 +3223,19 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "- s"
+                "doc_stack": "- s",
+                "inputs": {
+                    "stack": []
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -2432,7 +3277,19 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "- c"
+                "doc_stack": "- c",
+                "inputs": {
+                    "stack": []
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                }
             }
         },
         {
