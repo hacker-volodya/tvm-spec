@@ -374,12 +374,12 @@
                                 "stack": [
                                     {
                                         "type": "simple",
-                                        "name": "x'",
+                                        "name": "x2",
                                         "value_types": ["Slice"]
                                     },
                                     {
                                         "type": "simple",
-                                        "name": "i'",
+                                        "name": "i2",
                                         "value_types": ["Integer"]
                                     }
                                 ]
