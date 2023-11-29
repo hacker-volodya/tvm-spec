@@ -16058,7 +16058,24 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "f c - "
+                "doc_stack": "f c - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "f",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -16082,7 +16099,24 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "f c - "
+                "doc_stack": "f c - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "f",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -16147,7 +16181,24 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "f c - "
+                "doc_stack": "f c - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "f",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -16171,7 +16222,29 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "f c c' - "
+                "doc_stack": "f c c' - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "f",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Continuation"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "c2",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -16195,7 +16268,19 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "f - "
+                "doc_stack": "f - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "f",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -16219,7 +16304,19 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "f - "
+                "doc_stack": "f - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "f",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -16243,7 +16340,19 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "f - "
+                "doc_stack": "f - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "f",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -16267,7 +16376,19 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "f - "
+                "doc_stack": "f - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "f",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -16285,7 +16406,32 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "f x y - x or y"
+                "doc_stack": "f x y - x or y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "f",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y"
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -16303,7 +16449,32 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "f x y - x or y"
+                "doc_stack": "f x y - x or y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "f",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y"
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -16321,7 +16492,19 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "f -"
+                "doc_stack": "f -",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "f",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -16339,7 +16522,19 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "f -"
+                "doc_stack": "f -",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "f",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -16363,7 +16558,24 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "f c -"
+                "doc_stack": "f c -",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "f",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "c2",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -16387,7 +16599,24 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "f c -"
+                "doc_stack": "f c -",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "f",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "c2",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -16405,7 +16634,19 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "f -"
+                "doc_stack": "f -",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "f",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -16431,7 +16672,30 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "x c - x"
+                "doc_stack": "x c - x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -16457,7 +16721,30 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "x c - x"
+                "doc_stack": "x c - x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -16488,7 +16775,25 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "x - x"
+                "doc_stack": "x - x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -16519,7 +16824,25 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "x - x"
+                "doc_stack": "x - x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -16543,7 +16866,25 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "n c - "
+                "doc_stack": "n c - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -16561,7 +16902,20 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "n - "
+                "doc_stack": "n - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -16585,7 +16939,20 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "c - "
+                "doc_stack": "c - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -16603,7 +16970,13 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "-"
+                "doc_stack": "-",
+                "inputs": {
+                    "stack": []
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -16627,7 +17000,25 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "c' c - "
+                "doc_stack": "c' c - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "c2",
+                            "value_types": ["Continuation"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -16645,7 +17036,20 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "c' - "
+                "doc_stack": "c' - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "c2",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -16669,7 +17073,19 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "c - "
+                "doc_stack": "c - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -16687,7 +17103,15 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "-"
+                "doc_stack": "-",
+                "inputs": {
+                    "stack": [
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -16711,7 +17135,25 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "n c -"
+                "doc_stack": "n c -",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -16729,7 +17171,20 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "n -"
+                "doc_stack": "n -",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -16753,7 +17208,20 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "c -"
+                "doc_stack": "c -",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -16771,7 +17239,15 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "-"
+                "doc_stack": "-",
+                "inputs": {
+                    "stack": [
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -16795,7 +17271,25 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "c' c -"
+                "doc_stack": "c' c -",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "c2",
+                            "value_types": ["Continuation"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -16813,7 +17307,20 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "c -"
+                "doc_stack": "c -",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -16837,7 +17344,20 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "c -"
+                "doc_stack": "c -",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -16855,7 +17375,15 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "-"
+                "doc_stack": "-",
+                "inputs": {
+                    "stack": [
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -16986,7 +17514,25 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "s - c"
+                "doc_stack": "s - c",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "s",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                }
             }
         },
         {
