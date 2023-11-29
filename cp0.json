@@ -16,7 +16,13 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "-"
+                "doc_stack": "-",
+                "inputs": {
+                    "stack": []
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -16837,7 +16843,7 @@
             "value_flow": {
                 "doc_stack": "k D n - c -1 or 0",
                 "inputs": {
-                    "stack":[
+                    "stack": [
                         {
                             "type": "simple",
                             "name": "k",
@@ -16868,7 +16874,11 @@
                                 {
                                     "value": -1,
                                     "stack": [
-                                        
+                                        {
+                                            "type": "simple",
+                                            "name": "c",
+                                            "value_types": ["Cell"]
+                                        }
                                     ]
                                 }
                             ]
@@ -20345,7 +20355,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "b i D n - D' -1 or D 0"
+                "doc_stack": "b i D n - D' -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20363,7 +20432,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "b i D n - D' -1 or D 0"
+                "doc_stack": "b i D n - D' -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20381,7 +20509,71 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "b k D n - D' y -1 or D 0"
+                "doc_stack": "b k D n - D' y -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "y",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20399,7 +20591,71 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "b i D n - D' y -1 or D 0"
+                "doc_stack": "b i D n - D' y -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "y",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20417,7 +20673,71 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "b i D n - D' y -1 or D 0"
+                "doc_stack": "b i D n - D' y -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "y",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20435,7 +20755,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "b k D n - D' -1 or D 0"
+                "doc_stack": "b k D n - D' -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20453,7 +20832,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "b i D n - D' -1 or D 0"
+                "doc_stack": "b i D n - D' -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20471,7 +20909,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "b i D n - D' -1 or D 0"
+                "doc_stack": "b i D n - D' -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20489,7 +20986,71 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "b k D n - D' -1 or D y 0"
+                "doc_stack": "b k D n - D' -1 or D y 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "y",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20507,7 +21068,71 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "b i D n - D' -1 or D y 0"
+                "doc_stack": "b i D n - D' -1 or D y 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "y",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20525,7 +21150,71 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "b i D n - D' -1 or D y 0"
+                "doc_stack": "b i D n - D' -1 or D y 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "y",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20543,7 +21232,61 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "k D n - D' -1 or D 0"
+                "doc_stack": "k D n - D' -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20561,7 +21304,61 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - D' ?"
+                "doc_stack": "i D n - D' ?",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20579,7 +21376,61 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - D' ?"
+                "doc_stack": "i D n - D' ?",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20597,7 +21448,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "k D n - D' x -1 or D 0"
+                "doc_stack": "k D n - D' x -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "x",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20615,7 +21525,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "k D n - D' c -1 or D 0"
+                "doc_stack": "k D n - D' c -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "c",
+                                            "value_types": ["Cell"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20633,7 +21602,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - D' x -1 or D 0"
+                "doc_stack": "i D n - D' x -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "x",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20651,7 +21679,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - D' c -1 or D 0"
+                "doc_stack": "i D n - D' c -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "c",
+                                            "value_types": ["Cell"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20669,7 +21756,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - D' x -1 or D 0"
+                "doc_stack": "i D n - D' x -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "x",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20687,7 +21833,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - D' c -1 or D 0"
+                "doc_stack": "i D n - D' c -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "c",
+                                            "value_types": ["Cell"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20705,7 +21910,35 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "k D n - c^?"
+                "doc_stack": "k D n - c^?",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Cell", "Null"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20723,7 +21956,35 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - c^?"
+                "doc_stack": "i D n - c^?",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Cell", "Null"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20741,7 +22002,35 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - c^?"
+                "doc_stack": "i D n - c^?",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Cell", "Null"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20759,7 +22048,45 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "c^? k D n - D' ~c^?"
+                "doc_stack": "c^? k D n - D' ~c^?",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Cell", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D2",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "c2",
+                            "value_types": ["Cell", "Null"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20777,7 +22104,45 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "c^? i D n - D' ~c^?"
+                "doc_stack": "c^? i D n - D' ~c^?",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Cell", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D2",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "c2",
+                            "value_types": ["Cell", "Null"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20795,7 +22160,45 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "c^? i D n - D' ~c^?"
+                "doc_stack": "c^? i D n - D' ~c^?",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Cell", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D2",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "c2",
+                            "value_types": ["Cell", "Null"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20813,7 +22216,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "x k D n - D' -1 or D 0"
+                "doc_stack": "x k D n - D' -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20831,7 +22293,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "x k D n - D' -1 or D 0"
+                "doc_stack": "x k D n - D' -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20849,7 +22370,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "x k D n - D' -1 or D 0"
+                "doc_stack": "x k D n - D' -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20867,7 +22447,61 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "k D n - D' -1 or D 0"
+                "doc_stack": "k D n - D' -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20885,7 +22519,60 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "k D n - x' k' -1 or 0"
+                "doc_stack": "k D n - x' k' -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "x2",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "k2",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20903,7 +22590,60 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "k D n - x' k' -1 or 0"
+                "doc_stack": "k D n - x' k' -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "x2",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "k2",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20921,7 +22661,60 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "k D n - x' k' -1 or 0"
+                "doc_stack": "k D n - x' k' -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "x2",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "k2",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20939,7 +22732,60 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "k D n - x' k' -1 or 0"
+                "doc_stack": "k D n - x' k' -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "x2",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "k2",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20957,7 +22803,60 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - x' i' -1 or 0"
+                "doc_stack": "i D n - x' i' -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "x2",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i2",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20975,7 +22874,60 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - x' i' -1 or 0"
+                "doc_stack": "i D n - x' i' -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "x2",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i2",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -20993,7 +22945,60 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - x' i' -1 or 0"
+                "doc_stack": "i D n - x' i' -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "x2",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i2",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21011,7 +23016,60 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - x' i' -1 or 0"
+                "doc_stack": "i D n - x' i' -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "x2",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i2",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21029,7 +23087,60 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - x' i' -1 or 0"
+                "doc_stack": "i D n - x' i' -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "x2",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i2",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21047,7 +23158,60 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - x' i' -1 or 0"
+                "doc_stack": "i D n - x' i' -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "x2",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i2",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21065,7 +23229,60 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - x' i' -1 or 0"
+                "doc_stack": "i D n - x' i' -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "x2",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i2",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21083,7 +23300,60 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - x' i' -1 or 0"
+                "doc_stack": "i D n - x' i' -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "x2",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i2",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21101,7 +23371,55 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - x k -1 or 0"
+                "doc_stack": "D n - x k -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "x",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "k",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21119,7 +23437,55 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - c k -1 or 0"
+                "doc_stack": "D n - c k -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "c",
+                                            "value_types": ["Cell"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "k",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21137,7 +23503,55 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - x i -1 or 0"
+                "doc_stack": "D n - x i -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "x",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21155,7 +23569,55 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - c i -1 or 0"
+                "doc_stack": "D n - c i -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "c",
+                                            "value_types": ["Cell"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21173,7 +23635,55 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - x i -1 or 0"
+                "doc_stack": "D n - x i -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "x",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21191,7 +23701,55 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - c i -1 or 0"
+                "doc_stack": "D n - c i -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "c",
+                                            "value_types": ["Cell"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21209,7 +23767,55 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - x k -1 or 0"
+                "doc_stack": "D n - x k -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "x",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "k",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21227,7 +23833,55 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - c k -1 or 0"
+                "doc_stack": "D n - c k -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "c",
+                                            "value_types": ["Cell"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "k",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21245,7 +23899,55 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - x i -1 or 0"
+                "doc_stack": "D n - x i -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "x",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21263,7 +23965,55 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - c i -1 or 0"
+                "doc_stack": "D n - c i -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "c",
+                                            "value_types": ["Cell"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21281,7 +24031,55 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - x i -1 or 0"
+                "doc_stack": "D n - x i -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "x",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21299,7 +24097,55 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - c i -1 or 0"
+                "doc_stack": "D n - c i -1 or 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "c",
+                                            "value_types": ["Cell"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21317,7 +24163,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - D' x k -1 or D 0"
+                "doc_stack": "D n - D' x k -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "x",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "k",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21335,7 +24240,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - D' c k -1 or D 0"
+                "doc_stack": "D n - D' c k -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "c",
+                                            "value_types": ["Cell"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "k",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21353,7 +24317,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - D' x i -1 or D 0"
+                "doc_stack": "D n - D' x i -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "x",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21371,7 +24394,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - D' c i -1 or D 0"
+                "doc_stack": "D n - D' c i -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "c",
+                                            "value_types": ["Cell"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21389,7 +24471,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - D' x i -1 or D 0"
+                "doc_stack": "D n - D' x i -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "x",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21407,7 +24548,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - D' c i -1 or D 0"
+                "doc_stack": "D n - D' c i -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "c",
+                                            "value_types": ["Cell"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21425,7 +24625,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - D' x k -1 or D 0"
+                "doc_stack": "D n - D' x k -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "x",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "k",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21443,7 +24702,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - D' c k -1 or D 0"
+                "doc_stack": "D n - D' c k -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "c",
+                                            "value_types": ["Cell"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "k",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21461,7 +24779,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - D' x i -1 or D 0"
+                "doc_stack": "D n - D' x i -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "x",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21479,7 +24856,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - D' c i -1 or D 0"
+                "doc_stack": "D n - D' c i -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "c",
+                                            "value_types": ["Cell"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21497,7 +24933,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - D' x i -1 or D 0"
+                "doc_stack": "D n - D' x i -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "x",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21515,7 +25010,66 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "D n - D' c i -1 or D 0"
+                "doc_stack": "D n - D' c i -1 or D 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D",
+                                            "value_types": ["Slice", "Null"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "D2",
+                                            "value_types": ["Slice", "Null"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "c",
+                                            "value_types": ["Cell"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "i",
+                                            "value_types": ["Integer"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21533,7 +25087,29 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - "
+                "doc_stack": "i D n - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -21551,7 +25127,29 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - "
+                "doc_stack": "i D n - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -21569,7 +25167,29 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - "
+                "doc_stack": "i D n - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -21587,7 +25207,29 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "i D n - "
+                "doc_stack": "i D n - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": []
+                }
             }
         },
         {
@@ -21618,7 +25260,24 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": " - D n"
+                "doc_stack": " - D n",
+                "inputs": {
+                    "stack": []
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21636,7 +25295,71 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "s D n - s' x s'' -1 or s 0"
+                "doc_stack": "s D n - s' x s'' -1 or s 0",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "s",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "s",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "s2",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "x",
+                                            "value_types": ["Slice"]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "s3",
+                                            "value_types": ["Slice"]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21654,7 +25377,45 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "s D n - s' x s''"
+                "doc_stack": "s D n - s' x s''",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "s",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "s2",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "s3",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21690,7 +25451,40 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "s D n - s' s''"
+                "doc_stack": "s D n - s' s''",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "s",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "s2",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "s3",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21811,7 +25605,40 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "k l D n - D'"
+                "doc_stack": "k l D n - D'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "l",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D2",
+                            "value_types": ["Slice", "Null"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21829,7 +25656,40 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "x l D n - D'"
+                "doc_stack": "x l D n - D'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "l",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D2",
+                            "value_types": ["Slice", "Null"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21847,7 +25707,40 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "x l D n - D'"
+                "doc_stack": "x l D n - D'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "l",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D2",
+                            "value_types": ["Slice", "Null"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21865,7 +25758,40 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "k l D n - D'"
+                "doc_stack": "k l D n - D'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "l",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D2",
+                            "value_types": ["Slice", "Null"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21883,7 +25809,40 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "x l D n - D'"
+                "doc_stack": "x l D n - D'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "l",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D2",
+                            "value_types": ["Slice", "Null"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -21901,7 +25860,40 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "x l D n - D'"
+                "doc_stack": "x l D n - D'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "l",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "D",
+                            "value_types": ["Slice", "Null"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "D2",
+                            "value_types": ["Slice", "Null"]
+                        }
+                    ]
+                }
             }
         },
         {
