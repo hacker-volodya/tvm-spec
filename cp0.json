@@ -15766,7 +15766,15 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": ""
+                "doc_stack": "",
+                "inputs": {
+                    "stack": [
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -15784,7 +15792,15 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": ""
+                "doc_stack": "",
+                "inputs": {
+                    "stack": [
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -15802,7 +15818,15 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": ""
+                "doc_stack": "",
+                "inputs": {
+                    "stack": [
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -15820,7 +15844,20 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "f - "
+                "doc_stack": "f - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "f",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -15838,7 +15875,20 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "c - "
+                "doc_stack": "c - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
@@ -15856,7 +15906,20 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "c - "
+                "doc_stack": "c - ",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Continuation"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
             }
         },
         {
