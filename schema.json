@@ -171,6 +171,24 @@
               "$ref": "#/definitions/stack"
             }
           }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "name", "length_var"],
+          "properties": {
+            "type": {
+              "const": "tuple"
+            },
+            "name": {
+              "name": "Variable name",
+              "type": "string"
+            },
+            "length_var": {
+              "name": "Variable which contains tuple length",
+              "type": "string"
+            }
+          }
         }
       ]
     },

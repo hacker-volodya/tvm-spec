@@ -1354,7 +1354,25 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "x_1 ... x_n - t"
+                "doc_stack": "x_1 ... x_n - t",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "x",
+                            "length_var": "n"
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1423,7 +1441,25 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "t - x_1 ... x_n"
+                "doc_stack": "t - x_1 ... x_n",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "x",
+                            "length_var": "n"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1449,7 +1485,25 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "t - x_1 ... x_k"
+                "doc_stack": "t - x_1 ... x_k",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "x",
+                            "length_var": "k"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1475,7 +1529,30 @@
                 ]
             },
             "value_flow": {
-                "doc_stack": "t - x_1 ... x_m m"
+                "doc_stack": "t - x_1 ... x_m m",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "x",
+                            "length_var": "m"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "m",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1632,7 +1709,30 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "x_1 ... x_n n - t"
+                "doc_stack": "x_1 ... x_n n - t",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "x",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1690,7 +1790,30 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "t n - x_1 ... x_n"
+                "doc_stack": "t n - x_1 ... x_n",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "x",
+                            "length_var": "n"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1708,7 +1831,30 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "t n - x_1 ... x_n"
+                "doc_stack": "t n - x_1 ... x_n",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "x",
+                            "length_var": "n"
+                        }
+                    ]
+                }
             }
         },
         {
@@ -1726,7 +1872,35 @@
                 "operands": []
             },
             "value_flow": {
-                "doc_stack": "t n - x_1 ... x_m m"
+                "doc_stack": "t n - x_1 ... x_m m",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "x",
+                            "length_var": "m"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "m",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
             }
         },
         {
