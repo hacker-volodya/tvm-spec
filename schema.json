@@ -73,7 +73,7 @@
     "stack": {
       "type": "array",
       "title": "Stack values",
-      "description": "Stack constraints. Top of the stack is the last value.",
+      "description": "Stack constraints. Top of stack is the last value.",
       "items": {
         "$ref": "#/definitions/stack_entry"
       },
@@ -82,10 +82,67 @@
     "stack_entry": {
       "title": "Stack entry",
       "description": "Representation of stack entry or group of stack entries",
+      "examples": [
+        {
+          "type": "simple",
+          "name": "i",
+          "value_types": [
+            "Integer"
+          ]
+        },
+        {
+          "type": "conditional",
+          "name": "status",
+          "match": [
+            {
+              "value": 0,
+              "stack": [
+                {
+                  "type": "simple",
+                  "name": "s",
+                  "value_types": [
+                    "Slice"
+                  ]
+                }
+              ]
+            },
+            {
+              "value": -1,
+              "stack": [
+                {
+                  "type": "simple",
+                  "name": "x",
+                  "value_types": [
+                    "Integer"
+                  ]
+                },
+                {
+                  "type": "simple",
+                  "name": "s2",
+                  "value_types": [
+                    "Slice"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "simple",
+          "name": "D",
+          "value_types": [
+            "Slice",
+            "Null"
+          ]
+        }
+      ],
       "oneOf": [
         {
           "type": "object",
-          "required": ["type", "name"],
+          "required": [
+            "type",
+            "name"
+          ],
           "properties": {
             "type": {
               "const": "simple"
@@ -115,7 +172,11 @@
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["type", "value_type", "value"],
+          "required": [
+            "type",
+            "value_type",
+            "value"
+          ],
           "properties": {
             "type": {
               "const": "const"
@@ -130,14 +191,21 @@
             },
             "value": {
               "name": "Constant value",
-              "type": ["number", "null"]
+              "type": [
+                "number",
+                "null"
+              ]
             }
           }
         },
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["type", "name", "match"],
+          "required": [
+            "type",
+            "name",
+            "match"
+          ],
           "properties": {
             "type": {
               "const": "conditional"
@@ -154,7 +222,10 @@
                 "name": "Match arm",
                 "description": "",
                 "additionalProperties": false,
-                "required": ["value", "stack"],
+                "required": [
+                  "value",
+                  "stack"
+                ],
                 "properties": {
                   "value": {
                     "type": "integer",
@@ -175,7 +246,11 @@
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["type", "name", "length_var"],
+          "required": [
+            "type",
+            "name",
+            "length_var"
+          ],
           "properties": {
             "type": {
               "const": "tuple"

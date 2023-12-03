@@ -6,7 +6,7 @@ This repo's goal is to provide machine-readable (JSON) description of TVM instru
 | -------- | -------------
 | 0        | [cp0.json](./cp0.json)
 
-JSON Schema of specifications is available in [schema.json](./schema.json). [quicktype.io](https://app.quicktype.io/) can be used to generate wrappers for specific programming language.
+JSON Schema of specifications is available in [schema.json](./schema.json). Generators such as [quicktype.io](https://app.quicktype.io/) can be used to generate wrappers for specific programming language.
 
 Based on [instructions.csv](https://github.com/ton-community/ton-docs/blob/main/docs/learn/tvm-instructions/instructions.csv).
 
@@ -16,42 +16,63 @@ Based on [instructions.csv](https://github.com/ton-community/ton-docs/blob/main/
 | ------------ | ----------- | -----------
 | doc          | ✅ Implemented | Provides human-readable information about instructions. Can be useful to provide integrated docs to user, for example, in disassembler.
 | bytecode     | ✅ Implemented | Describes instruction encoding. It contains information to determine, which instruction we are currently decoding and how to parse its operands.
-| value_flow   | ❌ Not implemented | Describes how instruction changes stack and registers. This part of specification allows to analyze how instructions interact with each other, so it becomes possible to implement high-level tools such as decompilers.
+| value_flow   | ✅ Implemented | Describes how instruction changes current stack. This part of specification allows to analyze how instructions interact with each other, so it becomes possible to implement high-level tools such as decompilers.
 | control_flow | ❌ Not implemented | Describes code flow. It helps to reconstruct a control flow graph. This part mainly contains semantics of cont_* category instructions. For example, both JMPX and CALLX transfers execution to continuation on stack, but only CALLX returns and JMPX is not.
 | aliases | ✅ Implemented | Specifies instruction aliases. Can be used to provide to user information about special cases (for example, SWAP is a special case of XCHG_0i with i = 1).
+
+## Projects based on tvm-spec
+1. [tvm-spec-example](https://github.com/hacker-volodya/tvm-spec-example), tiny TVM disassembler
 
 ## Instruction Specification
 ### Example
 ```json
 {
-    "mnemonic": "XCHG_0I",
+    "mnemonic": "LDU",
     "doc": {
-        "category": "stack_basic",
-        "description": "Interchanges `s0` with `s[i]`, `1 <= i <= 15`.",
-        "gas": "18",
-        "fift": "s[i] XCHG0"
+        "category": "cell_parse",
+        "description": "Loads an unsigned `cc+1`-bit integer `x` from _Slice_ `s`.",
+        "gas": "26",
+        "fift": "[cc+1] LDU"
     },
     "bytecode": {
-        "doc_opcode": "0i",
-        "tlb": "#0 i:(## 4) {1 <= i}",
-        "prefix": "0",
-        "operands_range_check": {
-            "length": 4,
-            "from": 1,
-            "to": 15
-        },
+        "doc_opcode": "D3cc",
+        "tlb": "#D3 cc:uint8",
+        "prefix": "D3",
         "operands": [
             {
-                "name": "i",
+                "name": "c",
                 "loader": "uint",
                 "loader_args": {
-                    "size": 4
+                    "size": 8
                 }
             }
         ]
     },
     "value_flow": {
-        "doc_stack": ""
+        "doc_stack": "s - x s'",
+        "inputs": {
+            "stack": [
+                {
+                    "type": "simple",
+                    "name": "s",
+                    "value_types": ["Slice"]
+                }
+            ]
+        },
+        "outputs": {
+            "stack": [
+                {
+                    "type": "simple",
+                    "name": "x",
+                    "value_types": ["Integer"]
+                },
+                {
+                    "type": "simple",
+                    "name": "s2",
+                    "value_types": ["Slice"]
+                }
+            ]
+        }
     }
 }
 ```
@@ -77,8 +98,14 @@ Based on [instructions.csv](https://github.com/ton-community/ton-docs/blob/main/
 | bytecode.operands[i].loader_args | Arguments for loader function, specified below. Optional, no arguments in case of absence.
 | value_flow | Information related to usage of stack and registers by instruction. Optional.
 | value_flow.doc_stack | Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value). Optional.
+| value_flow.inputs | Incoming values constraints. Input is unconstrained if absent.
+| value_flow.inputs.stack | Defines how current stack is used by instruction. Instruction must not operate on stack entries other than defined here. Required.
+| value_flow.inputs.stack[i] | Stack entry or group of stack entries.
+| value_flow.inputs.stack[i].type | Type of stack entry. Can be one of "simple", "const", "conditional", "tuple". Required. 
+| value_flow.inputs.stack[i].* | Properties for stack entries of each type are described below.
+| value_flow.outputs | Outgoing values constraints. Output is unconstrained if absent. Identical to value_flow.inputs.
 
-### Loaders specification and examples
+### Loaders Specification and Examples
 #### uint
 ```json
 {
@@ -157,6 +184,97 @@ Loads subslice of bit length `{bits_length_var} * 8 + bits_padding` and ref coun
 | refs_length_var | Name of (previously parsed) operand which contains ref count to load. Optional, assuming this part of ref count is 0 if absent.
 | refs_add | Constant integer value to add to ref count. Optional, assuming 1 if absent.
 | completion_tag | Boolean flag, tells to remove trailing `'1' + '0' * x` from bitstring if true. Optional, assuming false if absent.
+
+### Stack Entry Specification and Examples
+
+#### Simple
+```json
+{
+    "type": "simple",
+    "name": "c",
+    "value_types": ["Continuation"]
+}
+```
+Specifies a single stack entry, attaches `name` to it and optionally constraints its type by `value_types`. Possible types are `Integer`, `Cell`, `Builder`, `Slice`, `Tuple`, `Continuation`, `Null`. For example, dict is actually `"value_types": ["Slice", "Null"]` as it can be either Slice or Null. Absence of `value_types` means that this stack entry may be of any type.
+
+#### Const
+```json
+{
+    "type": "const",
+    "value": 32,
+    "value_type": "Integer"
+}
+```
+Specifies a constant value on stack. `value_type` is either `Integer` or `Null`, with `number` type value for `Integer` and `null` value for `Null`.
+
+#### Conditional
+```json
+[
+    {
+        "type": "conditional",
+        "name": "status",
+        "match": [
+            {
+                "value": 0, 
+                "stack": []
+            },
+            {
+                "value": -1, 
+                "stack": [
+                    {
+                        "type": "simple",
+                        "name": "c",
+                        "value_types": ["Cell"]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "simple",
+        "name": "status",
+        "value_types": ["Integer"]
+    }
+]
+```
+```json
+[
+    {
+        "type": "conditional",
+        "name": "x",
+        "match": [
+            {"value": 0, "stack": []}
+        ],
+        "else": [
+            {
+                "type": "const",
+                "value": null,
+                "value_type": "Null"
+            }
+        ]
+    },
+    {
+        "type": "simple",
+        "name": "x",
+        "value_types": ["Integer"]
+    }
+]
+```
+Depending on `value` of variable specified in `name`, put values specified in corresponding arm of `match`. If `else` arm is not present, then input for this conditional may be only of specified values.
+
+#### Tuple
+```json
+{
+    "type": "tuple",
+    "name": "x",
+    "length_var": "n"
+}
+```
+Specifies a bunch of stack entries with length from variable `length_var`, usually noted as `x_1 ... x_n`. Used in tuple and continuation arguments operations.
+
+#### Notes
+1. Each variable name is unique across `operands` and `stack` sections of each instruction. Assumed that variables are immutable, so if variable `x` is defined both in inputs and outputs, it goes to output without any modification.
+2. Value flow describes only `cc` stack usage before the actual jump or call. Subsequent continuations may have a separate stack, so this will be defined in control flow section of this spec.
 
 ## Alias Specification
 ### Example
