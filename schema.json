@@ -2,320 +2,552 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "additionalProperties": false,
+  "definitions": {
+    "alias": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mnemonic": {
+          "type": "string",
+          "title": "Alias name",
+          "examples": [
+            "ROT2",
+            "ONE"
+          ]
+        },
+        "alias_of": {
+          "type": "string",
+          "title": "Mnemonic of aliased instruction",
+          "examples": [
+            "BLKSWAP",
+            "INDEX"
+          ]
+        },
+        "doc_fift": {
+          "type": "string",
+          "title": "Fift usage doc",
+          "description": "Free-form fift usage description."
+        },
+        "doc_stack": {
+          "type": "string",
+          "title": "Stack usage description",
+          "description": "Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value).",
+          "markdownDescription": "Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value)."
+        },
+        "description": {
+          "type": "string",
+          "title": "Alias description",
+          "description": "Free-form markdown description of alias."
+        },
+        "operands": {
+          "type": "object",
+          "title": "Fixed operands of alias",
+          "description": "Values of original instruction operands which are fixed in this alias. Currently it can be integer or slice without references which is represented by string of '0' and '1's. Type should be inferred from original instruction operand loaders.",
+          "markdownDescription": "Values of original instruction operands which are fixed in this alias. Currently it can be integer or slice without references which is represented by string of '0' and '1's. Type should be inferred from original instruction operand loaders.",
+          "examples": [
+            {
+              "i": 1,
+              "j": 3
+            }
+          ]
+        }
+      },
+      "required": [
+        "mnemonic",
+        "alias_of",
+        "operands"
+      ]
+    },
+    "values": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "stack": {
+          "$ref": "#/definitions/stack"
+        }
+      },
+      "required": [
+        "stack"
+      ]
+    },
+    "stack": {
+      "type": "array",
+      "title": "Stack values",
+      "description": "Stack constraints. Top of stack is the last value.",
+      "items": {
+        "$ref": "#/definitions/stack_entry"
+      },
+      "additionalItems": false
+    },
+    "stack_entry": {
+      "title": "Stack entry",
+      "description": "Representation of stack entry or group of stack entries",
+      "examples": [
+        {
+          "type": "simple",
+          "name": "i",
+          "value_types": [
+            "Integer"
+          ]
+        },
+        {
+          "type": "conditional",
+          "name": "status",
+          "match": [
+            {
+              "value": 0,
+              "stack": [
+                {
+                  "type": "simple",
+                  "name": "s",
+                  "value_types": [
+                    "Slice"
+                  ]
+                }
+              ]
+            },
+            {
+              "value": -1,
+              "stack": [
+                {
+                  "type": "simple",
+                  "name": "x",
+                  "value_types": [
+                    "Integer"
+                  ]
+                },
+                {
+                  "type": "simple",
+                  "name": "s2",
+                  "value_types": [
+                    "Slice"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "simple",
+          "name": "D",
+          "value_types": [
+            "Slice",
+            "Null"
+          ]
+        }
+      ],
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "name"
+          ],
+          "properties": {
+            "type": {
+              "const": "simple"
+            },
+            "name": {
+              "type": "string",
+              "name": "Variable to pass"
+            },
+            "value_types": {
+              "name": "Possible value types",
+              "type": "array",
+              "items": {
+                "enum": [
+                  "Integer",
+                  "Cell",
+                  "Builder",
+                  "Slice",
+                  "Tuple",
+                  "Continuation",
+                  "Null"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "value_type",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "const": "const"
+            },
+            "value_type": {
+              "name": "Constant type",
+              "type": "string",
+              "enum": [
+                "Integer",
+                "Null"
+              ]
+            },
+            "value": {
+              "name": "Constant value",
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "name",
+            "match"
+          ],
+          "properties": {
+            "type": {
+              "const": "conditional"
+            },
+            "name": {
+              "type": "string",
+              "name": "Variable to match"
+            },
+            "match": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {
+                "type": "object",
+                "name": "Match arm",
+                "description": "",
+                "additionalProperties": false,
+                "required": [
+                  "value",
+                  "stack"
+                ],
+                "properties": {
+                  "value": {
+                    "type": "integer",
+                    "name": "Arm value",
+                    "description": ""
+                  },
+                  "stack": {
+                    "$ref": "#/definitions/stack"
+                  }
+                }
+              }
+            },
+            "else": {
+              "$ref": "#/definitions/stack"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "name",
+            "length_var"
+          ],
+          "properties": {
+            "type": {
+              "const": "tuple"
+            },
+            "name": {
+              "name": "Variable name",
+              "type": "string"
+            },
+            "length_var": {
+              "name": "Variable which contains tuple length",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "instruction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mnemonic": {
+          "type": "string",
+          "title": "Instruction name",
+          "description": "How instruction is named in [original TVM implementation](https://github.com/ton-blockchain/ton/blob/master/crypto/vm). Not necessarily unique (currently only DEBUG is not unique).",
+          "markdownDescription": "How instruction is named in [original TVM implementation](https://github.com/ton-blockchain/ton/blob/master/crypto/vm). Not necessarily unique (currently only DEBUG is not unique).",
+          "examples": [
+            "XCHG_0I",
+            "PLDULE4"
+          ]
+        },
+        "doc": {
+          "type": "object",
+          "title": "Documentation",
+          "description": "Free-form human-friendly information which should be used for documentation purposes only.",
+          "additionalProperties": false,
+          "properties": {
+            "category": {
+              "type": "string",
+              "title": "Category of instruction",
+              "examples": [
+                "cont_loops",
+                "stack_basic",
+                "dict_get"
+              ]
+            },
+            "description": {
+              "type": "string",
+              "title": "Instruction description",
+              "description": "Free-form markdown description of instruction.",
+              "examples": [
+                "Interchanges `s[i]` with `s[j]`, `1 <= i < j <= 15`.",
+                "Throws exception `0 <= n < 2^16` with parameter zero.\nApproximately equivalent to `ZERO` `SWAP` `THROWARGANY`."
+              ]
+            },
+            "gas": {
+              "type": "string",
+              "title": "Gas usage info",
+              "description": "Free-form description of gas amount used by instruction.",
+              "examples": [
+                "76",
+                "26/76"
+              ]
+            },
+            "fift": {
+              "type": "string",
+              "title": "Fift usage doc",
+              "description": "Free-form fift usage description.",
+              "examples": [
+                "THROWARGANYIFNOT",
+                "TRY"
+              ]
+            },
+            "fift_examples": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "fift": {
+                    "type": "string",
+                    "title": "Fift snippet",
+                    "examples": [
+                      "TRY:<{ code1 }>CATCH<{ code2 }>"
+                    ]
+                  },
+                  "description": {
+                    "type": "string",
+                    "title": "Example description",
+                    "examples": [
+                      "Equivalent to `<{ code1 }> CONT` `<{ code2 }> CONT` `TRY`."
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "category"
+          ]
+        },
+        "bytecode": {
+          "type": "object",
+          "title": "Bytecode Format",
+          "description": "Information related to bytecode format of an instruction. Assuming that each instruction has format `prefix || operand_1 || operand_2 || ...` (also some operands may be refs, not bitstring part).",
+          "markdownDescription": "Information related to bytecode format of an instruction. Assuming that each instruction has format `prefix || operand_1 || operand_2 || ...` (also some operands may be refs, not bitstring part).",
+          "additionalProperties": false,
+          "properties": {
+            "doc_opcode": {
+              "type": "string",
+              "title": "Opcode format documentation",
+              "description": "Free-form bytecode format description.",
+              "examples": [
+                "F2FF",
+                "F3pr",
+                "FEFnssss"
+              ]
+            },
+            "tlb": {
+              "type": "string",
+              "title": "TL-b schema",
+              "description": "TL-b bytecode format description.",
+              "examples": [
+                "#FEF n:(## 4) ssss:((n * 8 + 8) * Bit)",
+                "#6FB i:uint2 j:uint2"
+              ]
+            },
+            "prefix": {
+              "type": "string",
+              "title": "Instruction prefix",
+              "description": "Prefix to determine next instruction to parse. It is a hex bitstring as in TL-b (suffixed with `_` if bit length is not divisible by 4, trailing `'1' + '0' * x` must be removed).",
+              "markdownDescription": "Prefix to determine next instruction to parse. It is a hex bitstring as in TL-b (suffixed with `_` if bit length is not divisible by 4, trailing `'1' + '0' * x` must be removed).",
+              "examples": [
+                "6FA7",
+                "6FE_"
+              ]
+            },
+            "operands_range_check": {
+              "type": "object",
+              "title": "Operands range check",
+              "description": "In TVM, it is possible for instructions to have overlapping prefixes, so to determine actual instruction it is required to read next `length` bits after prefix as uint `i` and check `from <= i <= to`. Optional, there is no operands check in case of absence.",
+              "markdownDescription": "In TVM, it is possible for instructions to have overlapping prefixes, so to determine actual instruction it is required to read next `length` bits after prefix as uint `i` and check `from <= i <= to`. Optional, there is no operands check in case of absence.",
+              "additionalProperties": false,
+              "properties": {
+                "length": {
+                  "type": "integer"
+                },
+                "from": {
+                  "type": "integer"
+                },
+                "to": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "length",
+                "from",
+                "to"
+              ],
+              "examples": [
+                {
+                  "length": 4,
+                  "from": 1,
+                  "to": 15
+                },
+                {
+                  "length": 5,
+                  "from": 0,
+                  "to": 30
+                }
+              ]
+            },
+            "operands": {
+              "type": "array",
+              "title": "Instruction operands",
+              "description": "Describes how to parse operands. Order of objects in this array represents the actual order of operands in instruction. Optional, no operands in case of absence.",
+              "default": [],
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "title": "Operand variable name",
+                    "description": "Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore.",
+                    "markdownDescription": "Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore."
+                  },
+                  "loader": {
+                    "enum": [
+                      "int",
+                      "uint",
+                      "ref",
+                      "pushint_long",
+                      "subslice"
+                    ],
+                    "title": "Loader function for operand"
+                  },
+                  "loader_args": {
+                    "type": "object",
+                    "title": "Arguments for loader function. Optional, no arguments in case of absence.",
+                    "default": {}
+                  }
+                },
+                "required": [
+                  "name",
+                  "loader"
+                ],
+                "examples": [
+                  {
+                    "name": "x",
+                    "loader": "pushint_long",
+                    "loader_args": {}
+                  },
+                  {
+                    "name": "r",
+                    "loader": "uint",
+                    "loader_args": {
+                      "size": 2
+                    }
+                  },
+                  {
+                    "name": "x",
+                    "loader": "uint",
+                    "loader_args": {
+                      "size": 5
+                    }
+                  },
+                  {
+                    "name": "slice",
+                    "loader": "subslice",
+                    "loader_args": {
+                      "bits_length_var": "x",
+                      "bits_padding": 1,
+                      "refs_length_var": "r",
+                      "refs_add": 1,
+                      "completion_tag": true
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "prefix",
+            "tlb"
+          ]
+        },
+        "value_flow": {
+          "type": "object",
+          "title": "Value flow of instruction",
+          "description": "Information related to usage of stack and registers by instruction.",
+          "additionalProperties": false,
+          "properties": {
+            "doc_stack": {
+              "type": "string",
+              "title": "Stack usage description",
+              "description": "Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value).",
+              "markdownDescription": "Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value)."
+            },
+            "inputs": {
+              "$ref": "#/definitions/values",
+              "title": "Instruction inputs",
+              "description": "Incoming values constraints. Input is unconstrained if absent."
+            },
+            "outputs": {
+              "$ref": "#/definitions/values",
+              "title": "Instruction outputs",
+              "description": "Outgoing values constraints. Output is unconstrained if absent."
+            }
+          }
+        }
+      },
+      "required": [
+        "mnemonic",
+        "doc",
+        "bytecode"
+      ]
+    }
+  },
   "properties": {
     "$schema": {
       "type": "string"
     },
     "instructions": {
+      "name": "Instructions",
+      "description": "Instruction list.",
       "type": "array",
+      "additionalItems": false,
       "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "mnemonic": {
-            "type": "string",
-            "title": "Instruction name",
-            "description": "How instruction is named in [original TVM implementation](https://github.com/ton-blockchain/ton/blob/master/crypto/vm). Not necessarily unique (currently only DEBUG is not unique).",
-            "markdownDescription": "How instruction is named in [original TVM implementation](https://github.com/ton-blockchain/ton/blob/master/crypto/vm). Not necessarily unique (currently only DEBUG is not unique).",
-            "examples": [
-              "XCHG_0I",
-              "PLDULE4"
-            ]
-          },
-          "doc": {
-            "type": "object",
-            "title": "Documentation",
-            "description": "Free-form human-friendly information which should be used for documentation purposes only.",
-            "additionalProperties": false,
-            "properties": {
-              "category": {
-                "type": "string",
-                "title": "Category of instruction",
-                "examples": [
-                  "cont_loops",
-                  "stack_basic",
-                  "dict_get"
-                ]
-              },
-              "description": {
-                "type": "string",
-                "title": "Instruction description",
-                "description": "Free-form markdown description of instruction.",
-                "examples": [
-                  "Interchanges `s[i]` with `s[j]`, `1 <= i < j <= 15`.",
-                  "Throws exception `0 <= n < 2^16` with parameter zero.\nApproximately equivalent to `ZERO` `SWAP` `THROWARGANY`."
-                ]
-              },
-              "gas": {
-                "type": "string",
-                "title": "Gas usage info",
-                "description": "Free-form description of gas amount used by instruction.",
-                "examples": [
-                  "76",
-                  "26/76"
-                ]
-              },
-              "fift": {
-                "type": "string",
-                "title": "Fift usage doc",
-                "description": "Free-form fift usage description.",
-                "examples": [
-                  "THROWARGANYIFNOT",
-                  "TRY"
-                ]
-              },
-              "fift_examples": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "fift": {
-                      "type": "string",
-                      "title": "Fift snippet",
-                      "examples": [
-                        "TRY:<{ code1 }>CATCH<{ code2 }>"
-                      ]
-                    },
-                    "description": {
-                      "type": "string",
-                      "title": "Example description",
-                      "examples": [
-                        "Equivalent to `<{ code1 }> CONT` `<{ code2 }> CONT` `TRY`."
-                      ]
-                    }
-                  }
-                }
-              }
-            },
-            "required": [
-              "category"
-            ]
-          },
-          "bytecode": {
-            "type": "object",
-            "title": "Bytecode Format",
-            "description": "Information related to bytecode format of an instruction. Assuming that each instruction has format `prefix || operand_1 || operand_2 || ...` (also some operands may be refs, not bitstring part).",
-            "markdownDescription": "Information related to bytecode format of an instruction. Assuming that each instruction has format `prefix || operand_1 || operand_2 || ...` (also some operands may be refs, not bitstring part).",
-            "additionalProperties": false,
-            "properties": {
-              "doc_opcode": {
-                "type": "string",
-                "title": "Opcode format documentation",
-                "description": "Free-form bytecode format description.",
-                "examples": [
-                  "F2FF",
-                  "F3pr",
-                  "FEFnssss"
-                ]
-              },
-              "tlb": {
-                "type": "string",
-                "title": "TL-b schema",
-                "description": "TL-b bytecode format description.",
-                "examples": [
-                  "#FEF n:(## 4) ssss:((n * 8 + 8) * Bit)",
-                  "#6FB i:uint2 j:uint2"
-                ]
-              },
-              "prefix": {
-                "type": "string",
-                "title": "Instruction prefix",
-                "description": "Prefix to determine next instruction to parse. It is a hex bitstring as in TL-b (suffixed with `_` if bit length is not divisible by 4, trailing `'1' + '0' * x` must be removed).",
-                "markdownDescription": "Prefix to determine next instruction to parse. It is a hex bitstring as in TL-b (suffixed with `_` if bit length is not divisible by 4, trailing `'1' + '0' * x` must be removed).",
-                "examples": [
-                  "6FA7",
-                  "6FE_"
-                ]
-              },
-              "operands_range_check": {
-                "type": "object",
-                "title": "Operands range check",
-                "description": "In TVM, it is possible for instructions to have overlapping prefixes, so to determine actual instruction it is required to read next `length` bits after prefix as uint `i` and check `from <= i <= to`. Optional, there is no operands check in case of absence.",
-                "markdownDescription": "In TVM, it is possible for instructions to have overlapping prefixes, so to determine actual instruction it is required to read next `length` bits after prefix as uint `i` and check `from <= i <= to`. Optional, there is no operands check in case of absence.",
-                "additionalProperties": false,
-                "properties": {
-                  "length": {
-                    "type": "integer"
-                  },
-                  "from": {
-                    "type": "integer"
-                  },
-                  "to": {
-                    "type": "integer"
-                  }
-                },
-                "required": [
-                  "length",
-                  "from",
-                  "to"
-                ],
-                "examples": [
-                  {
-                    "length": 4,
-                    "from": 1,
-                    "to": 15
-                  },
-                  {
-                    "length": 5,
-                    "from": 0,
-                    "to": 30
-                  }
-                ]
-              },
-              "operands": {
-                "type": "array",
-                "title": "Instruction operands",
-                "description": "Describes how to parse operands. Order of objects in this array represents the actual order of operands in instruction. Optional, no operands in case of absence.",
-                "default": [],
-                "items": {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "title": "Operand variable name",
-                      "description": "Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore.",
-                      "markdownDescription": "Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore."
-                    },
-                    "loader": {
-                      "enum": [
-                        "int",
-                        "uint",
-                        "ref",
-                        "pushint_long",
-                        "subslice"
-                      ],
-                      "title": "Loader function for operand"
-                    },
-                    "loader_args": {
-                      "type": "object",
-                      "title": "Arguments for loader function. Optional, no arguments in case of absence.",
-                      "default": {}
-                    }
-                  },
-                  "required": [
-                    "name",
-                    "loader"
-                  ],
-                  "examples": [
-                    {
-                      "name": "x",
-                      "loader": "pushint_long",
-                      "loader_args": {}
-                    },
-                    {
-                      "name": "r",
-                      "loader": "uint",
-                      "loader_args": {
-                        "size": 2
-                      }
-                    },
-                    {
-                      "name": "x",
-                      "loader": "uint",
-                      "loader_args": {
-                        "size": 5
-                      }
-                    },
-                    {
-                      "name": "slice",
-                      "loader": "subslice",
-                      "loader_args": {
-                        "bits_length_var": "x",
-                        "bits_padding": 1,
-                        "refs_length_var": "r",
-                        "refs_add": 1,
-                        "completion_tag": true
-                      }
-                    }
-                  ]
-                }
-              }
-            },
-            "required": [
-              "prefix",
-              "tlb"
-            ]
-          },
-          "value_flow": {
-            "type": "object",
-            "title": "Value flow of instruction",
-            "description": "Information related to usage of stack and registers by instruction.",
-            "additionalProperties": false,
-            "properties": {
-              "doc_stack": {
-                "type": "string",
-                "title": "Stack usage description",
-                "description": "Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value).",
-                "markdownDescription": "Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value)."
-              }
-            }
-          }
-        },
-        "required": [
-          "mnemonic",
-          "doc",
-          "bytecode"
-        ]
+        "$ref": "#/definitions/instruction"
       }
     },
     "aliases": {
       "type": "array",
+      "title": "Aliases",
+      "description": "Aliases list.",
       "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "mnemonic": {
-            "type": "string",
-            "title": "Alias name",
-            "examples": [
-              "ROT2",
-              "ONE"
-            ]
-          },
-          "alias_of": {
-            "type": "string",
-            "title": "Mnemonic of aliased instruction",
-            "examples": [
-              "BLKSWAP",
-              "INDEX"
-            ]
-          },
-          "doc_fift": {
-            "type": "string",
-            "title": "Fift usage doc",
-            "description": "Free-form fift usage description."
-          },
-          "doc_stack": {
-            "type": "string",
-            "title": "Stack usage description",
-            "description": "Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value).",
-            "markdownDescription": "Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value)."
-          },
-          "description": {
-            "type": "string",
-            "title": "Alias description",
-            "description": "Free-form markdown description of alias."
-          },
-          "operands": {
-            "type": "object",
-            "title": "Fixed operands of alias",
-            "description": "Values of original instruction operands which are fixed in this alias. Currently it can be integer or slice without references which is represented by string of '0' and '1's. Type should be inferred from original instruction operand loaders.",
-            "markdownDescription": "Values of original instruction operands which are fixed in this alias. Currently it can be integer or slice without references which is represented by string of '0' and '1's. Type should be inferred from original instruction operand loaders.",
-            "examples": [
-              {
-                "i": 1,
-                "j": 3
-              }
-            ]
-          }
-        },
-        "required": [
-          "mnemonic",
-          "alias_of",
-          "operands"
-        ]
+        "$ref": "#/definitions/alias"
       }
     }
   },
