@@ -16469,6 +16469,42 @@
             }
         },
         {
+            "mnemonic": "RUNVM",
+            "doc": {
+                "category": "cont_basic",
+                "description": "Runs child VM with code `code` and stack `x_1...x_n`. Returns the resulting stack `x'_1...x'_m` and exitcode. Other arguments and return values are enabled by flags.",
+                "gas": "",
+                "fift": "flags RUNVM"
+            },
+            "bytecode": {
+                "doc_opcode": "DB4fff",
+                "tlb": "#DB4 flags:(## 12)",
+                "prefix": "DB4",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x_1 ... x_n n code [r] [c4] [c7] [g_l] [g_m] - x'_1 ... x'_m exitcode [data'] [c4'] [c5] [g_c]"
+            }
+        },
+        {
+            "mnemonic": "RUNVMX",
+            "doc": {
+                "category": "cont_basic",
+                "description": "Runs child VM with code `code` and stack `x_1...x_n`. Returns the resulting stack `x'_1...x'_m` and exitcode. Other arguments and return values are enabled by flags.",
+                "gas": "",
+                "fift": "RUNVMX"
+            },
+            "bytecode": {
+                "doc_opcode": "DB50",
+                "tlb": "#DB50",
+                "prefix": "DB50",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x_1 ... x_n n code [r] [c4] [c7] [g_l] [g_m] flags - x'_1 ... x'_m exitcode [data'] [c4'] [c5] [g_c]"
+            }
+        },
+        {
             "mnemonic": "IFRET",
             "doc": {
                 "category": "cont_conditional",
@@ -29451,6 +29487,37 @@
             }
         },
         {
+            "mnemonic": "GASCONSUMED",
+            "doc": {
+                "category": "app_gas",
+                "description": "Returns gas consumed by VM so far (including this instruction).",
+                "gas": "26",
+                "fift": "GASCONSUMED"
+            },
+            "bytecode": {
+                "doc_opcode": "F802",
+                "tlb": "#F802",
+                "prefix": "F802",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "- g_c",
+                "inputs": {
+                    "stack": [
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "g_c",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
             "mnemonic": "COMMIT",
             "doc": {
                 "category": "app_gas",
@@ -29760,6 +29827,99 @@
                             "type": "simple",
                             "name": "c",
                             "value_types": ["Cell", "Null"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "PREVMCBLOCKS",
+            "doc": {
+                "category": "app_config",
+                "description": "Retrives `last_mc_blocks` part of PrevBlocksInfo from c7 (parameter 13).",
+                "gas": "",
+                "fift": "PREVMCBLOCKS"
+            },
+            "bytecode": {
+                "doc_opcode": "F83400",
+                "tlb": "#F83400",
+                "prefix": "F83400",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "- t",
+                "inputs": {
+                    "stack": [
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "PREVKEYBLOCK",
+            "doc": {
+                "category": "app_config",
+                "description": "Retrives `prev_key_block` part of PrevBlocksInfo from c7 (parameter 13).",
+                "gas": "",
+                "fift": "PREVKEYBLOCK"
+            },
+            "bytecode": {
+                "doc_opcode": "F83401",
+                "tlb": "#F83401",
+                "prefix": "F83401",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "- t",
+                "inputs": {
+                    "stack": [
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "t",
+                            "value_types": ["Tuple"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "GLOBALID",
+            "doc": {
+                "category": "app_config",
+                "description": "Retrieves `global_id` from 19 network config.",
+                "gas": "",
+                "fift": "GLOBALID"
+            },
+            "bytecode": {
+                "doc_opcode": "F835",
+                "tlb": "#F835",
+                "prefix": "F835",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "- i",
+                "inputs": {
+                    "stack": [
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "i",
+                            "value_types": ["Integer"]
                         }
                     ]
                 }
@@ -32096,6 +32256,46 @@
             "description": "Returns the _Maybe Cell_ `D` with the current global configuration dictionary. Equivalent to `9 GETPARAM `.",
             "operands": {
                 "i": 9
+            }
+        },
+        {
+            "mnemonic": "MYCODE",
+            "alias_of": "GETPARAM",
+            "doc_fift": "MYCODE",
+            "doc_stack": " - c",
+            "description": "Retrieves code of smart-contract from c7. Equivalent to `10 GETPARAM `.",
+            "operands": {
+                "i": 10
+            }
+        },
+        {
+            "mnemonic": "INCOMINGVALUE",
+            "alias_of": "GETPARAM",
+            "doc_fift": "INCOMINGVALUE",
+            "doc_stack": " - t",
+            "description": "Retrieves value of incoming message from c7. Equivalent to `11 GETPARAM `.",
+            "operands": {
+                "i": 11
+            }
+        },
+        {
+            "mnemonic": "STORAGEFEES",
+            "alias_of": "GETPARAM",
+            "doc_fift": "STORAGEFEES",
+            "doc_stack": " - i",
+            "description": "Retrieves value of storage phase fees from c7. Equivalent to `12 GETPARAM `.",
+            "operands": {
+                "i": 12
+            }
+        },
+        {
+            "mnemonic": "PREVBLOCKSINFOTUPLE",
+            "alias_of": "GETPARAM",
+            "doc_fift": "PREVBLOCKSINFOTUPLE",
+            "doc_stack": " - t",
+            "description": "Retrives PrevBlocksInfo: `[last_mc_blocks, prev_key_block]` from c7. Equivalent to `13 GETPARAM `.",
+            "operands": {
+                "i": 13
             }
         },
         {
