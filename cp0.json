@@ -17122,7 +17122,18 @@
                 "doc_opcode": "E30F",
                 "tlb": "#E30F c1:^Cell c2:^Cell",
                 "prefix": "E30F",
-                "operands": []
+                "operands": [
+                    {
+                        "name": "c1",
+                        "loader": "ref",
+                        "loader_args": {}
+                    },
+                    {
+                        "name": "c2",
+                        "loader": "ref",
+                        "loader_args": {}
+                    }
+                ]
             },
             "value_flow": {
                 "doc_stack": "f -",
