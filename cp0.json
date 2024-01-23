@@ -5299,7 +5299,7 @@
                 "category": "arithm_div",
                 "description": "",
                 "gas": "34",
-                "fift": "[tt+1] RSHIFTMOD#"
+                "fift": "[tt+1] RSHIFT#MOD"
             },
             "bytecode": {
                 "doc_opcode": "A93Ctt",
@@ -5343,12 +5343,12 @@
             }
         },
         {
-            "mnemonic": "RSHIFTMODR",
+            "mnemonic": "RSHIFTRMOD",
             "doc": {
                 "category": "arithm_div",
                 "description": "",
                 "gas": "34",
-                "fift": "[tt+1] RSHIFTMODR#"
+                "fift": "[tt+1] RSHIFTR#MOD"
             },
             "bytecode": {
                 "doc_opcode": "A93Dtt",
@@ -5392,12 +5392,12 @@
             }
         },
         {
-            "mnemonic": "RSHIFTMODC",
+            "mnemonic": "RSHIFTCMOD",
             "doc": {
                 "category": "arithm_div",
                 "description": "",
                 "gas": "34",
-                "fift": "[tt+1] RSHIFTMODC#"
+                "fift": "[tt+1] RSHIFTC#MOD"
             },
             "bytecode": {
                 "doc_opcode": "A93Ett",
@@ -5701,6 +5701,190 @@
             }
         },
         {
+            "mnemonic": "MULDIVC",
+            "doc": {
+                "category": "arithm_div",
+                "description": "`q'=ceil(x*y/z)`",
+                "gas": "26",
+                "fift": "MULDIVC"
+            },
+            "bytecode": {
+                "doc_opcode": "A986",
+                "tlb": "#A986",
+                "prefix": "A986",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y z - q'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULMOD",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "MULMOD"
+            },
+            "bytecode": {
+                "doc_opcode": "A988",
+                "tlb": "#A988",
+                "prefix": "A988",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y z - x*y mod z",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULMODR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "MULMODR"
+            },
+            "bytecode": {
+                "doc_opcode": "A989",
+                "tlb": "#A989",
+                "prefix": "A989",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y z - x*y mod z",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULMODC",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "MULMODC"
+            },
+            "bytecode": {
+                "doc_opcode": "A98A",
+                "tlb": "#A98A",
+                "prefix": "A98A",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y z - x*y mod z",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
             "mnemonic": "MULDIVMOD",
             "doc": {
                 "category": "arithm_div",
@@ -5726,6 +5910,276 @@
                         {
                             "type": "simple",
                             "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "q",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "r",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULDIVMODR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "`q=round(x*y/z)`, `r=x*y-z*q`",
+                "gas": "26",
+                "fift": "MULDIVMODR"
+            },
+            "bytecode": {
+                "doc_opcode": "A98D",
+                "tlb": "#A98D",
+                "prefix": "A98D",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y z - q r",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "q",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "r",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULDIVMODC",
+            "doc": {
+                "category": "arithm_div",
+                "description": "`q=ceil(x*y/z)`, `r=x*y-z*q`",
+                "gas": "26",
+                "fift": "MULDIVMODC"
+            },
+            "bytecode": {
+                "doc_opcode": "A98E",
+                "tlb": "#A98E",
+                "prefix": "A98E",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y z - q r",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "q",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "r",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULADDRSHIFTMOD",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "MULADDRSHIFTMOD"
+            },
+            "bytecode": {
+                "doc_opcode": "A9A0",
+                "tlb": "#A9A0",
+                "prefix": "A9A0",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y w z - q=floor((xy+w)/2^z) r=(xy+w)-q*2^z",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "w",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "q",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "r",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULADDRSHIFTRMOD",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "MULADDRSHIFTRMOD"
+            },
+            "bytecode": {
+                "doc_opcode": "A9A1",
+                "tlb": "#A9A1",
+                "prefix": "A9A1",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y w z - q=round((xy+w)/2^z) r=(xy+w)-q*2^z",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "w",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "q",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "r",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULADDRSHIFTCMOD",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "MULADDRSHIFTCMOD"
+            },
+            "bytecode": {
+                "doc_opcode": "A9A2",
+                "tlb": "#A9A2",
+                "prefix": "A9A2",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y w z - q=ceil((xy+w)/2^z) r=(xy+w)-q*2^z",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "w",
                             "value_types": ["Integer"]
                         },
                         {
@@ -5848,7 +6302,7 @@
             "doc": {
                 "category": "arithm_div",
                 "description": "`0 <= z <= 256`",
-                "gas": "34",
+                "gas": "26",
                 "fift": "MULRSHIFTC"
             },
             "bytecode": {
@@ -5874,6 +6328,444 @@
                         {
                             "type": "simple",
                             "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULMODPOW2_VAR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "MULMODPOW2_VAR"
+            },
+            "bytecode": {
+                "doc_opcode": "A9A8",
+                "tlb": "#A9A8",
+                "prefix": "A9A8",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y z - x*y mod 2^z",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULMODPOW2R_VAR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "MULMODPOW2R_VAR"
+            },
+            "bytecode": {
+                "doc_opcode": "A9A9",
+                "tlb": "#A9A9",
+                "prefix": "A9A9",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y z - x*y mod 2^z",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULMODPOW2C_VAR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "MULMODPOW2C_VAR"
+            },
+            "bytecode": {
+                "doc_opcode": "A9AA",
+                "tlb": "#A9AA",
+                "prefix": "A9AA",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y z - x*y mod 2^z",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULRSHIFTMOD_VAR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "MULRSHIFTMOD_VAR"
+            },
+            "bytecode": {
+                "doc_opcode": "A9AC",
+                "tlb": "#A9AC",
+                "prefix": "A9AC",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y z - q=floor(x*y/2^z) r=xy-q*2^z",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULRSHIFTRMOD_VAR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "MULRSHIFTRMOD_VAR"
+            },
+            "bytecode": {
+                "doc_opcode": "A9AD",
+                "tlb": "#A9AD",
+                "prefix": "A9AD",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y z - q=round(x*y/2^z) r=xy-q*2^z",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULRSHIFTCMOD_VAR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "MULRSHIFTCMOD_VAR"
+            },
+            "bytecode": {
+                "doc_opcode": "A9AE",
+                "tlb": "#A9AE",
+                "prefix": "A9AE",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y z - q=ceil(x*y/2^z) r=xy-q*2^z",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULADDRSHIFTMOD",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "34",
+                "fift": "[tt+1] MULADDRSHIFT#MOD"
+            },
+            "bytecode": {
+                "doc_opcode": "A9B0tt",
+                "tlb": "#A9B0 tt:uint8",
+                "prefix": "A9B0",
+                "operands": [
+                    {
+                        "name": "t",
+                        "loader": "uint",
+                        "loader_args": {
+                            "size": 8
+                        }
+                    }
+                ]
+            },
+            "value_flow": {
+                "doc_stack": "x y w - q=floor((xy+w)/2^z) r=(xy+w)-q*2^z",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "w",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULADDRSHIFTRMOD",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "34",
+                "fift": "[tt+1] MULADDRSHIFTR#MOD"
+            },
+            "bytecode": {
+                "doc_opcode": "A9B1tt",
+                "tlb": "#A9B1 tt:uint8",
+                "prefix": "A9B1",
+                "operands": [
+                    {
+                        "name": "t",
+                        "loader": "uint",
+                        "loader_args": {
+                            "size": 8
+                        }
+                    }
+                ]
+            },
+            "value_flow": {
+                "doc_stack": "x y w - q=round((xy+w)/2^z) r=(xy+w)-q*2^z",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "w",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULADDRSHIFTCMOD",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "34",
+                "fift": "[tt+1] MULADDRSHIFTC#MOD"
+            },
+            "bytecode": {
+                "doc_opcode": "A9B2tt",
+                "tlb": "#A9B2 tt:uint8",
+                "prefix": "A9B2",
+                "operands": [
+                    {
+                        "name": "t",
+                        "loader": "uint",
+                        "loader_args": {
+                            "size": 8
+                        }
+                    }
+                ]
+            },
+            "value_flow": {
+                "doc_stack": "x y w - q=ceil((xy+w)/2^z) r=(xy+w)-q*2^z",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "w",
                             "value_types": ["Integer"]
                         }
                     ]
@@ -5992,7 +6884,7 @@
             "doc": {
                 "category": "arithm_div",
                 "description": "",
-                "gas": "26",
+                "gas": "34",
                 "fift": "[tt+1] MULRSHIFTC#"
             },
             "bytecode": {
@@ -6016,6 +6908,429 @@
                         {
                             "type": "simple",
                             "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULMODPOW2",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "34",
+                "fift": "[tt+1] MULMODPOW2#"
+            },
+            "bytecode": {
+                "doc_opcode": "A9B8tt",
+                "tlb": "#A9B8 tt:uint8",
+                "prefix": "A9B8",
+                "operands": [
+                    {
+                        "name": "t",
+                        "loader": "uint",
+                        "loader_args": {
+                            "size": 8
+                        }
+                    }
+                ]
+            },
+            "value_flow": {
+                "doc_stack": "x y - x*y mod 2^(tt+1)",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULMODPOW2R",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "34",
+                "fift": "[tt+1] MULMODPOW2R#"
+            },
+            "bytecode": {
+                "doc_opcode": "A9B9tt",
+                "tlb": "#A9B9 tt:uint8",
+                "prefix": "A9B9",
+                "operands": [
+                    {
+                        "name": "t",
+                        "loader": "uint",
+                        "loader_args": {
+                            "size": 8
+                        }
+                    }
+                ]
+            },
+            "value_flow": {
+                "doc_stack": "x y - x*y mod 2^(tt+1)",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULMODPOW2C",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "34",
+                "fift": "[tt+1] MULMODPOW2C#"
+            },
+            "bytecode": {
+                "doc_opcode": "A9BAtt",
+                "tlb": "#A9BA tt:uint8",
+                "prefix": "A9BA",
+                "operands": [
+                    {
+                        "name": "t",
+                        "loader": "uint",
+                        "loader_args": {
+                            "size": 8
+                        }
+                    }
+                ]
+            },
+            "value_flow": {
+                "doc_stack": "x y - x*y mod 2^(tt+1)",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULRSHIFTMOD",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "34",
+                "fift": "MULRSHIFT#MOD"
+            },
+            "bytecode": {
+                "doc_opcode": "A9BC",
+                "tlb": "#A9BC",
+                "prefix": "A9BC",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y - q=floor(x*y/2^(tt+1)) r=xy-q*2^(tt+1)",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULRSHIFTRMOD",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "34",
+                "fift": "MULRSHIFTR#MOD"
+            },
+            "bytecode": {
+                "doc_opcode": "A9BD",
+                "tlb": "#A9BD",
+                "prefix": "A9BD",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y - q=round(x*y/2^(tt+1)) r=xy-q*2^(tt+1)",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULRSHIFTCMOD",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "34",
+                "fift": "MULRSHIFTC#MOD"
+            },
+            "bytecode": {
+                "doc_opcode": "A9BE",
+                "tlb": "#A9BE",
+                "prefix": "A9BE",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y - q=ceil(x*y/2^(tt+1)) r=xy-q*2^(tt+1)",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "LSHIFTADDDIVMOD_VAR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "LSHIFTADDDIVMOD"
+            },
+            "bytecode": {
+                "doc_opcode": "A9C0",
+                "tlb": "#A9C0",
+                "prefix": "A9C0",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x w z y - q=floor((x*2^y+w)/z) r=(x*2^y+w)-zq",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "w",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "LSHIFTADDDIVMODR_VAR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "LSHIFTADDDIVMODR"
+            },
+            "bytecode": {
+                "doc_opcode": "A9C1",
+                "tlb": "#A9C1",
+                "prefix": "A9C1",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x w z y - q=round((x*2^y+w)/z) r=(x*2^y+w)-zq",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "w",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "LSHIFTADDDIVMODC_VAR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "LSHIFTADDDIVMODC"
+            },
+            "bytecode": {
+                "doc_opcode": "A9C2",
+                "tlb": "#A9C2",
+                "prefix": "A9C2",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x w z y - q=round((x*2^y+w)/z) r=(x*2^y+w)-zq",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "w",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
                             "value_types": ["Integer"]
                         },
                         {
@@ -6175,6 +7490,444 @@
             }
         },
         {
+            "mnemonic": "LSHIFTMOD_VAR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "LSHIFTMOD"
+            },
+            "bytecode": {
+                "doc_opcode": "A9C8",
+                "tlb": "#A9C8",
+                "prefix": "A9C8",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y z - 2^z*x mod y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "LSHIFTMODR_VAR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "LSHIFTMODR"
+            },
+            "bytecode": {
+                "doc_opcode": "A9C9",
+                "tlb": "#A9C9",
+                "prefix": "A9C9",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y z - 2^z*x mod y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "LSHIFTMODC_VAR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "LSHIFTMODC"
+            },
+            "bytecode": {
+                "doc_opcode": "A9CA",
+                "tlb": "#A9CA",
+                "prefix": "A9CA",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y z - 2^z*x mod y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "LSHIFTDIVMOD_VAR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "LSHIFTDIVMOD"
+            },
+            "bytecode": {
+                "doc_opcode": "A9CC",
+                "tlb": "#A9CC",
+                "prefix": "A9CC",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y z - q=floor(2^z*x/y) r=2^z*x-q*y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "LSHIFTDIVMODR_VAR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "LSHIFTDIVMODR"
+            },
+            "bytecode": {
+                "doc_opcode": "A9CD",
+                "tlb": "#A9CD",
+                "prefix": "A9CD",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y z - q=round(2^z*x/y) r=2^z*x-q*y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "LSHIFTDIVMODC_VAR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "LSHIFTDIVMODC"
+            },
+            "bytecode": {
+                "doc_opcode": "A9CE",
+                "tlb": "#A9CE",
+                "prefix": "A9CE",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y z - q=ceil(2^z*x/y) r=2^z*x-q*y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "LSHIFTADDDIVMOD",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "34",
+                "fift": "[tt+1] LSHIFT#ADDDIVMOD"
+            },
+            "bytecode": {
+                "doc_opcode": "A9D0tt",
+                "tlb": "#A9D0 tt:uint8",
+                "prefix": "A9D0",
+                "operands": [
+                    {
+                        "name": "t",
+                        "loader": "uint",
+                        "loader_args": {
+                            "size": 8
+                        }
+                    }
+                ]
+            },
+            "value_flow": {
+                "doc_stack": "x w z - q=floor((x*2^y+w)/z) r=(x*2^y+w)-zq",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "w",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "LSHIFTADDDIVMODR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "34",
+                "fift": "[tt+1] LSHIFT#ADDDIVMODR"
+            },
+            "bytecode": {
+                "doc_opcode": "A9D1tt",
+                "tlb": "#A9D1 tt:uint8",
+                "prefix": "A9D1",
+                "operands": [
+                    {
+                        "name": "t",
+                        "loader": "uint",
+                        "loader_args": {
+                            "size": 8
+                        }
+                    }
+                ]
+            },
+            "value_flow": {
+                "doc_stack": "x w z - q=round((x*2^y+w)/z) r=(x*2^y+w)-zq",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "w",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "LSHIFTADDDIVMODC",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "34",
+                "fift": "[tt+1] LSHIFT#ADDDIVMODC"
+            },
+            "bytecode": {
+                "doc_opcode": "A9D2tt",
+                "tlb": "#A9D2 tt:uint8",
+                "prefix": "A9D2",
+                "operands": [
+                    {
+                        "name": "t",
+                        "loader": "uint",
+                        "loader_args": {
+                            "size": 8
+                        }
+                    }
+                ]
+            },
+            "value_flow": {
+                "doc_stack": "x w z - q=ceil((x*2^y+w)/z) r=(x*2^y+w)-zq",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "w",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
             "mnemonic": "LSHIFTDIV",
             "doc": {
                 "category": "arithm_div",
@@ -6296,6 +8049,300 @@
             },
             "value_flow": {
                 "doc_stack": "x y - ceil(2^(tt+1)*x/y)",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "LSHIFTMOD",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "34",
+                "fift": "[tt+1] LSHIFT#MOD"
+            },
+            "bytecode": {
+                "doc_opcode": "A9D8tt",
+                "tlb": "#A9D8 tt:uint8",
+                "prefix": "A9D8",
+                "operands": [
+                    {
+                        "name": "t",
+                        "loader": "uint",
+                        "loader_args": {
+                            "size": 8
+                        }
+                    }
+                ]
+            },
+            "value_flow": {
+                "doc_stack": "x y - 2^(tt+1)*x mod y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "LSHIFTMODR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "34",
+                "fift": "[tt+1] LSHIFT#MODR"
+            },
+            "bytecode": {
+                "doc_opcode": "A9D9tt",
+                "tlb": "#A9D9 tt:uint8",
+                "prefix": "A9D9",
+                "operands": [
+                    {
+                        "name": "t",
+                        "loader": "uint",
+                        "loader_args": {
+                            "size": 8
+                        }
+                    }
+                ]
+            },
+            "value_flow": {
+                "doc_stack": "x y - 2^(tt+1)*x mod y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "LSHIFTMODC",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "34",
+                "fift": "[tt+1] LSHIFT#MODC"
+            },
+            "bytecode": {
+                "doc_opcode": "A9DAtt",
+                "tlb": "#A9DA tt:uint8",
+                "prefix": "A9DA",
+                "operands": [
+                    {
+                        "name": "t",
+                        "loader": "uint",
+                        "loader_args": {
+                            "size": 8
+                        }
+                    }
+                ]
+            },
+            "value_flow": {
+                "doc_stack": "x y - 2^(tt+1)*x mod y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "LSHIFTDIVMOD",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "34",
+                "fift": "[tt+1] LSHIFT#DIVMOD"
+            },
+            "bytecode": {
+                "doc_opcode": "A9DCtt",
+                "tlb": "#A9DC tt:uint8",
+                "prefix": "A9DC",
+                "operands": [
+                    {
+                        "name": "t",
+                        "loader": "uint",
+                        "loader_args": {
+                            "size": 8
+                        }
+                    }
+                ]
+            },
+            "value_flow": {
+                "doc_stack": "x y - q=floor(2^(tt+1)*x/y) r=2^(tt+1)*x-q*y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "LSHIFTDIVMODR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "34",
+                "fift": "[tt+1] LSHIFT#DIVMODR"
+            },
+            "bytecode": {
+                "doc_opcode": "A9DDtt",
+                "tlb": "#A9DD tt:uint8",
+                "prefix": "A9DD",
+                "operands": [
+                    {
+                        "name": "t",
+                        "loader": "uint",
+                        "loader_args": {
+                            "size": 8
+                        }
+                    }
+                ]
+            },
+            "value_flow": {
+                "doc_stack": "x y - q=round(2^(tt+1)*x/y) r=2^(tt+1)*x-q*y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "LSHIFTDIVMODC",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "34",
+                "fift": "[tt+1] LSHIFT#DIVMODC"
+            },
+            "bytecode": {
+                "doc_opcode": "A9DEtt",
+                "tlb": "#A9DE tt:uint8",
+                "prefix": "A9DE",
+                "operands": [
+                    {
+                        "name": "t",
+                        "loader": "uint",
+                        "loader_args": {
+                            "size": 8
+                        }
+                    }
+                ]
+            },
+            "value_flow": {
+                "doc_stack": "x y - q=ceil(2^(tt+1)*x/y) r=2^(tt+1)*x-q*y",
                 "inputs": {
                     "stack": [
                         {
