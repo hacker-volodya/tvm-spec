@@ -33438,6 +33438,906 @@
             }
         },
         {
+            "mnemonic": "HASHEXT_SHA256",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates and returns hash of the concatenation of slices (or builders) `s_1...s_n`.",
+                "gas": "1/33 gas per byte",
+                "fift": "HASHEXT_SHA256"
+            },
+            "bytecode": {
+                "doc_opcode": "F90400",
+                "tlb": "#F90400",
+                "prefix": "F90400",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "s_1 ... s_n n - h",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "h",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXT_SHA512",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates and returns hash of the concatenation of slices (or builders) `s_1...s_n`.",
+                "gas": "1/16 gas per byte",
+                "fift": "HASHEXT_SHA512"
+            },
+            "bytecode": {
+                "doc_opcode": "F90401",
+                "tlb": "#F90401",
+                "prefix": "F90401",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "s_1 ... s_n n - h1 h2",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "h1",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "h2",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXT_BLAKE2B",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates and returns hash of the concatenation of slices (or builders) `s_1...s_n`.",
+                "gas": "1/19 gas per byte",
+                "fift": "HASHEXT_BLAKE2B"
+            },
+            "bytecode": {
+                "doc_opcode": "F90402",
+                "tlb": "#F90402",
+                "prefix": "F90402",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "s_1 ... s_n n - h1 h2",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "h1",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "h2",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXT_KECCAK256",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates and returns hash of the concatenation of slices (or builders) `s_1...s_n`.",
+                "gas": "1/11 gas per byte",
+                "fift": "HASHEXT_KECCAK256"
+            },
+            "bytecode": {
+                "doc_opcode": "F90403",
+                "tlb": "#F90403",
+                "prefix": "F90403",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "s_1 ... s_n n - h",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "h",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXT_KECCAK512",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates and returns hash of the concatenation of slices (or builders) `s_1...s_n`.",
+                "gas": "1/19 gas per byte",
+                "fift": "HASHEXT_KECCAK512"
+            },
+            "bytecode": {
+                "doc_opcode": "F90404",
+                "tlb": "#F90404",
+                "prefix": "F90404",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "s_1 ... s_n n - h1 h2",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "h1",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "h2",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXTR_SHA256",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates and returns hash of the concatenation of slices (or builders) `s_1...s_n`.",
+                "gas": "1/33 gas per byte",
+                "fift": "HASHEXTR_SHA256"
+            },
+            "bytecode": {
+                "doc_opcode": "F90500",
+                "tlb": "#F90500",
+                "prefix": "F90500",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "s_n ... s_1 n - h",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "h",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXTR_SHA512",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates and returns hash of the concatenation of slices (or builders) `s_1...s_n`.",
+                "gas": "1/16 gas per byte",
+                "fift": "HASHEXTR_SHA512"
+            },
+            "bytecode": {
+                "doc_opcode": "F90501",
+                "tlb": "#F90501",
+                "prefix": "F90501",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "s_n ... s_1 n - h1 h2",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "h1",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "h2",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXT_BLAKE2B",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates and returns hash of the concatenation of slices (or builders) `s_1...s_n`.",
+                "gas": "1/19 gas per byte",
+                "fift": "HASHEXT_BLAKE2B"
+            },
+            "bytecode": {
+                "doc_opcode": "F90502",
+                "tlb": "#F90502",
+                "prefix": "F90502",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "s_n ... s_1 n - h1 h2",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "h1",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "h2",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXTR_KECCAK256",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates and returns hash of the concatenation of slices (or builders) `s_1...s_n`.",
+                "gas": "1/11 gas per byte",
+                "fift": "HASHEXTR_KECCAK256"
+            },
+            "bytecode": {
+                "doc_opcode": "F90503",
+                "tlb": "#F90503",
+                "prefix": "F90503",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "s_n ... s_1 n - h",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "h",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXTR_KECCAK512",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates and returns hash of the concatenation of slices (or builders) `s_1...s_n`.",
+                "gas": "1/19 gas per byte",
+                "fift": "HASHEXTR_KECCAK512"
+            },
+            "bytecode": {
+                "doc_opcode": "F90504",
+                "tlb": "#F90504",
+                "prefix": "F90504",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "s_n ... s_1 n - h1 h2",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "h1",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "h2",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXTA_SHA256",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates hash of the concatenation of slices (or builders) `s_1...s_n`. Appends the resulting hash to a builder `b`.",
+                "gas": "1/33 gas per byte",
+                "fift": "HASHEXTA_SHA256"
+            },
+            "bytecode": {
+                "doc_opcode": "F90600",
+                "tlb": "#F90600",
+                "prefix": "F90600",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "b s_1 ... s_n n - b'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b2",
+                            "value_types": ["Builder"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXTA_SHA512",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates hash of the concatenation of slices (or builders) `s_1...s_n`. Appends the resulting hash to a builder `b`.",
+                "gas": "1/16 gas per byte",
+                "fift": "HASHEXTA_SHA512"
+            },
+            "bytecode": {
+                "doc_opcode": "F90601",
+                "tlb": "#F90601",
+                "prefix": "F90601",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "b s_1 ... s_n n - b'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b2",
+                            "value_types": ["Builder"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXTA_BLAKE2B",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates hash of the concatenation of slices (or builders) `s_1...s_n`. Appends the resulting hash to a builder `b`.",
+                "gas": "1/19 gas per byte",
+                "fift": "HASHEXTA_BLAKE2B"
+            },
+            "bytecode": {
+                "doc_opcode": "F90602",
+                "tlb": "#F90602",
+                "prefix": "F90602",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "b s_1 ... s_n n - b'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b2",
+                            "value_types": ["Builder"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXTA_KECCAK256",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates hash of the concatenation of slices (or builders) `s_1...s_n`. Appends the resulting hash to a builder `b`.",
+                "gas": "1/11 gas per byte",
+                "fift": "HASHEXTA_KECCAK256"
+            },
+            "bytecode": {
+                "doc_opcode": "F90603",
+                "tlb": "#F90603",
+                "prefix": "F90603",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "b s_1 ... s_n n - b'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b2",
+                            "value_types": ["Builder"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXTA_KECCAK512",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates hash of the concatenation of slices (or builders) `s_1...s_n`. Appends the resulting hash to a builder `b`.",
+                "gas": "1/6 gas per byte",
+                "fift": "HASHEXTA_KECCAK512"
+            },
+            "bytecode": {
+                "doc_opcode": "F90604",
+                "tlb": "#F90604",
+                "prefix": "F90604",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "b s_1 ... s_n n - b'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b2",
+                            "value_types": ["Builder"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXTAR_SHA256",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates hash of the concatenation of slices (or builders) `s_1...s_n`. Appends the resulting hash to a builder `b`.",
+                "gas": "1/33 gas per byte",
+                "fift": "HASHEXTAR_SHA256"
+            },
+            "bytecode": {
+                "doc_opcode": "F90700",
+                "tlb": "#F90700",
+                "prefix": "F90700",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "b s_1 ... s_n n - b'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b2",
+                            "value_types": ["Builder"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXTAR_SHA512",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates hash of the concatenation of slices (or builders) `s_1...s_n`. Appends the resulting hash to a builder `b`.",
+                "gas": "1/16 gas per byte",
+                "fift": "HASHEXTAR_SHA512"
+            },
+            "bytecode": {
+                "doc_opcode": "F90701",
+                "tlb": "#F90701",
+                "prefix": "F90701",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "b s_n ... s_1 n - b'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b2",
+                            "value_types": ["Builder"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXTAR_BLAKE2B",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates hash of the concatenation of slices (or builders) `s_1...s_n`. Appends the resulting hash to a builder `b`.",
+                "gas": "1/19 gas per byte",
+                "fift": "HASHEXTAR_BLAKE2B"
+            },
+            "bytecode": {
+                "doc_opcode": "F90702",
+                "tlb": "#F90702",
+                "prefix": "F90702",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "b s_n ... s_1 n - b'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b2",
+                            "value_types": ["Builder"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXTAR_KECCAK256",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates hash of the concatenation of slices (or builders) `s_1...s_n`. Appends the resulting hash to a builder `b`.",
+                "gas": "1/11 gas per byte",
+                "fift": "HASHEXTAR_KECCAK256"
+            },
+            "bytecode": {
+                "doc_opcode": "F90703",
+                "tlb": "#F90703",
+                "prefix": "F90703",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "b s_n ... s_1 n - b'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b2",
+                            "value_types": ["Builder"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "HASHEXTAR_KECCAK512",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates hash of the concatenation of slices (or builders) `s_1...s_n`. Appends the resulting hash to a builder `b`.",
+                "gas": "1/6 gas per byte",
+                "fift": "HASHEXTAR_KECCAK512"
+            },
+            "bytecode": {
+                "doc_opcode": "F90704",
+                "tlb": "#F90704",
+                "prefix": "F90704",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "b s_n ... s_1 n - b'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "tuple",
+                            "name": "s",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b2",
+                            "value_types": ["Builder"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
             "mnemonic": "CHKSIGNU",
             "doc": {
                 "category": "app_crypto",
