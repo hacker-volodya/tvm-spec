@@ -3879,6 +3879,159 @@
             }
         },
         {
+            "mnemonic": "ADDDIVMOD",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "ADDDIVMOD"
+            },
+            "bytecode": {
+                "doc_opcode": "A900",
+                "tlb": "#A900",
+                "prefix": "A900",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x w z - q=floor((x+w)/z) r=(x+w)-zq",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "w",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "q",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "r",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "ADDDIVMODR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "ADDDIVMODR"
+            },
+            "bytecode": {
+                "doc_opcode": "A901",
+                "tlb": "#A901",
+                "prefix": "A901",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x w z - q=round((x+w)/z) r=(x+w)-zq",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "w",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "q",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "r",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "ADDDIVMODC",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "ADDDIVMODC"
+            },
+            "bytecode": {
+                "doc_opcode": "A902",
+                "tlb": "#A902",
+                "prefix": "A902",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x w y - q=ceil((x+w)/z) r=(x+w)-zq",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "w",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "q",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "r",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
             "mnemonic": "DIV",
             "doc": {
                 "category": "arithm_div",
@@ -4405,6 +4558,174 @@
             }
         },
         {
+            "mnemonic": "MULADDDIVMOD",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "MULADDDIVMOD"
+            },
+            "bytecode": {
+                "doc_opcode": "A980",
+                "tlb": "#A980",
+                "prefix": "A980",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y w z - q=floor((xy+w)/z) r=(xy+w)-zq",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "w",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "q",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "r",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULADDDIVMODR",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "MULADDDIVMODR"
+            },
+            "bytecode": {
+                "doc_opcode": "A981",
+                "tlb": "#A981",
+                "prefix": "A981",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y w z - q=round((xy+w)/z) r=(xy+w)-zq",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "w",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "q",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "r",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "MULADDDIVMODC",
+            "doc": {
+                "category": "arithm_div",
+                "description": "",
+                "gas": "26",
+                "fift": "MULADDDIVMODC"
+            },
+            "bytecode": {
+                "doc_opcode": "A982",
+                "tlb": "#A982",
+                "prefix": "A982",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y w z - q=ceil((xy+w)/z) r=(xy+w)-zq",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "w",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "z",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "q",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "r",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
             "mnemonic": "MULDIV",
             "doc": {
                 "category": "arithm_div",
@@ -4413,7 +4734,7 @@
                 "fift": "MULDIV"
             },
             "bytecode": {
-                "doc_opcode": "A98",
+                "doc_opcode": "A984",
                 "tlb": "#A984",
                 "prefix": "A984",
                 "operands": []
