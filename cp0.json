@@ -34430,6 +34430,735 @@
             }
         },
         {
+            "mnemonic": "ECRECOVER",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Recovers public key from signature, identical to Bitcoin/Ethereum operations. Takes 32-byte hash as uint256 `hash`; 65-byte signature as uint8 `v` and uint256 `r`, `s`. Returns `0` on failure, public key and `-1` on success. 65-byte public key is returned as uint8 `h`, uint256 `x1`, `x2`.",
+                "gas": "1526",
+                "fift": "ECRECOVER"
+            },
+            "bytecode": {
+                "doc_opcode": "F912",
+                "tlb": "#F912",
+                "prefix": "F912",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "hash v r s - 0 or h x1 x2 -1",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "hash",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "v",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "r",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "s",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": []
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "h",
+                                            "value_types": [
+                                                "Integer"
+                                            ]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "x1",
+                                            "value_types": [
+                                                "Integer"
+                                            ]
+                                        },
+                                        {
+                                            "type": "simple",
+                                            "name": "x2",
+                                            "value_types": [
+                                                "Integer"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        
+        {
+            "mnemonic": "P256_CHKSIGNU",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Checks seck256r1-signature `sig` of a number `h` (a 256-bit unsigned integer, usually computed as the hash of some data) and public key `k`. Returns -1 on success, 0 on failure. Public key is a 33-byte slice (encoded according to Sec. 2.3.4 point 2 of [SECG SEC 1](https://www.secg.org/sec1-v2.pdf)). Signature `sig` is a 64-byte slice (two 256-bit unsigned integers `r` and `s`).",
+                "gas": "3526",
+                "fift": "P256_CHKSIGNU"
+            },
+            "bytecode": {
+                "doc_opcode": "F914",
+                "tlb": "#F914",
+                "prefix": "F914",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "h sig k - ?",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "d",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "sig",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "P256_CHKSIGNS",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Checks seck256r1-signature `sig` of data portion of slice `d` and public key `k`. Returns -1 on success, 0 on failure. Public key is a 33-byte slice (encoded according to Sec. 2.3.4 point 2 of [SECG SEC 1](https://www.secg.org/sec1-v2.pdf)). Signature `sig` is a 64-byte slice (two 256-bit unsigned integers `r` and `s`).",
+                "gas": "3526",
+                "fift": "P256_CHKSIGNS"
+            },
+            "bytecode": {
+                "doc_opcode": "F915",
+                "tlb": "#F915",
+                "prefix": "F915",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "d sig k - ?",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "d",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "sig",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "k",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "RIST255_FROMHASH",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Deterministically generates a valid point `x` from a 512-bit hash (given as two 256-bit integers).",
+                "gas": "626",
+                "fift": "RIST255_FROMHASH"
+            },
+            "bytecode": {
+                "doc_opcode": "F920",
+                "tlb": "#F920",
+                "prefix": "F920",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "h1 h2 - x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "h1",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "h2",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "RIST255_VALIDATE",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Checks that integer `x` is a valid representation of some curve point. Throws range_chk on error.",
+                "gas": "226",
+                "fift": "RIST255_VALIDATE"
+            },
+            "bytecode": {
+                "doc_opcode": "F921",
+                "tlb": "#F921",
+                "prefix": "F921",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x -",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "RIST255_ADD",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Addition of two points on a curve.",
+                "gas": "626",
+                "fift": "RIST255_ADD"
+            },
+            "bytecode": {
+                "doc_opcode": "F922",
+                "tlb": "#F922",
+                "prefix": "F922",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y - x+y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "RIST255_SUB",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Subtraction of two points on curve.",
+                "gas": "626",
+                "fift": "RIST255_SUB"
+            },
+            "bytecode": {
+                "doc_opcode": "F923",
+                "tlb": "#F923",
+                "prefix": "F923",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y - x-y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "RIST255_MUL",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Multiplies point `x` by a scalar `n`. Any `n` is valid, including negative.",
+                "gas": "2026",
+                "fift": "RIST255_MUL"
+            },
+            "bytecode": {
+                "doc_opcode": "F924",
+                "tlb": "#F924",
+                "prefix": "F924",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x n - x*n",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "RIST255_MULBASE",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Multiplies the generator point `g` by a scalar `n`. Any `n` is valid, including negative.",
+                "gas": "776",
+                "fift": "RIST255_MULBASE"
+            },
+            "bytecode": {
+                "doc_opcode": "F925",
+                "tlb": "#F925",
+                "prefix": "F925",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "n - g*n",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "RIST255_PUSHL",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Pushes integer l=2^252+27742317777372353535851937790883648493, which is the order of the group.",
+                "gas": "26",
+                "fift": "RIST255_PUSHL"
+            },
+            "bytecode": {
+                "doc_opcode": "F926",
+                "tlb": "#F926",
+                "prefix": "F926",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "- l",
+                "inputs": {
+                    "stack": [
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "RIST255_QVALIDATE",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Checks that integer `x` is a valid representation of some curve point. Returns -1 on success and 0 on failure.",
+                "gas": "234",
+                "fift": "RIST255_QVALIDATE"
+            },
+            "bytecode": {
+                "doc_opcode": "B7F921",
+                "tlb": "#B7F921",
+                "prefix": "B7F921",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x - 0 or -1",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "RIST255_QADD",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Addition of two points on a curve. Returns -1 on success and 0 on failure.",
+                "gas": "634",
+                "fift": "RIST255_QADD"
+            },
+            "bytecode": {
+                "doc_opcode": "B7F922",
+                "tlb": "#B7F922",
+                "prefix": "B7F922",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y - 0 or x+y -1",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "result",
+                                            "value_types": [
+                                                "Integer"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "RIST255_QSUB",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Subtraction of two points on curve. Returns -1 on success and 0 on failure.",
+                "gas": "634",
+                "fift": "RIST255_QSUB"
+            },
+            "bytecode": {
+                "doc_opcode": "B7F923",
+                "tlb": "#B7F923",
+                "prefix": "B7F923",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y - 0 or x-y -1",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "result",
+                                            "value_types": [
+                                                "Integer"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "RIST255_QMUL",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Multiplies point `x` by a scalar `n`. Any `n` is valid, including negative. Returns -1 on success and 0 on failure.",
+                "gas": "2034",
+                "fift": "RIST255_QMUL"
+            },
+            "bytecode": {
+                "doc_opcode": "B7F924",
+                "tlb": "#B7F924",
+                "prefix": "B7F924",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x n - 0 or x*n -1",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "result",
+                                            "value_types": [
+                                                "Integer"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "RIST255_QMULBASE",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Multiplies the generator point `g` by a scalar `n`. Any `n` is valid, including negative.",
+                "gas": "784",
+                "fift": "RIST255_QMULBASE"
+            },
+            "bytecode": {
+                "doc_opcode": "B7F925",
+                "tlb": "#B7F925",
+                "prefix": "B7F925",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "n - 0 or g*n -1",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "conditional",
+                            "name": "status",
+                            "match": [
+                                {
+                                    "value": 0,
+                                    "stack": [
+                                    ]
+                                },
+                                {
+                                    "value": -1,
+                                    "stack": [
+                                        {
+                                            "type": "simple",
+                                            "name": "result",
+                                            "value_types": [
+                                                "Integer"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "status",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
             "mnemonic": "CDATASIZEQ",
             "doc": {
                 "category": "app_misc",
