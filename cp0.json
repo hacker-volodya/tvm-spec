@@ -35159,6 +35159,988 @@
             }
         },
         {
+            "mnemonic": "BLS_VERIFY",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Checks BLS signature, return true on success, false otherwise.",
+                "gas": "61034",
+                "fift": "BLS_VERIFY"
+            },
+            "bytecode": {
+                "doc_opcode": "F93000",
+                "tlb": "#F93000",
+                "prefix": "F93000",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "pk msg sgn - bool",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "pk",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "msg",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "sgn",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_AGGREGATE",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Aggregates signatures. `n>0`. Throw exception if `n=0` or if some `sig_i` is not a valid signature.",
+                "gas": "n*4350-2616",
+                "fift": "BLS_AGGREGATE"
+            },
+            "bytecode": {
+                "doc_opcode": "F93001",
+                "tlb": "#F93001",
+                "prefix": "F93001",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "sig_1 ... sig_n n - sig",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "sig",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_FASTAGGREGATEVERIFY",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Checks aggregated BLS signature for keys `pk_1...pk_n` and message `msg`. Return true on success, false otherwise. Return false if `n=0`.",
+                "gas": "58034+n*3000",
+                "fift": "BLS_FASTAGGREGATEVERIFY"
+            },
+            "bytecode": {
+                "doc_opcode": "F93002",
+                "tlb": "#F93002",
+                "prefix": "F93002",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "pk_1 ... pk_n n msg sig - bool",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "tuple",
+                            "name": "pk",
+                            "length_var": "n"
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "msg",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "sig",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_AGGREGATEVERIFY",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Checks aggregated BLS signature for key-message pairs `pk_1 msg_1...pk_n msg_n`. Return true on success, false otherwise. Return false if `n=0`.",
+                "gas": "38534+n*22500",
+                "fift": "BLS_AGGREGATEVERIFY"
+            },
+            "bytecode": {
+                "doc_opcode": "F93003",
+                "tlb": "#F93003",
+                "prefix": "F93003",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "pk_1 msg_1 ... pk_n msg_n n sgn - bool",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "array",
+                            "name": "key_message_pairs",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "pk",
+                                    "value_types": ["Slice"]
+                                },
+                                {
+                                    "type": "simple",
+                                    "name": "msg",
+                                    "value_types": ["Slice"]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "sgn",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_G1_ADD",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Addition on G1.",
+                "gas": "3934",
+                "fift": "BLS_G1_ADD"
+            },
+            "bytecode": {
+                "doc_opcode": "F93010",
+                "tlb": "#F93010",
+                "prefix": "F93010",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y - x+y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_G1_SUB",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Subtraction on G1.",
+                "gas": "3934",
+                "fift": "BLS_G1_SUB"
+            },
+            "bytecode": {
+                "doc_opcode": "F93011",
+                "tlb": "#F93011",
+                "prefix": "F93011",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y - x-y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_G1_NEG",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Negation on G1.",
+                "gas": "784",
+                "fift": "BLS_G1_NEG"
+            },
+            "bytecode": {
+                "doc_opcode": "F93012",
+                "tlb": "#F93012",
+                "prefix": "F93012",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x - -x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_G1_MUL",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Multiplies G1 point `x` by scalar `s`. Any `s` is valid, including negative.",
+                "gas": "5234",
+                "fift": "BLS_G1_MUL"
+            },
+            "bytecode": {
+                "doc_opcode": "F93013",
+                "tlb": "#F93013",
+                "prefix": "F93013",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x s - x*s",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "s",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_G1_MULTIEXP",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates `x_1*s_1+...+x_n*s_n` for G1 points `x_i` and scalars `s_i`. Returns zero point if `n=0`. Any `s_i` is valid, including negative.",
+                "gas": "11409+n*630+n/floor(max(log2(n),4))*8820",
+                "fift": "BLS_G1_MULTIEXP"
+            },
+            "bytecode": {
+                "doc_opcode": "F93014",
+                "tlb": "#F93014",
+                "prefix": "F93014",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x_1 s_1 ... x_n s_n n - x_1*s_1+...+x_n*s_n",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "array",
+                            "name": "components",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "x",
+                                    "value_types": ["Slice"]
+                                },
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Integer"]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_G1_ZERO",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Pushes zero point in G1.",
+                "gas": "34",
+                "fift": "BLS_G1_ZERO"
+            },
+            "bytecode": {
+                "doc_opcode": "F93015",
+                "tlb": "#F93015",
+                "prefix": "F93015",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "- zero",
+                "inputs": {
+                    "stack": [
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "zero",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_MAP_TO_G1",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Converts FP element `f` to a G1 point.",
+                "gas": "2384",
+                "fift": "BLS_MAP_TO_G1"
+            },
+            "bytecode": {
+                "doc_opcode": "F93016",
+                "tlb": "#F93016",
+                "prefix": "F93016",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "f - x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "f",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_G1_INGROUP",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Checks that slice `x` represents a valid element of G1.",
+                "gas": "2984",
+                "fift": "BLS_G1_INGROUP"
+            },
+            "bytecode": {
+                "doc_opcode": "F93017",
+                "tlb": "#F93017",
+                "prefix": "F93017",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x - bool",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_G1_ISZERO",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Checks that G1 point `x` is equal to zero.",
+                "gas": "34",
+                "fift": "BLS_G1_ISZERO"
+            },
+            "bytecode": {
+                "doc_opcode": "F93018",
+                "tlb": "#F93018",
+                "prefix": "F93018",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x - bool",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_G2_ADD",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Addition on G2.",
+                "gas": "6134",
+                "fift": "BLS_G2_ADD"
+            },
+            "bytecode": {
+                "doc_opcode": "F93020",
+                "tlb": "#F93020",
+                "prefix": "F93020",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y - x+y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_G2_SUB",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Subtraction on G2.",
+                "gas": "6134",
+                "fift": "BLS_G2_SUB"
+            },
+            "bytecode": {
+                "doc_opcode": "F93021",
+                "tlb": "#F93021",
+                "prefix": "F93021",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x y - x-y",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "y",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_G2_NEG",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Negation on G2.",
+                "gas": "1584",
+                "fift": "BLS_G2_NEG"
+            },
+            "bytecode": {
+                "doc_opcode": "F93022",
+                "tlb": "#F93022",
+                "prefix": "F93022",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x - -x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_G2_MUL",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Multiplies G2 point `x` by scalar `s`. Any `s` is valid, including negative.",
+                "gas": "10584",
+                "fift": "BLS_G2_MUL"
+            },
+            "bytecode": {
+                "doc_opcode": "F93023",
+                "tlb": "#F93023",
+                "prefix": "F93023",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x s - x*s",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Slice"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "s",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_G2_MULTIEXP",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Calculates `x_1*s_1+...+x_n*s_n` for G2 points `x_i` and scalars `s_i`. Returns zero point if `n=0`. Any `s_i` is valid, including negative.",
+                "gas": "30422+n*1280+n/floor(max(log2(n),4))*22840",
+                "fift": "BLS_G2_MULTIEXP"
+            },
+            "bytecode": {
+                "doc_opcode": "F93024",
+                "tlb": "#F93024",
+                "prefix": "F93024",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x_1 s_1 ... x_n s_n n - x_1*s_1+...+x_n*s_n",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "array",
+                            "name": "components",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "x",
+                                    "value_types": ["Slice"]
+                                },
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Integer"]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_G2_ZERO",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Pushes zero point in G2.",
+                "gas": "34",
+                "fift": "BLS_G2_ZERO"
+            },
+            "bytecode": {
+                "doc_opcode": "F93025",
+                "tlb": "#F93025",
+                "prefix": "F93025",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "- zero",
+                "inputs": {
+                    "stack": [
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "zero",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_MAP_TO_G2",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Converts FP2 element `f` to a G2 point.",
+                "gas": "7984",
+                "fift": "BLS_MAP_TO_G2"
+            },
+            "bytecode": {
+                "doc_opcode": "F93026",
+                "tlb": "#F93026",
+                "prefix": "F93026",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "f - x",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "f",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_G2_INGROUP",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Checks that slice `x` represents a valid element of G2.",
+                "gas": "4284",
+                "fift": "BLS_G2_INGROUP"
+            },
+            "bytecode": {
+                "doc_opcode": "F93027",
+                "tlb": "#F93027",
+                "prefix": "F93027",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x - bool",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_G2_ISZERO",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Checks that G2 point `x` is equal to zero.",
+                "gas": "34",
+                "fift": "BLS_G2_ISZERO"
+            },
+            "bytecode": {
+                "doc_opcode": "F93028",
+                "tlb": "#F93028",
+                "prefix": "F93028",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x - bool",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_PAIRING",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Given G1 points `x_i` and G2 points `y_i`, calculates and multiply pairings of `x_i,y_i`. Returns true if the result is the multiplicative identity in FP12, false otherwise. Returns false if `n=0`.",
+                "gas": "20034+n*11800",
+                "fift": "BLS_PAIRING"
+            },
+            "bytecode": {
+                "doc_opcode": "F93030",
+                "tlb": "#F93030",
+                "prefix": "F93030",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "x_1 y_1 ... x_n y_n n - bool",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "array",
+                            "name": "components",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "x",
+                                    "value_types": ["Slice"]
+                                },
+                                {
+                                    "type": "simple",
+                                    "name": "y",
+                                    "value_types": ["Slice"]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "n",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "BLS_PUSHR",
+            "doc": {
+                "category": "app_crypto",
+                "description": "Pushes the order of G1 and G2 (approx. `2^255`).",
+                "gas": "34",
+                "fift": "BLS_PUSHR"
+            },
+            "bytecode": {
+                "doc_opcode": "F93031",
+                "tlb": "#F93031",
+                "prefix": "F93031",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "- r",
+                "inputs": {
+                    "stack": [
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "result",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
             "mnemonic": "CDATASIZEQ",
             "doc": {
                 "category": "app_misc",

@@ -264,6 +264,34 @@
               "type": "string"
             }
           }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "name",
+            "length_var",
+            "array_entry"
+          ],
+          "properties": {
+            "type": {
+              "const": "array"
+            },
+            "name": {
+              "name": "Variable name",
+              "type": "string"
+            },
+            "length_var": {
+              "name": "Variable which contains array length",
+              "type": "string"
+            },
+            "array_entry": {
+              "allOf": [{ "$ref": "#/definitions/stack" }],
+              "name": "Array single entry definition",
+              "description": "Array is a structure like `x1 y1 z1 x2 y2 z2 ... x_n y_n z_n n` which contains `n` entries of `x_i y_i z_i`. This property defines the structure of a single entry."
+            }
+          }
         }
       ]
     },
