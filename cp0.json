@@ -37163,6 +37163,47 @@
             }
         },
         {
+            "mnemonic": "SENDMSG",
+            "doc": {
+                "category": "app_actions",
+                "description": "Creates an output action and returns a fee for creating a message. Mode has the same effect as in the case of `SENDRAWMSG`. Additionally `+1024` means - do not create an action, only estimate fee. Other modes affect the fee calculation as follows: `+64` substitutes the entire balance of the incoming message as an outcoming value (slightly inaccurate, gas expenses that cannot be estimated before the computation is completed are not taken into account), `+128` substitutes the value of the entire balance of the contract before the start of the computation phase (slightly inaccurate, since gas expenses that cannot be estimated before the completion of the computation phase are not taken into account).",
+                "gas": "526",
+                "fift": "SENDMSG"
+            },
+            "bytecode": {
+                "doc_opcode": "FB08",
+                "tlb": "#FB08",
+                "prefix": "FB08",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "c x - fee",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "c",
+                            "value_types": ["Cell"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "fee",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
             "mnemonic": "DUMPSTK",
             "doc": {
                 "category": "debug",
