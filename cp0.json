@@ -36549,6 +36549,170 @@
             }
         },
         {
+            "mnemonic": "LDVARUINT32",
+            "doc": {
+                "category": "app_currency",
+                "description": "Loads (deserializes) a `VarUInteger 32` amount from _Slice_ `s`, and returns the amount as _Integer_ `x` along with the remainder `s'` of `s`. The expected serialization of `x` consists of a 5-bit unsigned big-endian integer `l`, followed by an `8l`-bit unsigned big-endian representation of `x`.\nThe net effect is approximately equivalent to `4 LDU` `SWAP` `3 LSHIFT#` `LDUX`.",
+                "gas": "26",
+                "fift": "LDVARUINT32"
+            },
+            "bytecode": {
+                "doc_opcode": "FA04",
+                "tlb": "#FA04",
+                "prefix": "FA04",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "s - x s'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "s",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "s2",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "LDVARINT32",
+            "doc": {
+                "category": "app_currency",
+                "description": "Similar to `LDVARUINT32`, but loads a _signed_ _Integer_ `x`.\nApproximately equivalent to `5 LDU` `SWAP` `3 LSHIFT#` `LDIX`.",
+                "gas": "26",
+                "fift": "LDVARINT32"
+            },
+            "bytecode": {
+                "doc_opcode": "FA05",
+                "tlb": "#FA05",
+                "prefix": "FA05",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "s - x s'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "s",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "s2",
+                            "value_types": ["Slice"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "STVARUINT32",
+            "doc": {
+                "category": "app_currency",
+                "description": "Stores (serializes) an _Integer_ `x` in the range `0...2^248-1` into _Builder_ `b`, and returns the resulting _Builder_ `b'`. The serialization of `x` consists of a 5-bit unsigned big-endian integer `l`, which is the smallest integer `l>=0`, such that `x<2^(8l)`, followed by an `8l`-bit unsigned big-endian representation of `x`. If `x` does not belong to the supported range, a range check exception is thrown.",
+                "gas": "26",
+                "fift": "STVARUINT32"
+            },
+            "bytecode": {
+                "doc_opcode": "FA06",
+                "tlb": "#FA06",
+                "prefix": "FA06",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "b x - b'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b2",
+                            "value_types": ["Builder"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "mnemonic": "STVARINT32",
+            "doc": {
+                "category": "app_currency",
+                "description": "Similar to `STVARUINT32`, but serializes a _signed_ _Integer_ `x` in the range `-2^247...2^247-1`.",
+                "gas": "26",
+                "fift": "STVARINT32"
+            },
+            "bytecode": {
+                "doc_opcode": "FA07",
+                "tlb": "#FA07",
+                "prefix": "FA07",
+                "operands": []
+            },
+            "value_flow": {
+                "doc_stack": "b x - b'",
+                "inputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b",
+                            "value_types": ["Builder"]
+                        },
+                        {
+                            "type": "simple",
+                            "name": "x",
+                            "value_types": ["Integer"]
+                        }
+                    ]
+                },
+                "outputs": {
+                    "stack": [
+                        {
+                            "type": "simple",
+                            "name": "b2",
+                            "value_types": ["Builder"]
+                        }
+                    ]
+                }
+            }
+        },
+        {
             "mnemonic": "LDMSGADDR",
             "doc": {
                 "category": "app_addr",
