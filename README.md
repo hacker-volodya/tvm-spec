@@ -101,7 +101,7 @@ Based on [instructions.csv](https://github.com/ton-community/ton-docs/blob/main/
 | value_flow.inputs | Incoming values constraints. Input is unconstrained if absent.
 | value_flow.inputs.stack | Defines how current stack is used by instruction. Instruction must not operate on stack entries other than defined here. Required.
 | value_flow.inputs.stack[i] | Stack entry or group of stack entries.
-| value_flow.inputs.stack[i].type | Type of stack entry. Can be one of "simple", "const", "conditional", "tuple". Required. 
+| value_flow.inputs.stack[i].type | Type of stack entry. Can be one of "simple", "const", "conditional", "array". Required. 
 | value_flow.inputs.stack[i].* | Properties for stack entries of each type are described below.
 | value_flow.outputs | Outgoing values constraints. Output is unconstrained if absent. Identical to value_flow.inputs.
 
@@ -237,6 +237,7 @@ Specifies a constant value on stack. `value_type` is either `Integer` or `Null`,
     }
 ]
 ```
+_Stack notation: `0 or c -1`_
 ```json
 [
     {
@@ -260,17 +261,33 @@ Specifies a constant value on stack. `value_type` is either `Integer` or `Null`,
     }
 ]
 ```
+_Stack notation: `x or null x`_
+
 Depending on `value` of variable specified in `name`, put values specified in corresponding arm of `match`. If `else` arm is not present, then input for this conditional may be only of specified values.
 
-#### Tuple
+#### Array
 ```json
 {
-    "type": "tuple",
-    "name": "x",
-    "length_var": "n"
+    "type": "array",
+    "name": "key_message_pairs",
+    "length_var": "n",
+    "array_entry": [
+        {
+            "type": "simple",
+            "name": "pk",
+            "value_types": ["Slice"]
+        },
+        {
+            "type": "simple",
+            "name": "msg",
+            "value_types": ["Slice"]
+        }
+    ]
 }
 ```
-Specifies a bunch of stack entries with length from variable `length_var`, usually noted as `x_1 ... x_n`. Used in tuple and continuation arguments operations.
+_Stack notation: `pk_1 msg_1 ... pk_n msg_n`_
+
+Specifies a bunch of stack entries with length from variable `length_var`, usually noted as `x_1 ... x_n`. Each part of array, such as `x_i` or `x_i y_i` is described in `array_entry`. Used in tuple, continuation arguments and crypto operations.
 
 #### Notes
 1. Each variable name is unique across `operands` and `stack` sections of each instruction. Assumed that variables are immutable, so if variable `x` is defined both in inputs and outputs, it goes to output without any modification.

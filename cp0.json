@@ -1358,9 +1358,15 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "x",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "tuple_elements",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "x"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -1454,9 +1460,15 @@
                 "outputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "x",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "tuple_elements",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "x"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -1498,9 +1510,15 @@
                 "outputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "x",
-                            "length_var": "k"
+                            "type": "array",
+                            "name": "tuple_elements",
+                            "length_var": "k",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "x"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -1542,9 +1560,15 @@
                 "outputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "x",
-                            "length_var": "m"
+                            "type": "array",
+                            "name": "tuple_elements",
+                            "length_var": "m",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "x"
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -1713,9 +1737,15 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "x",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "tuple_elements",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "x"
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -1808,9 +1838,15 @@
                 "outputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "x",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "tuple_elements",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "x"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -1849,9 +1885,15 @@
                 "outputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "x",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "tuple_elements",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "x"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -1890,9 +1932,15 @@
                 "outputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "x",
-                            "length_var": "m"
+                            "type": "array",
+                            "name": "tuple_elements",
+                            "length_var": "m",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "x"
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -23257,9 +23305,15 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
+                            "type": "array",
                             "name": "args",
-                            "length_var": "p"
+                            "length_var": "p",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "arg"
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -23301,9 +23355,15 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
+                            "type": "array",
                             "name": "args",
-                            "length_var": "p"
+                            "length_var": "p",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "arg"
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -23345,9 +23405,15 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
+                            "type": "array",
                             "name": "args",
-                            "length_var": "p"
+                            "length_var": "p",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "arg"
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -23389,9 +23455,15 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
+                            "type": "array",
                             "name": "args",
-                            "length_var": "p"
+                            "length_var": "p",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "arg"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -23580,9 +23652,15 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
+                            "type": "array",
                             "name": "args",
-                            "length_var": "p"
+                            "length_var": "p",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "arg"
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -23616,9 +23694,15 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
+                            "type": "array",
                             "name": "args",
-                            "length_var": "p"
+                            "length_var": "p",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "arg"
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -23662,9 +23746,15 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
+                            "type": "array",
                             "name": "args",
-                            "length_var": "p"
+                            "length_var": "p",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "arg"
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -23703,9 +23793,15 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
+                            "type": "array",
                             "name": "args",
-                            "length_var": "p"
+                            "length_var": "p",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "arg"
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -23749,9 +23845,15 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
+                            "type": "array",
                             "name": "args",
-                            "length_var": "p"
+                            "length_var": "p",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "arg"
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -25388,9 +25490,15 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "x",
-                            "length_var": "r"
+                            "type": "array",
+                            "name": "args",
+                            "length_var": "r",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "x"
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -25473,9 +25581,15 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "x",
-                            "length_var": "r"
+                            "type": "array",
+                            "name": "args",
+                            "length_var": "r",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "x"
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -25601,9 +25715,15 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "x",
-                            "length_var": "r"
+                            "type": "array",
+                            "name": "args",
+                            "length_var": "r",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "x"
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -25667,9 +25787,15 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "x",
-                            "length_var": "r"
+                            "type": "array",
+                            "name": "args",
+                            "length_var": "r",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "x"
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -27350,9 +27476,15 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
+                            "type": "array",
                             "name": "args",
-                            "length_var": "p"
+                            "length_var": "r",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "arg"
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -37635,9 +37767,16 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -37676,9 +37815,16 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -37722,9 +37868,16 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -37768,9 +37921,16 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -37809,9 +37969,16 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -37855,9 +38022,16 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -37896,9 +38070,16 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -37942,9 +38123,16 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -37988,9 +38176,16 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -38029,9 +38224,16 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -38080,9 +38282,16 @@
                             "value_types": ["Builder"]
                         },
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -38126,9 +38335,16 @@
                             "value_types": ["Builder"]
                         },
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -38172,9 +38388,16 @@
                             "value_types": ["Builder"]
                         },
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -38218,9 +38441,16 @@
                             "value_types": ["Builder"]
                         },
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -38264,9 +38494,16 @@
                             "value_types": ["Builder"]
                         },
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -38310,9 +38547,16 @@
                             "value_types": ["Builder"]
                         },
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -38356,9 +38600,16 @@
                             "value_types": ["Builder"]
                         },
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -38402,9 +38653,16 @@
                             "value_types": ["Builder"]
                         },
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -38448,9 +38706,16 @@
                             "value_types": ["Builder"]
                         },
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -38494,9 +38759,16 @@
                             "value_types": ["Builder"]
                         },
                         {
-                            "type": "tuple",
-                            "name": "s",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "input_parts",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "s",
+                                    "value_types": ["Slice", "Builder"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -39402,9 +39674,18 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "sig",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "signatures",
+                            "length_var": "n",
+                            "array_entry":[
+                                {
+                                    "type": "simple",
+                                    "name": "sig",
+                                    "value_types": [
+                                        "Slice"
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
@@ -39443,9 +39724,16 @@
                 "inputs": {
                     "stack": [
                         {
-                            "type": "tuple",
-                            "name": "pk",
-                            "length_var": "n"
+                            "type": "array",
+                            "name": "public_keys",
+                            "length_var": "n",
+                            "array_entry": [
+                                {
+                                    "type": "simple",
+                                    "name": "pk",
+                                    "value_types": ["Slice"]
+                                }
+                            ]
                         },
                         {
                             "type": "simple",
