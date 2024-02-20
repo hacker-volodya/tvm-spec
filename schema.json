@@ -696,20 +696,22 @@
         "control_flow": {
           "type": "object",
           "title": "Control flow of instruction",
-          "description": "Information related to current cc changing by instruction",
+          "description": "Information related to current cc modification by instruction",
           "additionalProperties": false,
           "properties": {
             "branches": {
               "type": "array",
               "title": "Possible branches of an instruction",
               "description": "Array of current continuation possible values after current instruction execution",
+              "default": [],
               "items": { "$ref": "#/definitions/continuation" },
               "additionalItems": false
             },
             "nobranch": {
               "type": "boolean",
+              "default": false,
               "title": "No branch possibility",
-              "description": "Can this instruction continue cc instead of changing it?"
+              "description": "Can this instruction not perform any of specified branches in certain cases (do not modify cc)?"
             }
           }
         }
