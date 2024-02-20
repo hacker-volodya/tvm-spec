@@ -20,8 +20,16 @@ Based on [instructions.csv](https://github.com/ton-community/ton-docs/blob/main/
 | control_flow | ✅ Implemented | Describes code flow (operations with cc register). It helps to reconstruct a control flow graph. This part mainly contains semantics of cont_* category instructions. For example, both JMPX and CALLX transfers execution to continuation on stack, but only CALLX returns and JMPX is not.
 | aliases | ✅ Implemented | Specifies instruction aliases. Can be used to provide to user information about special cases (for example, SWAP is a special case of XCHG_0i with i = 1).
 
+## Usage
+Convenient way is to add submodule to your tool. This will greatly simplify debugging and upgrading process.
+```bash
+git submodule add https://github.com/hacker-volodya/tvm-spec
+```
+However, nothing can stop you from just copying `cp0.json` (and `schema.json` if necessary).
+
 ## Projects based on tvm-spec
 1. [tvm-spec-example](https://github.com/hacker-volodya/tvm-spec-example), tiny TVM disassembler
+2. [tvm-research](https://github.com/hacker-volodya/tvm-research), collection of tool prototypes with the power of tvm-spec
 
 ## Instruction Specification
 ### Example
