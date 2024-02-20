@@ -149,10 +149,10 @@
             },
             "name": {
               "type": "string",
-              "name": "Variable to pass"
+              "title": "Variable to pass"
             },
             "value_types": {
-              "name": "Possible value types",
+              "title": "Possible value types",
               "type": "array",
               "items": {
                 "enum": [
@@ -182,7 +182,7 @@
               "const": "const"
             },
             "value_type": {
-              "name": "Constant type",
+              "title": "Constant type",
               "type": "string",
               "enum": [
                 "Integer",
@@ -190,7 +190,7 @@
               ]
             },
             "value": {
-              "name": "Constant value",
+              "title": "Constant value",
               "type": [
                 "number",
                 "null"
@@ -212,14 +212,14 @@
             },
             "name": {
               "type": "string",
-              "name": "Variable to match"
+              "title": "Variable to match"
             },
             "match": {
               "type": "array",
               "additionalItems": false,
               "items": {
                 "type": "object",
-                "name": "Match arm",
+                "title": "Match arm",
                 "description": "",
                 "additionalProperties": false,
                 "required": [
@@ -229,7 +229,7 @@
                 "properties": {
                   "value": {
                     "type": "integer",
-                    "name": "Arm value",
+                    "title": "Arm value",
                     "description": ""
                   },
                   "stack": {
@@ -257,21 +257,187 @@
               "const": "array"
             },
             "name": {
-              "name": "Variable name",
+              "title": "Variable name",
               "type": "string"
             },
             "length_var": {
-              "name": "Variable which contains array length",
+              "title": "Variable which contains array length",
               "type": "string"
             },
             "array_entry": {
               "allOf": [{ "$ref": "#/definitions/stack" }],
-              "name": "Array single entry definition",
+              "title": "Array single entry definition",
               "description": "Array is a structure like `x1 y1 z1 x2 y2 z2 ... x_n y_n z_n n` which contains `n` entries of `x_i y_i z_i`. This property defines the structure of a single entry."
             }
           }
         }
       ]
+    },
+    "continuation": {
+      "title": "Continuation",
+      "description": "Description of a continuation with static savelist",
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "type": { "const": "cc" },
+            "save": { "$ref": "#/definitions/savelist" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "var_name"
+          ],
+          "properties": {
+            "type": { "const": "variable" },
+            "var_name": { "type": "string", "title": "Continuation variable name" },
+            "save": { "$ref": "#/definitions/savelist" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "index"
+          ],
+          "properties": {
+            "type": { "const": "register" },
+            "index": { "type": "integer", "title": "Register number (0-3)" },
+            "save": { "$ref": "#/definitions/savelist" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "name",
+            "args"
+          ],
+          "properties": {
+            "type": { "const": "special" },
+            "name": { "const": "until" },
+            "args": {
+              "type": "object",
+              "required": ["body", "after"],
+              "additionalProperties": false,
+              "properties": {
+                "body": { "$ref": "#/definitions/continuation" },
+                "after": { "$ref": "#/definitions/continuation" }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "name",
+            "args"
+          ],
+          "properties": {
+            "type": { "const": "special" },
+            "name": { "const": "while" },
+            "args": {
+              "type": "object",
+              "required": ["cond", "body", "after"],
+              "additionalProperties": false,
+              "properties": {
+                "cond": { "$ref": "#/definitions/continuation" },
+                "body": { "$ref": "#/definitions/continuation" },
+                "after": { "$ref": "#/definitions/continuation" }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "name",
+            "args"
+          ],
+          "properties": {
+            "type": { "const": "special" },
+            "name": { "const": "again" },
+            "args": {
+              "type": "object",
+              "required": ["body"],
+              "additionalProperties": false,
+              "properties": {
+                "body": { "$ref": "#/definitions/continuation" }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "name",
+            "args"
+          ],
+          "properties": {
+            "type": { "const": "special" },
+            "name": { "const": "repeat" },
+            "args": {
+              "type": "object",
+              "required": ["count", "body", "after"],
+              "additionalProperties": false,
+              "properties": {
+                "count": { "type": "string", "title": "Variable name" },
+                "body": { "$ref": "#/definitions/continuation" },
+                "after": { "$ref": "#/definitions/continuation" }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "name",
+            "args"
+          ],
+          "properties": {
+            "type": { "const": "special" },
+            "name": { "const": "pushint" },
+            "args": {
+              "type": "object",
+              "required": ["next", "value"],
+              "additionalProperties": false,
+              "properties": {
+                "value": { "type": "integer", "title": "Integer to push to stack" },
+                "next": { "$ref": "#/definitions/continuation" }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "savelist": {
+      "title": "Continuation savelist",
+      "description": "Values of saved control flow registers c0-c3",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "c0": { "$ref": "#/definitions/continuation" },
+        "c1": { "$ref": "#/definitions/continuation" },
+        "c2": { "$ref": "#/definitions/continuation" },
+        "c3": { "$ref": "#/definitions/continuation" }
+      }
     },
     "instruction": {
       "type": "object",
@@ -524,6 +690,28 @@
               "$ref": "#/definitions/values",
               "title": "Instruction outputs",
               "description": "Outgoing values constraints. Output is unconstrained if absent."
+            }
+          }
+        },
+        "control_flow": {
+          "type": "object",
+          "title": "Control flow of instruction",
+          "description": "Information related to current cc modification by instruction",
+          "additionalProperties": false,
+          "properties": {
+            "branches": {
+              "type": "array",
+              "title": "Possible branches of an instruction",
+              "description": "Array of current continuation possible values after current instruction execution",
+              "default": [],
+              "items": { "$ref": "#/definitions/continuation" },
+              "additionalItems": false
+            },
+            "nobranch": {
+              "type": "boolean",
+              "default": false,
+              "title": "No branch possibility",
+              "description": "Can this instruction not perform any of specified branches in certain cases (do not modify cc)?"
             }
           }
         }

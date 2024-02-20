@@ -23238,6 +23238,22 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -23269,6 +23285,14 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c"
+                    }
+                ]
             }
         },
         {
@@ -23326,6 +23350,22 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -23376,6 +23416,22 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -23426,6 +23482,14 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c"
+                    }
+                ]
             }
         },
         {
@@ -23471,6 +23535,11 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    { "type": "register", "index": 0 }
+                ]
             }
         },
         {
@@ -23497,6 +23566,11 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    { "type": "register", "index": 0 }
+                ]
             }
         },
         {
@@ -23523,6 +23597,11 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    { "type": "register", "index": 1 }
+                ]
             }
         },
         {
@@ -23554,6 +23633,12 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    { "type": "register", "index": 0 },
+                    { "type": "register", "index": 1 }
+                ]
             }
         },
         {
@@ -23585,6 +23670,14 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c"
+                    }
+                ]
             }
         },
         {
@@ -23616,6 +23709,14 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c"
+                    }
+                ]
             }
         },
         {
@@ -23673,6 +23774,14 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c"
+                    }
+                ]
             }
         },
         {
@@ -23725,6 +23834,22 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -23772,6 +23897,22 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -23824,6 +23965,14 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c"
+                    }
+                ]
             }
         },
         {
@@ -23876,6 +24025,14 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c"
+                    }
+                ]
             }
         },
         {
@@ -23908,6 +24065,22 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -23940,6 +24113,14 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c"
+                    }
+                ]
             }
         },
         {
@@ -23972,6 +24153,14 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c"
+                    }
+                ]
             }
         },
         {
@@ -23998,6 +24187,11 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    { "type": "register", "index": 0 }
+                ]
             }
         },
         {
@@ -24064,6 +24258,12 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    { "type": "register", "index": 0 }
+                ],
+                "nobranch": true
             }
         },
         {
@@ -24094,6 +24294,12 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    { "type": "register", "index": 0 }
+                ],
+                "nobranch": true
             }
         },
         {
@@ -24135,6 +24341,23 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "nobranch": true
             }
         },
         {
@@ -24176,6 +24399,23 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "nobranch": true
             }
         },
         {
@@ -24217,6 +24457,15 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c"
+                    }
+                ],
+                "nobranch": true
             }
         },
         {
@@ -24258,6 +24507,15 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c"
+                    }
+                ],
+                "nobranch": true
             }
         },
         {
@@ -24304,6 +24562,34 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "variable",
+                        "var_name": "c2",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -24340,6 +24626,23 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "nobranch": true
             }
         },
         {
@@ -24376,6 +24679,23 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "nobranch": true
             }
         },
         {
@@ -24412,6 +24732,15 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c"
+                    }
+                ],
+                "nobranch": true
             }
         },
         {
@@ -24448,6 +24777,15 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c"
+                    }
+                ],
+                "nobranch": true
             }
         },
         {
@@ -24564,6 +24902,12 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    { "type": "register", "index": 1 }
+                ],
+                "nobranch": true
             }
         },
         {
@@ -24594,6 +24938,12 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    { "type": "register", "index": 1 }
+                ],
+                "nobranch": true
             }
         },
         {
@@ -24635,6 +24985,34 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "variable",
+                        "var_name": "c2",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -24676,6 +25054,34 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "variable",
+                        "var_name": "c2",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -24717,6 +25123,34 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c1",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "type": "variable",
+                        "var_name": "c2",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -24766,6 +25200,14 @@
                         }
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c"
+                    }
+                ]
             }
         },
         {
@@ -24815,6 +25257,14 @@
                         }
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c"
+                    }
+                ]
             }
         },
         {
@@ -24864,6 +25314,14 @@
                         }
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c"
+                    }
+                ]
             }
         },
         {
@@ -24913,6 +25371,14 @@
                         }
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c"
+                    }
+                ]
             }
         },
         {
@@ -24955,6 +25421,28 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "special",
+                        "name": "repeat",
+                        "args": {
+                            "count": "n",
+                            "body": {
+                                "type": "variable",
+                                "var_name": "c"
+                            },
+                            "after": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "nobranch": true
             }
         },
         {
@@ -24986,6 +25474,25 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "special",
+                        "name": "repeat",
+                        "args": {
+                            "count": "n",
+                            "body": {
+                                "type": "cc"
+                            },
+                            "after": {
+                                "type": "register",
+                                "index": 0
+                            }
+                        }
+                    }
+                ],
+                "nobranch": true
             }
         },
         {
@@ -25023,6 +25530,32 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c",
+                        "save": {
+                            "c0": {
+                                "type": "special",
+                                "name": "until",
+                                "args": {
+                                    "body": {
+                                        "type": "variable",
+                                        "var_name": "c"
+                                    },
+                                    "after": {
+                                        "type": "cc",
+                                        "save": {
+                                            "c0": { "type": "register", "index": 0 }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -25047,6 +25580,25 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "cc",
+                        "save": {
+                            "c0": {
+                                "type": "special",
+                                "name": "until",
+                                "args": {
+                                    "body": {
+                                        "type": "cc"
+                                    },
+                                    "after": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -25089,6 +25641,36 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c2",
+                        "save": {
+                            "c0": {
+                                "type": "special",
+                                "name": "while",
+                                "args": {
+                                    "cond": {
+                                        "type": "variable",
+                                        "var_name": "c2"
+                                    },
+                                    "body": {
+                                        "type": "variable",
+                                        "var_name": "c"
+                                    },
+                                    "after": {
+                                        "type": "cc",
+                                        "save": {
+                                            "c0": { "type": "register", "index": 0 }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -25120,6 +25702,31 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c2",
+                        "save": {
+                            "c0": {
+                                "type": "special",
+                                "name": "while",
+                                "args": {
+                                    "cond": {
+                                        "type": "variable",
+                                        "var_name": "c2"
+                                    },
+                                    "body": {
+                                        "type": "cc"
+                                    },
+                                    "after": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                    
+                ]
             }
         },
         {
@@ -25156,6 +25763,20 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "special",
+                        "name": "again",
+                        "args": {
+                            "body": {
+                                "type": "variable",
+                                "var_name": "c"
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -25182,6 +25803,19 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "special",
+                        "name": "again",
+                        "args": {
+                            "body": {
+                                "type": "cc"
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -25224,6 +25858,38 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "special",
+                        "name": "repeat",
+                        "args": {
+                            "count": "n",
+                            "body": {
+                                "type": "variable",
+                                "var_name": "c",
+                                "save": {
+                                    "c1": {
+                                        "type": "cc",
+                                        "save": {
+                                            "c0": { "type": "register", "index": 0 },
+                                            "c1": { "type": "register", "index": 1 }
+                                        }
+                                    }
+                                }
+                            },
+                            "after": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 },
+                                    "c1": { "type": "register", "index": 1 }
+                                }
+                            }
+                        }
+                    }
+                ],
+                "nobranch": true
             }
         },
         {
@@ -25255,6 +25921,31 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "special",
+                        "name": "repeat",
+                        "args": {
+                            "count": "n",
+                            "body": {
+                                "type": "cc",
+                                "save": {
+                                    "c1": {
+                                        "type": "register",
+                                        "index": 0
+                                    }
+                                }
+                            },
+                            "after": {
+                                "type": "register",
+                                "index": 0
+                            }
+                        }
+                    }
+                ],
+                "nobranch": true
             }
         },
         {
@@ -25292,6 +25983,49 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c",
+                        "save": {
+                            "c0": {
+                                "type": "special",
+                                "name": "until",
+                                "args": {
+                                    "body": {
+                                        "type": "variable",
+                                        "var_name": "c",
+                                        "save": {
+                                            "c1": {
+                                                "type": "cc",
+                                                "save": {
+                                                    "c0": { "type": "register", "index": 0 },
+                                                    "c1": { "type": "register", "index": 1 }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "after": {
+                                        "type": "cc",
+                                        "save": {
+                                            "c0": { "type": "register", "index": 0 },
+                                            "c1": { "type": "register", "index": 1 }
+                                        }
+                                    }
+                                }
+                            },
+                            "c1": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 },
+                                    "c1": { "type": "register", "index": 1 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -25318,6 +26052,30 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "cc",
+                        "save": {
+                            "c0": {
+                                "type": "special",
+                                "name": "until",
+                                "args": {
+                                    "body": {
+                                        "type": "cc",
+                                        "save": {
+                                            "c1": { "type": "register", "index": 0 }
+                                        }
+                                    },
+                                    "after": { "type": "register", "index": 0 }
+                                }
+                            },
+                            "c1": { "type": "register", "index": 0 }
+                        }
+                    }
+                    
+                ]
             }
         },
         {
@@ -25360,6 +26118,37 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c2",
+                        "save": {
+                            "c0": {
+                                "type": "special",
+                                "name": "while",
+                                "args": {
+                                    "cond": {
+                                        "type": "variable",
+                                        "var_name": "c2"
+                                    },
+                                    "body": {
+                                        "type": "variable",
+                                        "var_name": "c"
+                                    },
+                                    "after": {
+                                        "type": "cc",
+                                        "save": {
+                                            "c0": { "type": "register", "index": 0 },
+                                            "c1": { "type": "register", "index": 1 }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -25460,7 +26249,7 @@
             "mnemonic": "SETCONTARGS_N",
             "doc": {
                 "category": "cont_stack",
-                "description": "Similar to `[r] -1 SETCONTARGS`, but sets `c.nargs` to the final size of the stack of `c'` plus `n`. In other words, transforms `c` into a _closure_ or a _partially applied function_, with `0 <= n <= 14` arguments missing.",
+                "description": "Pushes `0 <= r <= 15` values `x_1...x_r` into the stack of (a copy of) the continuation `c`, starting with `x_1`. When `n` is 15 (-1 in Fift notation), does nothing with `c.nargs`. For `0 <= n <= 14`, sets `c.nargs` to the final size of the stack of `c'` plus `n`. In other words, transforms `c` into a _closure_ or a _partially applied function_, with `0 <= n <= 14` arguments missing.",
                 "gas": "26+s\u0432\u0402\u045c",
                 "fift": "[r] [n] SETCONTARGS"
             },
@@ -26621,6 +27410,44 @@
                         }
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c",
+                        "save": {
+                            "c0": {
+                                "type": "special",
+                                "name": "pushint",
+                                "args": {
+                                    "next": {
+                                        "type": "cc",
+                                        "save": {
+                                            "c0": { "type": "register", "index": 0 },
+                                            "c1": { "type": "register", "index": 1 }
+                                        }
+                                    },
+                                    "value": -1
+                                }
+                            },
+                            "c1": {
+                                "type": "special",
+                                "name": "pushint",
+                                "args": {
+                                    "next": {
+                                        "type": "cc",
+                                        "save": {
+                                            "c0": { "type": "register", "index": 0 },
+                                            "c1": { "type": "register", "index": 1 }
+                                        }
+                                    },
+                                    "value": 0
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -26712,6 +27539,22 @@
                         }
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "register",
+                        "index": 3,
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -26751,6 +27594,22 @@
                         }
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "register",
+                        "index": 3,
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -26790,6 +27649,14 @@
                         }
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "register",
+                        "index": 3
+                    }
+                ]
             }
         },
         {
@@ -27440,6 +28307,39 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 },
+                                    "c1": { "type": "register", "index": 1 },
+                                    "c2": { "type": "register", "index": 2 }
+                                }
+                            },
+                            "c2": {
+                                "type": "variable",
+                                "var_name": "c2",
+                                "save": {
+                                    "c0": {
+                                        "type": "cc",
+                                        "save": {
+                                            "c0": { "type": "register", "index": 0 },
+                                            "c1": { "type": "register", "index": 1 },
+                                            "c2": { "type": "register", "index": 2 }
+                                        }
+                                    },
+                                    "c2": { "type": "register", "index": 2 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -27502,6 +28402,39 @@
                     "stack": [
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "c",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 },
+                                    "c1": { "type": "register", "index": 1 },
+                                    "c2": { "type": "register", "index": 2 }
+                                }
+                            },
+                            "c2": {
+                                "type": "variable",
+                                "var_name": "c2",
+                                "save": {
+                                    "c0": {
+                                        "type": "cc",
+                                        "save": {
+                                            "c0": { "type": "register", "index": 0 },
+                                            "c1": { "type": "register", "index": 1 },
+                                            "c2": { "type": "register", "index": 2 }
+                                        }
+                                    },
+                                    "c2": { "type": "register", "index": 2 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -36208,6 +37141,14 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "x"
+                    }
+                ]
             }
         },
         {
@@ -36248,6 +37189,14 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "x"
+                    }
+                ]
             }
         },
         {
@@ -36288,6 +37237,22 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "x",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -36328,6 +37293,22 @@
                 "outputs": {
                     "stack": []
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "x",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -36532,6 +37513,14 @@
             },
             "value_flow": {
                 "doc_stack": "s D n - s' s'' or s"
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "x"
+                    }
+                ]
             }
         },
         {
@@ -36583,6 +37572,22 @@
                         }
                     ]
                 }
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "x",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -36614,6 +37619,14 @@
             },
             "value_flow": {
                 "doc_stack": "s - s' s'' or s"
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "x"
+                    }
+                ]
             }
         },
         {
@@ -36632,6 +37645,14 @@
             },
             "value_flow": {
                 "doc_stack": "i D n - i or nothing"
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "x"
+                    }
+                ]
             }
         },
         {
@@ -36650,6 +37671,14 @@
             },
             "value_flow": {
                 "doc_stack": "i D n - i or nothing"
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "x"
+                    }
+                ]
             }
         },
         {
@@ -36668,6 +37697,22 @@
             },
             "value_flow": {
                 "doc_stack": "i D n - i or nothing"
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "x",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {
@@ -36686,6 +37731,22 @@
             },
             "value_flow": {
                 "doc_stack": "i D n - i or nothing"
+            },
+            "control_flow": {
+                "branches": [
+                    {
+                        "type": "variable",
+                        "var_name": "x",
+                        "save": {
+                            "c0": {
+                                "type": "cc",
+                                "save": {
+                                    "c0": { "type": "register", "index": 0 }
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         {

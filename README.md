@@ -17,64 +17,121 @@ Based on [instructions.csv](https://github.com/ton-community/ton-docs/blob/main/
 | doc          | ✅ Implemented | Provides human-readable information about instructions. Can be useful to provide integrated docs to user, for example, in disassembler.
 | bytecode     | ✅ Implemented | Describes instruction encoding. It contains information to determine, which instruction we are currently decoding and how to parse its operands.
 | value_flow   | ✅ Implemented | Describes how instruction changes current stack. This part of specification allows to analyze how instructions interact with each other, so it becomes possible to implement high-level tools such as decompilers.
-| control_flow | ❌ Not implemented | Describes code flow. It helps to reconstruct a control flow graph. This part mainly contains semantics of cont_* category instructions. For example, both JMPX and CALLX transfers execution to continuation on stack, but only CALLX returns and JMPX is not.
+| control_flow | ✅ Implemented | Describes code flow (operations with cc register). It helps to reconstruct a control flow graph. This part mainly contains semantics of cont_* category instructions. For example, both JMPX and CALLX transfers execution to continuation on stack, but only CALLX returns and JMPX is not.
 | aliases | ✅ Implemented | Specifies instruction aliases. Can be used to provide to user information about special cases (for example, SWAP is a special case of XCHG_0i with i = 1).
+
+## Usage
+Convenient way is to add submodule to your tool. This will greatly simplify debugging and upgrading process.
+```bash
+git submodule add https://github.com/hacker-volodya/tvm-spec
+```
+However, nothing can stop you from just copying `cp0.json` (and `schema.json` if necessary).
 
 ## Projects based on tvm-spec
 1. [tvm-spec-example](https://github.com/hacker-volodya/tvm-spec-example), tiny TVM disassembler
+2. [tvm-research](https://github.com/hacker-volodya/tvm-research), collection of tool prototypes with the power of tvm-spec
 
 ## Instruction Specification
 ### Example
 ```json
-{
-    "mnemonic": "LDU",
-    "doc": {
-        "category": "cell_parse",
-        "description": "Loads an unsigned `cc+1`-bit integer `x` from _Slice_ `s`.",
-        "gas": "26",
-        "fift": "[cc+1] LDU"
-    },
-    "bytecode": {
-        "doc_opcode": "D3cc",
-        "tlb": "#D3 cc:uint8",
-        "prefix": "D3",
-        "operands": [
-            {
-                "name": "c",
-                "loader": "uint",
-                "loader_args": {
-                    "size": 8
-                }
-            }
-        ]
-    },
-    "value_flow": {
-        "doc_stack": "s - x s'",
-        "inputs": {
-            "stack": [
+[
+    {
+        "mnemonic": "LDU",
+        "doc": {
+            "category": "cell_parse",
+            "description": "Loads an unsigned `cc+1`-bit integer `x` from _Slice_ `s`.",
+            "gas": "26",
+            "fift": "[cc+1] LDU"
+        },
+        "bytecode": {
+            "doc_opcode": "D3cc",
+            "tlb": "#D3 cc:uint8",
+            "prefix": "D3",
+            "operands": [
                 {
-                    "type": "simple",
-                    "name": "s",
-                    "value_types": ["Slice"]
+                    "name": "c",
+                    "loader": "uint",
+                    "loader_args": {
+                        "size": 8
+                    }
                 }
             ]
         },
-        "outputs": {
-            "stack": [
+        "value_flow": {
+            "doc_stack": "s - x s'",
+            "inputs": {
+                "stack": [
+                    {
+                        "type": "simple",
+                        "name": "s",
+                        "value_types": ["Slice"]
+                    }
+                ]
+            },
+            "outputs": {
+                "stack": [
+                    {
+                        "type": "simple",
+                        "name": "x",
+                        "value_types": ["Integer"]
+                    },
+                    {
+                        "type": "simple",
+                        "name": "s2",
+                        "value_types": ["Slice"]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "mnemonic": "EXECUTE",
+        "doc": {
+            "category": "cont_basic",
+            "description": "_Calls_, or _executes_, continuation `c`.",
+            "gas": "18",
+            "fift": "EXECUTE\nCALLX"
+        },
+        "bytecode": {
+            "doc_opcode": "D8",
+            "tlb": "#D8",
+            "prefix": "D8",
+            "operands": []
+        },
+        "value_flow": {
+            "doc_stack": "c - ",
+            "inputs": {
+                "stack": [
+                    {
+                        "type": "simple",
+                        "name": "c",
+                        "value_types": ["Continuation"]
+                    }
+                ]
+            },
+            "outputs": {
+                "stack": [
+                ]
+            }
+        },
+        "control_flow": {
+            "branches": [
                 {
-                    "type": "simple",
-                    "name": "x",
-                    "value_types": ["Integer"]
-                },
-                {
-                    "type": "simple",
-                    "name": "s2",
-                    "value_types": ["Slice"]
+                    "type": "variable",
+                    "var_name": "c",
+                    "save": {
+                        "c0": {
+                            "type": "cc",
+                            "save": {
+                                "c0": { "type": "register", "index": 0 }
+                            }
+                        }
+                    }
                 }
             ]
         }
     }
-}
+]
 ```
 
 ### Documentation
@@ -104,6 +161,9 @@ Based on [instructions.csv](https://github.com/ton-community/ton-docs/blob/main/
 | value_flow.inputs.stack[i].type | Type of stack entry. Can be one of "simple", "const", "conditional", "array". Required. 
 | value_flow.inputs.stack[i].* | Properties for stack entries of each type are described below.
 | value_flow.outputs | Outgoing values constraints. Output is unconstrained if absent. Identical to value_flow.inputs.
+| control_flow | Information related to current cc modification by instruction. Optional.
+| control_flow.branches | Array of possible branches of an instruction. Specifies all possible values of cc after instruction execution. Empty by default (no branches can be taken by instruction). Each branch described by a `Continuation` object described below.
+| control_flow.nobranch | Can this instruction not perform any of specified branches in certain cases (do not modify cc)? False by default.
 
 ### Loaders Specification and Examples
 #### uint
@@ -290,8 +350,93 @@ _Stack notation: `pk_1 msg_1 ... pk_n msg_n`_
 Specifies a bunch of stack entries with length from variable `length_var`, usually noted as `x_1 ... x_n`. Each part of array, such as `x_i` or `x_i y_i` is described in `array_entry`. Used in tuple, continuation arguments and crypto operations.
 
 #### Notes
-1. Each variable name is unique across `operands` and `stack` sections of each instruction. Assumed that variables are immutable, so if variable `x` is defined both in inputs and outputs, it goes to output without any modification.
+1. Each variable name is unique across `operands`, `value_flow`, and `control_flow` sections of each instruction. Assumed that variables are immutable, so if variable `x` is defined both in inputs and outputs, it goes to output without any modification.
 2. Value flow describes only `cc` stack usage before the actual jump or call. Subsequent continuations may have a separate stack, so this will be defined in control flow section of this spec.
+
+### Continuations Specification and Examples
+Each object represents a continuation, which can be constructed in several ways: 
+* from a variable (operand or stack)
+* from cc register
+* from c0-c3 registers
+* by "extraordinary continuation" constructors (as in [tvm.pdf](https://docs.ton.org/tvm.pdf), p.50: "4.1.5. Extraordinary continuations.")
+
+Savelist can be defined using `save` property. Keys are `c0`, `c1`, `c2`, `c3` and values are continuation objects (in fact, continuation is a recursive type, representing a tree of continuations). Please note that savelist defined here will not override already saved continuation registers (that's the standard behaviour of TVM when saving registers).
+
+#### variable
+```json
+{
+    "type": "variable",
+    "var_name": "c",
+    "save": {
+        "c0": {
+            "type": "cc",
+            "save": {
+                "c0": { "type": "register", "index": 0 }
+            }
+        }
+    }
+}
+```
+Specifies a variable-backed continuation. Variable may be not referenced previously (in `operands` or `value_flow` section), assuming that it is defined somewhere in the actual implementation of the instruction. Example of such instruction is `DICTIGETJMP`: internally it does dictionary lookup for continuation retrieval, so `x` in control flow is expected to be defined in the implementation of `DICTIGETJMP`.
+
+#### cc
+```json
+{
+    "type": "cc",
+    "save": {
+        "c0": { "type": "register", "index": 0 }
+    }
+}
+```
+Specifies a continuation, which is constructed from cc code and `save` registers. In C++ implementation this operation is implemented in [VmState::extract_cc](https://github.com/ton-blockchain/ton/blob/17c3477f7191fe6e5db22b71631b5c7472046c2f/crypto/vm/vm.cpp#L356).
+
+#### register
+```json
+{
+    "type": "register",
+    "index": 3,
+    "save": {
+        "c0": {
+            "type": "cc",
+            "save": {
+                "c0": { "type": "register", "index": 0 }
+            }
+        }
+    }
+}
+```
+Specifies continuation from register with `index` (`"index": 3` => take continuation from `c3`).
+
+#### special
+```json
+{
+    "type": "special",
+    "name": "repeat",
+    "args": {
+        "count": "n",
+        "body": {
+            "type": "variable",
+            "var_name": "c"
+        },
+        "after": {
+            "type": "cc",
+            "save": {
+                "c0": { "type": "register", "index": 0 }
+            }
+        }
+    }
+}
+```
+
+Specifies extraordinary continuation. `save` property does not apply here.
+
+| name | args | description
+| ---- | ---- | -----------
+| repeat | string count; continuation body, after | Count is the name of a count variable. Jumps to `body` with `c0 = repeat(count - 1, body, after)`, jumps to `after` if `count <= 0`.
+| until | continuation body, after | Pops boolean from stack, jumps to `after` if it is `true`, otherwise jumps to `body` with `c0 = until(body, after)`.
+| while | continuation cond, body, after | Pops boolean from stack, jumps to `after` if it is `false`, otherwise jumps to `body` with `c0 = cond` and `cond.c0 = while(cond, body, after)`.
+| again | continuation body | Jumps to body with `c0 = again(body)`.
+| pushint | continuation next; integer value | Push `value` on stack, jump to `next`.
 
 ## Alias Specification
 ### Example
