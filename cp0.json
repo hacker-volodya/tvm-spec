@@ -11024,7 +11024,7 @@
         {
             "mnemonic": "QMULADDDIVMOD",
             "doc": {
-                "category": "arithm_div",
+                "category": "arithm_quiet",
                 "description": "",
                 "gas": "34",
                 "fift": "QMULADDDIVMOD"
@@ -11830,7 +11830,7 @@
         {
             "mnemonic": "QMULRSHIFTR_VAR",
             "doc": {
-                "category": "arithm_div",
+                "category": "arithm_quiet",
                 "description": "`0 <= z <= 256`",
                 "gas": "34",
                 "fift": "QMULRSHIFTR"
@@ -12507,7 +12507,7 @@
         {
             "mnemonic": "QMULMODPOW2",
             "doc": {
-                "category": "arithm_div",
+                "category": "arithm_quiet",
                 "description": "",
                 "gas": "42",
                 "fift": "[tt+1] QMULMODPOW2#"
@@ -39166,12 +39166,12 @@
             }
         },
         {
-            "mnemonic": "HASHEXT_BLAKE2B",
+            "mnemonic": "HASHEXTR_BLAKE2B",
             "doc": {
                 "category": "app_crypto",
                 "description": "Calculates and returns hash of the concatenation of slices (or builders) `s_1...s_n`.",
                 "gas": "1/19 gas per byte",
-                "fift": "HASHEXT_BLAKE2B"
+                "fift": "HASHEXTR_BLAKE2B"
             },
             "bytecode": {
                 "doc_opcode": "F90502",
