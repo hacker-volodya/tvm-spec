@@ -3045,7 +3045,7 @@
                 "operands_range_check": {
                     "length": 8,
                     "from": 0,
-                    "to": 255
+                    "to": 254
                 },
                 "operands": [
                     {
