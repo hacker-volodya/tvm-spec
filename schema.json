@@ -65,10 +65,7 @@
         "stack": {
           "$ref": "#/definitions/stack"
         }
-      },
-      "required": [
-        "stack"
-      ]
+      }
     },
     "stack": {
       "type": "array",
@@ -520,7 +517,11 @@
             }
           },
           "required": [
-            "category"
+            "category",
+            "description",
+            "gas",
+            "fift",
+            "fift_examples"
           ]
         },
         "bytecode": {
@@ -627,7 +628,8 @@
                 },
                 "required": [
                   "name",
-                  "loader"
+                  "loader",
+                  "loader_args"
                 ],
                 "examples": [
                   {
@@ -666,7 +668,9 @@
           },
           "required": [
             "prefix",
-            "tlb"
+            "tlb",
+            "operands",
+            "doc_opcode"
           ]
         },
         "value_flow": {
@@ -674,6 +678,7 @@
           "title": "Value flow of instruction",
           "description": "Information related to usage of stack and registers by instruction.",
           "additionalProperties": false,
+          "required": ["doc_stack", "inputs", "outputs"],
           "properties": {
             "doc_stack": {
               "type": "string",
@@ -698,18 +703,17 @@
           "title": "Control flow of instruction",
           "description": "Information related to current cc modification by instruction",
           "additionalProperties": false,
+          "required": ["branches", "nobranch"],
           "properties": {
             "branches": {
               "type": "array",
               "title": "Possible branches of an instruction",
               "description": "Array of current continuation possible values after current instruction execution",
-              "default": [],
               "items": { "$ref": "#/definitions/continuation" },
               "additionalItems": false
             },
             "nobranch": {
               "type": "boolean",
-              "default": false,
               "title": "No branch possibility",
               "description": "Can this instruction not perform any of specified branches in certain cases (do not modify cc)?"
             }
@@ -719,7 +723,9 @@
       "required": [
         "mnemonic",
         "doc",
-        "bytecode"
+        "bytecode",
+        "value_flow",
+        "control_flow"
       ]
     }
   },
