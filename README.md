@@ -227,7 +227,7 @@ Loads `r` uint of size `refs_length_var_size` (if present), `x` uint of size `bi
 | bits_length_var_size | Size of bit length operand. Optional, assuming this part of bit length is 0 if absent.
 | bits_padding | Constant integer value to add to length of bitstring to load. Optional, assuming 0 if absent.
 | refs_length_var_size | Size of ref count operand. Optional, assuming this part of ref count is 0 if absent.
-| refs_add | Constant integer value to add to ref count. Optional, assuming 1 if absent.
+| refs_add | Constant integer value to add to ref count. Optional, assuming 0 if absent.
 | completion_tag | Boolean flag, tells to remove trailing `'1' + '0' * x` from bitstring if true. Optional, assuming false if absent.
 
 ### Stack Entry Specification and Examples
