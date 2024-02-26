@@ -153,7 +153,6 @@ However, nothing can stop you from just copying `cp0.json` (and `schema.json` if
 | bytecode.operands[i].name | Operand variable name. Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore. Required.
 | bytecode.operands[i].loader | Loader function for operand. Must be one of `int`, `uint`, `ref`, `pushint_long`, `subslice`. Loaders are described below. Required.
 | bytecode.operands[i].loader_args | Arguments for loader function, specified below. Optional, no arguments in case of absence.
-| bytecode.operands[i].internal | Internal flag. If true, this operand is used as a subslice length variable, should be used only for serialization/deserialization, humans and implementations do not need them. Optional, default is false.
 | value_flow | Information related to usage of stack and registers by instruction. Optional.
 | value_flow.doc_stack | Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value). Optional.
 | value_flow.inputs | Incoming values constraints. Input is unconstrained if absent.
@@ -207,44 +206,27 @@ Loads a single reference from bytecode. Unlike `subslice` with `refs_add = 1`, s
 Special loader which currently is used only in `PUSHINT_LONG` instruction. Loads 5-bit uint `size` and then loads and returns integer of bit size `8 * size + 19`. No arguments are required.
 #### subslice
 ```json
-[
-    {
-        "name": "r",
-        "loader": "uint",
-        "loader_args": {
-            "size": 2
-        },
-        "internal": true
-    },
-    {
-        "name": "x",
-        "loader": "uint",
-        "loader_args": {
-            "size": 5
-        },
-        "internal": true
-    },
-    {
-        "name": "slice",
-        "loader": "subslice",
-        "loader_args": {
-            "bits_length_var": "x",
-            "bits_padding": 1,
-            "refs_length_var": "r",
-            "refs_add": 1,
-            "completion_tag": true
-        }
+{
+    "name": "slice",
+    "loader": "subslice",
+    "loader_args": {
+        "bits_length_var_size": 5,
+        "bits_padding": 1,
+        "refs_length_var_size": 2,
+        "refs_add": 1,
+        "completion_tag": true
     }
-]
+}
 ```
+_TLB notation: `r:(## 2) xx:(## 5) c:((r + 1) * ^Cell) ssss:((8 * xx + 1) * Bit)`_
 
-Loads subslice of bit length `{bits_length_var} * 8 + bits_padding` and ref count `{refs_length_var} + refs_add`. If `completion_tag` argument with value `true` is passed, remove completion tag from bitstring (trailing `'1' + '0' * x`). Length variables are usually `"internal": true` because they should not be showed to user or provided to an implementation.
+Loads `r` uint of size `refs_length_var_size` (if present), `x` uint of size `bits_length_var_size` (if present). Then loads subslice of bit length `x * 8 + bits_padding` and ref count `r + refs_add`. If `completion_tag` argument with value `true` is passed, remove completion tag from bitstring (trailing `'1' + '0' * x`).
 
 | Argument | Description
 | -------- | -----------
-| bits_length_var | Name of (previously parsed) operand which contains bit length to load. Optional, assuming this part of bit length is 0 if absent.
+| bits_length_var_size | Size of bit length operand. Optional, assuming this part of bit length is 0 if absent.
 | bits_padding | Constant integer value to add to length of bitstring to load. Optional, assuming 0 if absent.
-| refs_length_var | Name of (previously parsed) operand which contains ref count to load. Optional, assuming this part of ref count is 0 if absent.
+| refs_length_var_size | Size of ref count operand. Optional, assuming this part of ref count is 0 if absent.
 | refs_add | Constant integer value to add to ref count. Optional, assuming 1 if absent.
 | completion_tag | Boolean flag, tells to remove trailing `'1' + '0' * x` from bitstring if true. Optional, assuming false if absent.
 

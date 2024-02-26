@@ -623,12 +623,6 @@
                     "type": "object",
                     "title": "Arguments for loader function. Optional, no arguments in case of absence.",
                     "default": {}
-                  },
-                  "internal": {
-                    "type": "boolean",
-                    "title": "Internal flag",
-                    "description": "If true, this operand is used as a subslice length variable, should be used only for serialization/deserialization, humans and implementations do not need them.",
-                    "default": false
                   }
                 },
                 "required": [

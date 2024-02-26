@@ -3301,18 +3301,10 @@
                 "prefix": "8B",
                 "operands": [
                     {
-                        "name": "x",
-                        "loader": "uint",
-                        "loader_args": {
-                            "size": 4
-                        },
-                        "internal": true
-                    },
-                    {
                         "name": "s",
                         "loader": "subslice",
                         "loader_args": {
-                            "bits_length_var": "x",
+                            "bits_length_var_size": 4,
                             "bits_padding": 4,
                             "completion_tag": true
                         }
@@ -3349,28 +3341,12 @@
                 "prefix": "8C",
                 "operands": [
                     {
-                        "name": "r",
-                        "loader": "uint",
-                        "loader_args": {
-                            "size": 2
-                        },
-                        "internal": true
-                    },
-                    {
-                        "name": "x",
-                        "loader": "uint",
-                        "loader_args": {
-                            "size": 5
-                        },
-                        "internal": true
-                    },
-                    {
                         "name": "slice",
                         "loader": "subslice",
                         "loader_args": {
-                            "bits_length_var": "x",
+                            "bits_length_var_size": 5,
                             "bits_padding": 1,
-                            "refs_length_var": "r",
+                            "refs_length_var_size": 2,
                             "refs_add": 1,
                             "completion_tag": true
                         }
@@ -3422,28 +3398,12 @@
                 },
                 "operands": [
                     {
-                        "name": "r",
-                        "loader": "uint",
-                        "loader_args": {
-                            "size": 3
-                        },
-                        "internal": true
-                    },
-                    {
-                        "name": "x",
-                        "loader": "uint",
-                        "loader_args": {
-                            "size": 7
-                        },
-                        "internal": true
-                    },
-                    {
                         "name": "slice",
                         "loader": "subslice",
                         "loader_args": {
-                            "bits_length_var": "x",
+                            "bits_length_var_size": 7,
                             "bits_padding": 6,
-                            "refs_length_var": "r",
+                            "refs_length_var_size": 3,
                             "completion_tag": true
                         }
                     }
@@ -3479,28 +3439,12 @@
                 "prefix": "8F_",
                 "operands": [
                     {
-                        "name": "r",
-                        "loader": "uint",
-                        "loader_args": {
-                            "size": 2
-                        },
-                        "internal": true
-                    },
-                    {
-                        "name": "x",
-                        "loader": "uint",
-                        "loader_args": {
-                            "size": 7
-                        },
-                        "internal": true
-                    },
-                    {
                         "name": "s",
                         "loader": "subslice",
                         "loader_args": {
-                            "bits_length_var": "x",
+                            "bits_length_var_size": 7,
                             "bits_padding": 0,
-                            "refs_length_var": "r"
+                            "refs_length_var_size": 2
                         }
                     }
                 ]
@@ -3541,18 +3485,10 @@
                 "prefix": "9",
                 "operands": [
                     {
-                        "name": "x",
-                        "loader": "uint",
-                        "loader_args": {
-                            "size": 4
-                        },
-                        "internal": true
-                    },
-                    {
                         "name": "s",
                         "loader": "subslice",
                         "loader_args": {
-                            "bits_length_var": "x",
+                            "bits_length_var_size": 4,
                             "bits_padding": 0
                         }
                     }
@@ -19077,28 +19013,12 @@
                 "prefix": "CFC0_",
                 "operands": [
                     {
-                        "name": "x",
-                        "loader": "uint",
-                        "loader_args": {
-                            "size": 2
-                        },
-                        "internal": true
-                    },
-                    {
-                        "name": "y",
-                        "loader": "uint",
-                        "loader_args": {
-                            "size": 3
-                        },
-                        "internal": true
-                    },
-                    {
-                        "name": "sss",
+                        "name": "s",
                         "loader": "subslice",
                         "loader_args": {
-                            "bits_length_var": "y",
+                            "bits_length_var_size": 3,
                             "bits_padding": 2,
-                            "refs_length_var": "x",
+                            "refs_length_var_size": 2,
                             "completion_tag": true
                         }
                     }
@@ -21158,18 +21078,10 @@
                 "prefix": "D72A_",
                 "operands": [
                     {
-                        "name": "x",
-                        "loader": "uint",
-                        "loader_args": {
-                            "size": 7
-                        },
-                        "internal": true
-                    },
-                    {
                         "name": "s",
                         "loader": "subslice",
                         "loader_args": {
-                            "bits_length_var": "x",
+                            "bits_length_var_size": 7,
                             "bits_padding": 3,
                             "completion_tag": true
                         }
@@ -21212,18 +21124,10 @@
                 "prefix": "D72E_",
                 "operands": [
                     {
-                        "name": "x",
-                        "loader": "uint",
-                        "loader_args": {
-                            "size": 7
-                        },
-                        "internal": true
-                    },
-                    {
                         "name": "s",
                         "loader": "subslice",
                         "loader_args": {
-                            "bits_length_var": "x",
+                            "bits_length_var_size": 7,
                             "bits_padding": 3,
                             "completion_tag": true
                         }
@@ -43110,18 +43014,10 @@
                 "prefix": "FEF",
                 "operands": [
                     {
-                        "name": "n",
-                        "loader": "uint",
-                        "loader_args": {
-                            "size": 4
-                        },
-                        "internal": true
-                    },
-                    {
                         "name": "s",
                         "loader": "subslice",
                         "loader_args": {
-                            "bits_length_var": "n",
+                            "bits_length_var_size": 4,
                             "bits_padding": 8
                         }
                     }
