@@ -3305,7 +3305,8 @@
                         "loader": "uint",
                         "loader_args": {
                             "size": 4
-                        }
+                        },
+                        "internal": true
                     },
                     {
                         "name": "s",
@@ -3352,14 +3353,16 @@
                         "loader": "uint",
                         "loader_args": {
                             "size": 2
-                        }
+                        },
+                        "internal": true
                     },
                     {
                         "name": "x",
                         "loader": "uint",
                         "loader_args": {
                             "size": 5
-                        }
+                        },
+                        "internal": true
                     },
                     {
                         "name": "slice",
@@ -3423,14 +3426,16 @@
                         "loader": "uint",
                         "loader_args": {
                             "size": 3
-                        }
+                        },
+                        "internal": true
                     },
                     {
                         "name": "x",
                         "loader": "uint",
                         "loader_args": {
                             "size": 7
-                        }
+                        },
+                        "internal": true
                     },
                     {
                         "name": "slice",
@@ -3478,14 +3483,16 @@
                         "loader": "uint",
                         "loader_args": {
                             "size": 2
-                        }
+                        },
+                        "internal": true
                     },
                     {
                         "name": "x",
                         "loader": "uint",
                         "loader_args": {
                             "size": 7
-                        }
+                        },
+                        "internal": true
                     },
                     {
                         "name": "s",
@@ -3538,7 +3545,8 @@
                         "loader": "uint",
                         "loader_args": {
                             "size": 4
-                        }
+                        },
+                        "internal": true
                     },
                     {
                         "name": "s",
@@ -19073,14 +19081,16 @@
                         "loader": "uint",
                         "loader_args": {
                             "size": 2
-                        }
+                        },
+                        "internal": true
                     },
                     {
                         "name": "y",
                         "loader": "uint",
                         "loader_args": {
                             "size": 3
-                        }
+                        },
+                        "internal": true
                     },
                     {
                         "name": "sss",
@@ -21152,7 +21162,8 @@
                         "loader": "uint",
                         "loader_args": {
                             "size": 7
-                        }
+                        },
+                        "internal": true
                     },
                     {
                         "name": "s",
@@ -21205,7 +21216,8 @@
                         "loader": "uint",
                         "loader_args": {
                             "size": 7
-                        }
+                        },
+                        "internal": true
                     },
                     {
                         "name": "s",
@@ -43102,7 +43114,8 @@
                         "loader": "uint",
                         "loader_args": {
                             "size": 4
-                        }
+                        },
+                        "internal": true
                     },
                     {
                         "name": "s",

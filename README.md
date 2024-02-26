@@ -153,6 +153,7 @@ However, nothing can stop you from just copying `cp0.json` (and `schema.json` if
 | bytecode.operands[i].name | Operand variable name. Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore. Required.
 | bytecode.operands[i].loader | Loader function for operand. Must be one of `int`, `uint`, `ref`, `pushint_long`, `subslice`. Loaders are described below. Required.
 | bytecode.operands[i].loader_args | Arguments for loader function, specified below. Optional, no arguments in case of absence.
+| bytecode.operands[i].internal | Internal flag. If true, this operand is used as a subslice length variable, should be used only for serialization/deserialization, humans and implementations do not need them. Optional, default is false.
 | value_flow | Information related to usage of stack and registers by instruction. Optional.
 | value_flow.doc_stack | Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value). Optional.
 | value_flow.inputs | Incoming values constraints. Input is unconstrained if absent.
@@ -212,14 +213,16 @@ Special loader which currently is used only in `PUSHINT_LONG` instruction. Loads
         "loader": "uint",
         "loader_args": {
             "size": 2
-        }
+        },
+        "internal": true
     },
     {
         "name": "x",
         "loader": "uint",
         "loader_args": {
             "size": 5
-        }
+        },
+        "internal": true
     },
     {
         "name": "slice",
@@ -235,7 +238,7 @@ Special loader which currently is used only in `PUSHINT_LONG` instruction. Loads
 ]
 ```
 
-Loads subslice of bit length `{bits_length_var} * 8 + bits_padding` and ref count `{refs_length_var} + refs_add`. If `completion_tag` argument with value `true` is passed, remove completion tag from bitstring (trailing `'1' + '0' * x`).
+Loads subslice of bit length `{bits_length_var} * 8 + bits_padding` and ref count `{refs_length_var} + refs_add`. If `completion_tag` argument with value `true` is passed, remove completion tag from bitstring (trailing `'1' + '0' * x`). Length variables are usually `"internal": true` because they should not be showed to user or provided to an implementation.
 
 | Argument | Description
 | -------- | -----------
