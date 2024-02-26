@@ -3491,7 +3491,7 @@
                         "name": "s",
                         "loader": "subslice",
                         "loader_args": {
-                            "bits_length_var": "xx",
+                            "bits_length_var": "x",
                             "bits_padding": 0,
                             "refs_length_var": "r"
                         }
