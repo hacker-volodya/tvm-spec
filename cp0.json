@@ -38,7 +38,13 @@
         "prefix": "0",
         "operands_range_check": { "length": 4, "from": 1, "to": 15 },
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 1,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -59,8 +65,20 @@
         "prefix": "10",
         "operands_range_check": { "length": 4, "from": 1, "to": 15 },
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 1,
+            "max_value": 15
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -80,7 +98,13 @@
         "tlb": "#11 ii:uint8",
         "prefix": "11",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -101,7 +125,13 @@
         "prefix": "1",
         "operands_range_check": { "length": 4, "from": 2, "to": 15 },
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 2,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -121,7 +151,13 @@
         "tlb": "#2 i:uint4",
         "prefix": "2",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -141,7 +177,13 @@
         "tlb": "#3 i:uint4",
         "prefix": "3",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -161,9 +203,27 @@
         "tlb": "#4 i:uint4 j:uint4 k:uint4",
         "prefix": "4",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "k", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "k",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -183,8 +243,20 @@
         "tlb": "#50 i:uint4 j:uint4",
         "prefix": "50",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -204,8 +276,20 @@
         "tlb": "#51 i:uint4 j:uint4",
         "prefix": "51",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -225,8 +309,20 @@
         "tlb": "#52 i:uint4 j:uint4",
         "prefix": "52",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -246,8 +342,20 @@
         "tlb": "#53 i:uint4 j:uint4",
         "prefix": "53",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -267,9 +375,27 @@
         "tlb": "#540 i:uint4 j:uint4 k:uint4",
         "prefix": "540",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "k", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "k",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -289,9 +415,27 @@
         "tlb": "#541 i:uint4 j:uint4 k:uint4",
         "prefix": "541",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "k", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "k",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -311,9 +455,27 @@
         "tlb": "#542 i:uint4 j:uint4 k:uint4",
         "prefix": "542",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "k", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "k",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -333,9 +495,27 @@
         "tlb": "#543 i:uint4 j:uint4 k:uint4",
         "prefix": "543",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "k", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "k",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -355,9 +535,27 @@
         "tlb": "#544 i:uint4 j:uint4 k:uint4",
         "prefix": "544",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "k", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "k",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -377,9 +575,27 @@
         "tlb": "#545 i:uint4 j:uint4 k:uint4",
         "prefix": "545",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "k", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "k",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -399,9 +615,27 @@
         "tlb": "#546 i:uint4 j:uint4 k:uint4",
         "prefix": "546",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "k", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "k",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -421,9 +655,27 @@
         "tlb": "#547 i:uint4 j:uint4 k:uint4",
         "prefix": "547",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "k", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "k",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -443,8 +695,20 @@
         "tlb": "#55 i:uint4 j:uint4",
         "prefix": "55",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -464,7 +728,13 @@
         "tlb": "#56 ii:uint8",
         "prefix": "56",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -484,7 +754,13 @@
         "tlb": "#57 ii:uint8",
         "prefix": "57",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -632,8 +908,20 @@
         "tlb": "#5E i:uint4 j:uint4",
         "prefix": "5E",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -653,7 +941,13 @@
         "tlb": "#5F0 i:uint4",
         "prefix": "5F0",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -674,8 +968,20 @@
         "prefix": "5F",
         "operands_range_check": { "length": 4, "from": 1, "to": 15 },
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 1,
+            "max_value": 15
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -928,8 +1234,20 @@
         "prefix": "6C",
         "operands_range_check": { "length": 4, "from": 1, "to": 15 },
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 1,
+            "max_value": 15
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "", "inputs": {}, "outputs": {} },
@@ -1003,7 +1321,13 @@
         "tlb": "#6F0 n:uint4",
         "prefix": "6F0",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -1038,7 +1362,13 @@
         "tlb": "#6F1 k:uint4",
         "prefix": "6F1",
         "operands": [
-          { "name": "k", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "k",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -1064,7 +1394,13 @@
         "tlb": "#6F2 n:uint4",
         "prefix": "6F2",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -1099,7 +1435,13 @@
         "tlb": "#6F3 k:uint4",
         "prefix": "6F3",
         "operands": [
-          { "name": "k", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "k",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -1134,7 +1476,13 @@
         "tlb": "#6F4 n:uint4",
         "prefix": "6F4",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -1170,7 +1518,13 @@
         "tlb": "#6F5 k:uint4",
         "prefix": "6F5",
         "operands": [
-          { "name": "k", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "k",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -1203,7 +1557,13 @@
         "tlb": "#6F6 k:uint4",
         "prefix": "6F6",
         "operands": [
-          { "name": "k", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "k",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -1231,7 +1591,13 @@
         "tlb": "#6F7 k:uint4",
         "prefix": "6F7",
         "operands": [
-          { "name": "k", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "k",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -2025,8 +2391,20 @@
         "tlb": "#6FB i:uint2 j:uint2",
         "prefix": "6FB",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 2 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 2 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 2,
+            "min_value": 0,
+            "max_value": 3
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 2,
+            "min_value": 0,
+            "max_value": 3
+          }
         ]
       },
       "value_flow": {
@@ -2052,9 +2430,27 @@
         "tlb": "#6FE_ i:uint2 j:uint2 k:uint2",
         "prefix": "6FE_",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 2 } },
-          { "name": "j", "loader": "uint", "loader_args": { "size": 2 } },
-          { "name": "k", "loader": "uint", "loader_args": { "size": 2 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 2,
+            "min_value": 0,
+            "max_value": 3
+          },
+          {
+            "name": "j",
+            "type": "uint",
+            "size": 2,
+            "min_value": 0,
+            "max_value": 3
+          },
+          {
+            "name": "k",
+            "type": "uint",
+            "size": 2,
+            "min_value": 0,
+            "max_value": 3
+          }
         ]
       },
       "value_flow": {
@@ -2080,7 +2476,13 @@
         "tlb": "#7 i:uint4",
         "prefix": "7",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -2108,7 +2510,13 @@
         "tlb": "#80 xx:int8",
         "prefix": "80",
         "operands": [
-          { "name": "x", "loader": "int", "loader_args": { "size": 8 } }
+          {
+            "name": "x",
+            "type": "int",
+            "size": 8,
+            "min_value": -128,
+            "max_value": 127
+          }
         ]
       },
       "value_flow": {
@@ -2136,7 +2544,13 @@
         "tlb": "#81 xxxx:int16",
         "prefix": "81",
         "operands": [
-          { "name": "x", "loader": "int", "loader_args": { "size": 16 } }
+          {
+            "name": "x",
+            "type": "int",
+            "size": 16,
+            "min_value": -32768,
+            "max_value": 32767
+          }
         ]
       },
       "value_flow": {
@@ -2165,7 +2579,10 @@
         "prefix": "82",
         "operands_range_check": { "length": 5, "from": 0, "to": 30 },
         "operands": [
-          { "name": "x", "loader": "pushint_long", "loader_args": {} }
+          {
+            "name": "x",
+            "type": "pushint_long"
+          }
         ]
       },
       "value_flow": {
@@ -2194,7 +2611,13 @@
         "prefix": "83",
         "operands_range_check": { "length": 8, "from": 0, "to": 254 },
         "operands": [
-          { "name": "x", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "x",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 254
+          }
         ]
       },
       "value_flow": {
@@ -2246,7 +2669,13 @@
         "tlb": "#84 xx:uint8",
         "prefix": "84",
         "operands": [
-          { "name": "x", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "x",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -2274,7 +2703,13 @@
         "tlb": "#85 xx:uint8",
         "prefix": "85",
         "operands": [
-          { "name": "x", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "x",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -2301,7 +2736,9 @@
         "doc_opcode": "88",
         "tlb": "#88 c:^Cell",
         "prefix": "88",
-        "operands": [{ "name": "c", "loader": "ref", "loader_args": {} }]
+        "operands": [
+          { "name": "c", "type": "ref", "decode_hint": { "type": "plain" } }
+        ]
       },
       "value_flow": {
         "doc_stack": "- c",
@@ -2327,7 +2764,9 @@
         "doc_opcode": "89",
         "tlb": "#89 c:^Cell",
         "prefix": "89",
-        "operands": [{ "name": "c", "loader": "ref", "loader_args": {} }]
+        "operands": [
+          { "name": "c", "type": "ref", "decode_hint": { "type": "plain" } }
+        ]
       },
       "value_flow": {
         "doc_stack": "- s",
@@ -2353,7 +2792,13 @@
         "doc_opcode": "8A",
         "tlb": "#8A c:^Cell",
         "prefix": "8A",
-        "operands": [{ "name": "c", "loader": "ref", "loader_args": {} }]
+        "operands": [
+          {
+            "name": "c",
+            "type": "ref",
+            "decode_hint": { "type": "continuation" }
+          }
+        ]
       },
       "value_flow": {
         "doc_stack": "- cont",
@@ -2386,12 +2831,15 @@
         "operands": [
           {
             "name": "s",
-            "loader": "subslice",
-            "loader_args": {
-              "bits_length_var_size": 4,
-              "bits_padding": 4,
-              "completion_tag": true
-            }
+            "type": "subslice",
+            "bits_length_var_size": 4,
+            "bits_padding": 4,
+            "completion_tag": true,
+            "max_bits": 123,
+            "min_bits": 0,
+            "max_refs": 0,
+            "min_refs": 0,
+            "decode_hint": { "type": "plain" }
           }
         ]
       },
@@ -2422,14 +2870,17 @@
         "operands": [
           {
             "name": "slice",
-            "loader": "subslice",
-            "loader_args": {
-              "bits_length_var_size": 5,
-              "bits_padding": 1,
-              "refs_length_var_size": 2,
-              "refs_add": 1,
-              "completion_tag": true
-            }
+            "type": "subslice",
+            "bits_length_var_size": 5,
+            "refs_length_var_size": 2,
+            "bits_padding": 1,
+            "refs_add": 1,
+            "completion_tag": true,
+            "max_bits": 248,
+            "min_bits": 0,
+            "max_refs": 4,
+            "min_refs": 1,
+            "decode_hint": { "type": "plain" }
           }
         ]
       },
@@ -2470,14 +2921,17 @@
         "operands": [
           {
             "name": "slice",
-            "loader": "subslice",
-            "loader_args": {
-              "bits_length_var_size": 7,
-              "bits_padding": 6,
-              "refs_length_var_size": 3,
-              "completion_tag": true,
-              "refs_add": 0
-            }
+            "type": "subslice",
+            "bits_length_var_size": 7,
+            "refs_length_var_size": 3,
+            "bits_padding": 6,
+            "refs_add": 0,
+            "completion_tag": true,
+            "max_bits": 1021,
+            "min_bits": 0,
+            "max_refs": 4,
+            "min_refs": 0,
+            "decode_hint": { "type": "plain" }
           }
         ]
       },
@@ -2508,14 +2962,17 @@
         "operands": [
           {
             "name": "s",
-            "loader": "subslice",
-            "loader_args": {
-              "bits_length_var_size": 7,
-              "bits_padding": 0,
-              "refs_length_var_size": 2,
-              "refs_add": 0,
-              "completion_tag": false
-            }
+            "type": "subslice",
+            "bits_length_var_size": 7,
+            "refs_length_var_size": 2,
+            "bits_padding": 0,
+            "refs_add": 0,
+            "completion_tag": false,
+            "max_bits": 1016,
+            "min_bits": 0,
+            "max_refs": 3,
+            "min_refs": 0,
+            "decode_hint": { "type": "plain" }
           }
         ]
       },
@@ -2555,12 +3012,15 @@
         "operands": [
           {
             "name": "s",
-            "loader": "subslice",
-            "loader_args": {
-              "bits_length_var_size": 4,
-              "bits_padding": 0,
-              "completion_tag": false
-            }
+            "type": "subslice",
+            "bits_length_var_size": 4,
+            "bits_padding": 0,
+            "completion_tag": false,
+            "max_bits": 120,
+            "min_bits": 0,
+            "max_refs": 0,
+            "min_refs": 0,
+            "decode_hint": { "type": "plain" }
           }
         ]
       },
@@ -2772,7 +3232,13 @@
         "tlb": "#A6 cc:int8",
         "prefix": "A6",
         "operands": [
-          { "name": "c", "loader": "int", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "int",
+            "size": 8,
+            "min_value": -128,
+            "max_value": 127
+          }
         ]
       },
       "value_flow": {
@@ -2804,7 +3270,13 @@
         "tlb": "#A7 cc:int8",
         "prefix": "A7",
         "operands": [
-          { "name": "c", "loader": "int", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "int",
+            "size": 8,
+            "min_value": -128,
+            "max_value": 127
+          }
         ]
       },
       "value_flow": {
@@ -3598,7 +4070,13 @@
         "tlb": "#A930 tt:uint8",
         "prefix": "A930",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -3632,7 +4110,13 @@
         "tlb": "#A931 tt:uint8",
         "prefix": "A931",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -3666,7 +4150,13 @@
         "tlb": "#A932 tt:uint8",
         "prefix": "A932",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -3700,7 +4190,13 @@
         "tlb": "#A935 tt:uint8",
         "prefix": "A935",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -3732,7 +4228,13 @@
         "tlb": "#A936 tt:uint8",
         "prefix": "A936",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -3764,7 +4266,13 @@
         "tlb": "#A938 tt:uint8",
         "prefix": "A938",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -3796,7 +4304,13 @@
         "tlb": "#A939 tt:uint8",
         "prefix": "A939",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -3828,7 +4342,13 @@
         "tlb": "#A93A tt:uint8",
         "prefix": "A93A",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -3860,7 +4380,13 @@
         "tlb": "#A93C tt:uint8",
         "prefix": "A93C",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -3893,7 +4419,13 @@
         "tlb": "#A93D tt:uint8",
         "prefix": "A93D",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -3926,7 +4458,13 @@
         "tlb": "#A93E tt:uint8",
         "prefix": "A93E",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -4742,7 +5280,13 @@
         "tlb": "#A9B0 tt:uint8",
         "prefix": "A9B0",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -4776,7 +5320,13 @@
         "tlb": "#A9B1 tt:uint8",
         "prefix": "A9B1",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -4810,7 +5360,13 @@
         "tlb": "#A9B2 tt:uint8",
         "prefix": "A9B2",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -4844,7 +5400,13 @@
         "tlb": "#A9B4 tt:uint8",
         "prefix": "A9B4",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -4877,7 +5439,13 @@
         "tlb": "#A9B5 tt:uint8",
         "prefix": "A9B5",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -4910,7 +5478,13 @@
         "tlb": "#A9B6 tt:uint8",
         "prefix": "A9B6",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -4943,7 +5517,13 @@
         "tlb": "#A9B8 tt:uint8",
         "prefix": "A9B8",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -4976,7 +5556,13 @@
         "tlb": "#A9B9 tt:uint8",
         "prefix": "A9B9",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -5009,7 +5595,13 @@
         "tlb": "#A9BA tt:uint8",
         "prefix": "A9BA",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -5522,7 +6114,13 @@
         "tlb": "#A9D0 tt:uint8",
         "prefix": "A9D0",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -5556,7 +6154,13 @@
         "tlb": "#A9D1 tt:uint8",
         "prefix": "A9D1",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -5590,7 +6194,13 @@
         "tlb": "#A9D2 tt:uint8",
         "prefix": "A9D2",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -5624,7 +6234,13 @@
         "tlb": "#A9D4 tt:uint8",
         "prefix": "A9D4",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -5657,7 +6273,13 @@
         "tlb": "#A9D5 tt:uint8",
         "prefix": "A9D5",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -5690,7 +6312,13 @@
         "tlb": "#A9D6 tt:uint8",
         "prefix": "A9D6",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -5723,7 +6351,13 @@
         "tlb": "#A9D8 tt:uint8",
         "prefix": "A9D8",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -5756,7 +6390,13 @@
         "tlb": "#A9D9 tt:uint8",
         "prefix": "A9D9",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -5789,7 +6429,13 @@
         "tlb": "#A9DA tt:uint8",
         "prefix": "A9DA",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -5822,7 +6468,13 @@
         "tlb": "#A9DC tt:uint8",
         "prefix": "A9DC",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -5855,7 +6507,13 @@
         "tlb": "#A9DD tt:uint8",
         "prefix": "A9DD",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -5888,7 +6546,13 @@
         "tlb": "#A9DE tt:uint8",
         "prefix": "A9DE",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -5921,7 +6585,13 @@
         "tlb": "#AA cc:uint8",
         "prefix": "AA",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -5953,7 +6623,13 @@
         "tlb": "#AB cc:uint8",
         "prefix": "AB",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -6200,7 +6876,13 @@
         "tlb": "#B4 cc:uint8",
         "prefix": "B4",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -6232,7 +6914,13 @@
         "tlb": "#B5 cc:uint8",
         "prefix": "B5",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -7455,7 +8143,13 @@
         "tlb": "#B7A930 tt:uint8",
         "prefix": "B7A930",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -7489,7 +8183,13 @@
         "tlb": "#B7A931 tt:uint8",
         "prefix": "B7A931",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -7523,7 +8223,13 @@
         "tlb": "#B7A932 tt:uint8",
         "prefix": "B7A932",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -7557,7 +8263,13 @@
         "tlb": "#B7A935 tt:uint8",
         "prefix": "B7A935",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -7589,7 +8301,13 @@
         "tlb": "#B7A936 tt:uint8",
         "prefix": "B7A936",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -7621,7 +8339,13 @@
         "tlb": "#B7A938 tt:uint8",
         "prefix": "B7A938",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -7653,7 +8377,13 @@
         "tlb": "#B7A939 tt:uint8",
         "prefix": "B7A939",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -7685,7 +8415,13 @@
         "tlb": "#B7A93A tt:uint8",
         "prefix": "B7A93A",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -7717,7 +8453,13 @@
         "tlb": "#A93C tt:uint8",
         "prefix": "A93C",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -7750,7 +8492,13 @@
         "tlb": "#A93D tt:uint8",
         "prefix": "A93D",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -7783,7 +8531,13 @@
         "tlb": "#B7A93E tt:uint8",
         "prefix": "B7A93E",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -8598,7 +9352,13 @@
         "tlb": "#B7A9B0 tt:uint8",
         "prefix": "B7A9B0",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -8632,7 +9392,13 @@
         "tlb": "#B7A9B1 tt:uint8",
         "prefix": "B7A9B1",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -8666,7 +9432,13 @@
         "tlb": "#B7A9B2 tt:uint8",
         "prefix": "B7A9B2",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -8700,7 +9472,13 @@
         "tlb": "#B7A9B4 tt:uint8",
         "prefix": "B7A9B4",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -8733,7 +9511,13 @@
         "tlb": "#B7A9B5 tt:uint8",
         "prefix": "B7A9B5",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -8766,7 +9550,13 @@
         "tlb": "#B7A9B6 tt:uint8",
         "prefix": "B7A9B6",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -8799,7 +9589,13 @@
         "tlb": "#B7A9B8 tt:uint8",
         "prefix": "B7A9B8",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -8832,7 +9628,13 @@
         "tlb": "#B7A9B9 tt:uint8",
         "prefix": "B7A9B9",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -8865,7 +9667,13 @@
         "tlb": "#B7A9BA tt:uint8",
         "prefix": "B7A9BA",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -9378,7 +10186,13 @@
         "tlb": "#B7A9D0 tt:uint8",
         "prefix": "B7A9D0",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -9412,7 +10226,13 @@
         "tlb": "#B7A9D1 tt:uint8",
         "prefix": "B7A9D1",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -9446,7 +10266,13 @@
         "tlb": "#B7A9D2 tt:uint8",
         "prefix": "B7A9D2",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -9480,7 +10306,13 @@
         "tlb": "#B7A9D4 tt:uint8",
         "prefix": "B7A9D4",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -9513,7 +10345,13 @@
         "tlb": "#B7A9D5 tt:uint8",
         "prefix": "B7A9D5",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -9546,7 +10384,13 @@
         "tlb": "#B7A9D6 tt:uint8",
         "prefix": "B7A9D6",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -9579,7 +10423,13 @@
         "tlb": "#B7A9D8 tt:uint8",
         "prefix": "B7A9D8",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -9612,7 +10462,13 @@
         "tlb": "#B7A9D9 tt:uint8",
         "prefix": "B7A9D9",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -9645,7 +10501,13 @@
         "tlb": "#B7A9DA tt:uint8",
         "prefix": "B7A9DA",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -9678,7 +10540,13 @@
         "tlb": "#B7A9DC tt:uint8",
         "prefix": "B7A9DC",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -9711,7 +10579,13 @@
         "tlb": "#B7A9DD tt:uint8",
         "prefix": "B7A9DD",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -9744,7 +10618,13 @@
         "tlb": "#B7A9DE tt:uint8",
         "prefix": "B7A9DE",
         "operands": [
-          { "name": "t", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -9777,7 +10657,13 @@
         "tlb": "#B7AA cc:uint8",
         "prefix": "B7AA",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -9809,7 +10695,13 @@
         "tlb": "#B7AB cc:uint8",
         "prefix": "B7AB",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -10056,7 +10948,13 @@
         "tlb": "#B7B4 cc:uint8",
         "prefix": "B7B4",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -10088,7 +10986,13 @@
         "tlb": "#B7B5 cc:uint8",
         "prefix": "B7B5",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -10429,7 +11333,13 @@
         "tlb": "#C0 yy:int8",
         "prefix": "C0",
         "operands": [
-          { "name": "y", "loader": "int", "loader_args": { "size": 8 } }
+          {
+            "name": "y",
+            "type": "int",
+            "size": 8,
+            "min_value": -128,
+            "max_value": 127
+          }
         ]
       },
       "value_flow": {
@@ -10461,7 +11371,13 @@
         "tlb": "#C1 yy:int8",
         "prefix": "C1",
         "operands": [
-          { "name": "y", "loader": "int", "loader_args": { "size": 8 } }
+          {
+            "name": "y",
+            "type": "int",
+            "size": 8,
+            "min_value": -128,
+            "max_value": 127
+          }
         ]
       },
       "value_flow": {
@@ -10493,7 +11409,13 @@
         "tlb": "#C2 yy:int8",
         "prefix": "C2",
         "operands": [
-          { "name": "y", "loader": "int", "loader_args": { "size": 8 } }
+          {
+            "name": "y",
+            "type": "int",
+            "size": 8,
+            "min_value": -128,
+            "max_value": 127
+          }
         ]
       },
       "value_flow": {
@@ -10525,7 +11447,13 @@
         "tlb": "#C3 yy:int8",
         "prefix": "C3",
         "operands": [
-          { "name": "y", "loader": "int", "loader_args": { "size": 8 } }
+          {
+            "name": "y",
+            "type": "int",
+            "size": 8,
+            "min_value": -128,
+            "max_value": 127
+          }
         ]
       },
       "value_flow": {
@@ -11201,7 +12129,13 @@
         "tlb": "#CA cc:uint8",
         "prefix": "CA",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -11234,7 +12168,13 @@
         "tlb": "#CB cc:uint8",
         "prefix": "CB",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -11800,7 +12740,13 @@
         "tlb": "#CF08 cc:uint8",
         "prefix": "CF08",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -11833,7 +12779,13 @@
         "tlb": "#CF09 cc:uint8",
         "prefix": "CF09",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -11866,7 +12818,13 @@
         "tlb": "#CF0A cc:uint8",
         "prefix": "CF0A",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -11899,7 +12857,13 @@
         "tlb": "#CF0B cc:uint8",
         "prefix": "CF0B",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -11932,7 +12896,13 @@
         "tlb": "#CF0C cc:uint8",
         "prefix": "CF0C",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -12011,7 +12981,13 @@
         "tlb": "#CF0D cc:uint8",
         "prefix": "CF0D",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -12090,7 +13066,13 @@
         "tlb": "#CF0E cc:uint8",
         "prefix": "CF0E",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -12169,7 +13151,13 @@
         "tlb": "#CF0F cc:uint8",
         "prefix": "CF0F",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -12975,7 +13963,9 @@
         "doc_opcode": "CF20",
         "tlb": "#CF20 c:^Cell",
         "prefix": "CF20",
-        "operands": [{ "name": "c", "loader": "ref", "loader_args": {} }]
+        "operands": [
+          { "name": "c", "type": "ref", "decode_hint": { "type": "plain" } }
+        ]
       },
       "value_flow": {
         "doc_stack": "b - bвЂ™",
@@ -13401,7 +14391,13 @@
         "tlb": "#CF38 cc:uint8",
         "prefix": "CF38",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -13511,7 +14507,13 @@
         "tlb": "#CF3C cc:uint8",
         "prefix": "CF3C",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -13733,14 +14735,17 @@
         "operands": [
           {
             "name": "s",
-            "loader": "subslice",
-            "loader_args": {
-              "bits_length_var_size": 3,
-              "bits_padding": 2,
-              "refs_length_var_size": 2,
-              "completion_tag": true,
-              "refs_add": 0
-            }
+            "type": "subslice",
+            "bits_length_var_size": 3,
+            "refs_length_var_size": 2,
+            "bits_padding": 2,
+            "refs_add": 0,
+            "completion_tag": true,
+            "max_bits": 57,
+            "min_bits": 0,
+            "max_refs": 3,
+            "min_refs": 0,
+            "decode_hint": { "type": "plain" }
           }
         ]
       },
@@ -13823,7 +14828,13 @@
         "tlb": "#D2 cc:uint8",
         "prefix": "D2",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -13854,7 +14865,13 @@
         "tlb": "#D3 cc:uint8",
         "prefix": "D3",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -13943,7 +14960,13 @@
         "tlb": "#D6 cc:uint8",
         "prefix": "D6",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -14304,7 +15327,13 @@
         "tlb": "#D708 cc:uint8",
         "prefix": "D708",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -14335,7 +15364,13 @@
         "tlb": "#D709 cc:uint8",
         "prefix": "D709",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -14366,7 +15401,13 @@
         "tlb": "#D70A cc:uint8",
         "prefix": "D70A",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -14396,7 +15437,13 @@
         "tlb": "#D70B cc:uint8",
         "prefix": "D70B",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -14426,7 +15473,13 @@
         "tlb": "#D70C cc:uint8",
         "prefix": "D70C",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -14479,7 +15532,13 @@
         "tlb": "#D70D cc:uint8",
         "prefix": "D70D",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -14532,7 +15591,13 @@
         "tlb": "#D70E cc:uint8",
         "prefix": "D70E",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -14579,7 +15644,13 @@
         "tlb": "#D70F cc:uint8",
         "prefix": "D70F",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -14626,7 +15697,13 @@
         "tlb": "#D714_ c:uint3",
         "prefix": "D714_",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 3 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 3,
+            "min_value": 0,
+            "max_value": 7
+          }
         ]
       },
       "value_flow": {
@@ -14818,7 +15895,13 @@
         "tlb": "#D71C cc:uint8",
         "prefix": "D71C",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -14849,7 +15932,13 @@
         "tlb": "#D71D cc:uint8",
         "prefix": "D71D",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -14879,7 +15968,13 @@
         "tlb": "#D71E cc:uint8",
         "prefix": "D71E",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -14932,7 +16027,13 @@
         "tlb": "#D71F cc:uint8",
         "prefix": "D71F",
         "operands": [
-          { "name": "c", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -15213,12 +16314,15 @@
         "operands": [
           {
             "name": "s",
-            "loader": "subslice",
-            "loader_args": {
-              "bits_length_var_size": 7,
-              "bits_padding": 3,
-              "completion_tag": true
-            }
+            "type": "subslice",
+            "bits_length_var_size": 7,
+            "bits_padding": 3,
+            "completion_tag": true,
+            "max_bits": 1018,
+            "min_bits": 0,
+            "max_refs": 0,
+            "min_refs": 0,
+            "decode_hint": { "type": "plain" }
           }
         ]
       },
@@ -15251,12 +16355,15 @@
         "operands": [
           {
             "name": "s",
-            "loader": "subslice",
-            "loader_args": {
-              "bits_length_var_size": 7,
-              "bits_padding": 3,
-              "completion_tag": true
-            }
+            "type": "subslice",
+            "bits_length_var_size": 7,
+            "bits_padding": 3,
+            "completion_tag": true,
+            "max_bits": 1018,
+            "min_bits": 0,
+            "max_refs": 0,
+            "min_refs": 0,
+            "decode_hint": { "type": "plain" }
           }
         ]
       },
@@ -15946,7 +17053,13 @@
         "tlb": "#D74E_ n:uint2",
         "prefix": "D74E_",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 2 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 2,
+            "min_value": 0,
+            "max_value": 3
+          }
         ]
       },
       "value_flow": {
@@ -16801,8 +17914,20 @@
         "tlb": "#DA p:uint4 r:uint4",
         "prefix": "DA",
         "operands": [
-          { "name": "p", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "r", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "p",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "r",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -16850,7 +17975,13 @@
         "tlb": "#DB0 p:uint4",
         "prefix": "DB0",
         "operands": [
-          { "name": "p", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "p",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -16898,7 +18029,13 @@
         "tlb": "#DB1 p:uint4",
         "prefix": "DB1",
         "operands": [
-          { "name": "p", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "p",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -16935,7 +18072,13 @@
         "tlb": "#DB2 r:uint4",
         "prefix": "DB2",
         "operands": [
-          { "name": "r", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "r",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -17111,8 +18254,20 @@
         "tlb": "#DB36 p:uint4 r:uint4",
         "prefix": "DB36",
         "operands": [
-          { "name": "p", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "r", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "p",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "r",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -17317,7 +18472,13 @@
         "doc_opcode": "DB3C",
         "tlb": "#DB3C c:^Cell",
         "prefix": "DB3C",
-        "operands": [{ "name": "c", "loader": "ref", "loader_args": {} }]
+        "operands": [
+          {
+            "name": "c",
+            "type": "ref",
+            "decode_hint": { "type": "continuation" }
+          }
+        ]
       },
       "value_flow": {
         "doc_stack": "",
@@ -17353,7 +18514,13 @@
         "doc_opcode": "DB3D",
         "tlb": "#DB3D c:^Cell",
         "prefix": "DB3D",
-        "operands": [{ "name": "c", "loader": "ref", "loader_args": {} }]
+        "operands": [
+          {
+            "name": "c",
+            "type": "ref",
+            "decode_hint": { "type": "continuation" }
+          }
+        ]
       },
       "value_flow": {
         "doc_stack": "",
@@ -17378,7 +18545,13 @@
         "doc_opcode": "DB3E",
         "tlb": "#DB3E c:^Cell",
         "prefix": "DB3E",
-        "operands": [{ "name": "c", "loader": "ref", "loader_args": {} }]
+        "operands": [
+          {
+            "name": "c",
+            "type": "ref",
+            "decode_hint": { "type": "continuation" }
+          }
+        ]
       },
       "value_flow": {
         "doc_stack": "",
@@ -17749,7 +18922,13 @@
         "doc_opcode": "E300",
         "tlb": "#E300 c:^Cell",
         "prefix": "E300",
-        "operands": [{ "name": "c", "loader": "ref", "loader_args": {} }]
+        "operands": [
+          {
+            "name": "c",
+            "type": "ref",
+            "decode_hint": { "type": "continuation" }
+          }
+        ]
       },
       "value_flow": {
         "doc_stack": "f - ",
@@ -17789,7 +18968,13 @@
         "doc_opcode": "E301",
         "tlb": "#E301 c:^Cell",
         "prefix": "E301",
-        "operands": [{ "name": "c", "loader": "ref", "loader_args": {} }]
+        "operands": [
+          {
+            "name": "c",
+            "type": "ref",
+            "decode_hint": { "type": "continuation" }
+          }
+        ]
       },
       "value_flow": {
         "doc_stack": "f - ",
@@ -17829,7 +19014,13 @@
         "doc_opcode": "E302",
         "tlb": "#E302 c:^Cell",
         "prefix": "E302",
-        "operands": [{ "name": "c", "loader": "ref", "loader_args": {} }]
+        "operands": [
+          {
+            "name": "c",
+            "type": "ref",
+            "decode_hint": { "type": "continuation" }
+          }
+        ]
       },
       "value_flow": {
         "doc_stack": "f - ",
@@ -17858,7 +19049,13 @@
         "doc_opcode": "E303",
         "tlb": "#E303 c:^Cell",
         "prefix": "E303",
-        "operands": [{ "name": "c", "loader": "ref", "loader_args": {} }]
+        "operands": [
+          {
+            "name": "c",
+            "type": "ref",
+            "decode_hint": { "type": "continuation" }
+          }
+        ]
       },
       "value_flow": {
         "doc_stack": "f - ",
@@ -18001,7 +19198,13 @@
         "doc_opcode": "E30D",
         "tlb": "#E30D c:^Cell",
         "prefix": "E30D",
-        "operands": [{ "name": "c", "loader": "ref", "loader_args": {} }]
+        "operands": [
+          {
+            "name": "c",
+            "type": "ref",
+            "decode_hint": { "type": "continuation" }
+          }
+        ]
       },
       "value_flow": {
         "doc_stack": "f c -",
@@ -18052,7 +19255,13 @@
         "doc_opcode": "E30E",
         "tlb": "#E30E c:^Cell",
         "prefix": "E30E",
-        "operands": [{ "name": "c", "loader": "ref", "loader_args": {} }]
+        "operands": [
+          {
+            "name": "c",
+            "type": "ref",
+            "decode_hint": { "type": "continuation" }
+          }
+        ]
       },
       "value_flow": {
         "doc_stack": "f c -",
@@ -18104,8 +19313,16 @@
         "tlb": "#E30F c1:^Cell c2:^Cell",
         "prefix": "E30F",
         "operands": [
-          { "name": "c1", "loader": "ref", "loader_args": {} },
-          { "name": "c2", "loader": "ref", "loader_args": {} }
+          {
+            "name": "c1",
+            "type": "ref",
+            "decode_hint": { "type": "continuation" }
+          },
+          {
+            "name": "c2",
+            "type": "ref",
+            "decode_hint": { "type": "continuation" }
+          }
         ]
       },
       "value_flow": {
@@ -18157,7 +19374,13 @@
         "tlb": "#E39_ n:uint5",
         "prefix": "E39_",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 5 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 5,
+            "min_value": 0,
+            "max_value": 31
+          }
         ]
       },
       "value_flow": {
@@ -18193,7 +19416,13 @@
         "tlb": "#E3B_ n:uint5",
         "prefix": "E3B_",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 5 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 5,
+            "min_value": 0,
+            "max_value": 31
+          }
         ]
       },
       "value_flow": {
@@ -18229,8 +19458,18 @@
         "tlb": "#E3D_ n:uint5 c:^Cell",
         "prefix": "E3D_",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 5 } },
-          { "name": "c", "loader": "ref", "loader_args": {} }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 5,
+            "min_value": 0,
+            "max_value": 31
+          },
+          {
+            "name": "c",
+            "type": "ref",
+            "decode_hint": { "type": "continuation" }
+          }
         ]
       },
       "value_flow": {
@@ -18265,8 +19504,18 @@
         "tlb": "#E3F_ n:uint5 c:^Cell",
         "prefix": "E3F_",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 5 } },
-          { "name": "c", "loader": "ref", "loader_args": {} }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 5,
+            "min_value": 0,
+            "max_value": 31
+          },
+          {
+            "name": "c",
+            "type": "ref",
+            "decode_hint": { "type": "continuation" }
+          }
         ]
       },
       "value_flow": {
@@ -19007,8 +20256,20 @@
         "tlb": "#EC r:uint4 n:uint4",
         "prefix": "EC",
         "operands": [
-          { "name": "r", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "n", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "r",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -19046,7 +20307,13 @@
         "tlb": "#ED0 p:uint4",
         "prefix": "ED0",
         "operands": [
-          { "name": "p", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "p",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": { "doc_stack": "-", "inputs": {}, "outputs": {} },
@@ -19219,8 +20486,20 @@
         "tlb": "#EE r:uint4 n:uint4",
         "prefix": "EE",
         "operands": [
-          { "name": "r", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "n", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "r",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -19258,7 +20537,13 @@
         "tlb": "#ED4 i:uint4",
         "prefix": "ED4",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -19282,7 +20567,13 @@
         "tlb": "#ED5 i:uint4",
         "prefix": "ED5",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -19306,7 +20597,13 @@
         "tlb": "#ED6 i:uint4",
         "prefix": "ED6",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -19339,7 +20636,13 @@
         "tlb": "#ED7 i:uint4",
         "prefix": "ED7",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -19363,7 +20666,13 @@
         "tlb": "#ED8 i:uint4",
         "prefix": "ED8",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -19387,7 +20696,13 @@
         "tlb": "#ED9 i:uint4",
         "prefix": "ED9",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -19411,7 +20726,13 @@
         "tlb": "#EDA i:uint4",
         "prefix": "EDA",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -19435,7 +20756,13 @@
         "tlb": "#EDB i:uint4",
         "prefix": "EDB",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -19459,7 +20786,13 @@
         "tlb": "#EDC i:uint4",
         "prefix": "EDC",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -19943,7 +21276,13 @@
         "tlb": "#F0 n:uint8",
         "prefix": "F0",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
         ]
       },
       "value_flow": {
@@ -19985,7 +21324,13 @@
         "tlb": "#F12_ n:uint14",
         "prefix": "F12_",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 14 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 14,
+            "min_value": 0,
+            "max_value": 16383
+          }
         ]
       },
       "value_flow": {
@@ -20027,7 +21372,13 @@
         "tlb": "#F16_ n:uint14",
         "prefix": "F16_",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 14 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 14,
+            "min_value": 0,
+            "max_value": 16383
+          }
         ]
       },
       "value_flow": {
@@ -20058,7 +21409,13 @@
         "tlb": "#F1A_ n:uint14",
         "prefix": "F1A_",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 14 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 14,
+            "min_value": 0,
+            "max_value": 16383
+          }
         ]
       },
       "value_flow": {
@@ -20087,7 +21444,13 @@
         "tlb": "#F22_ n:uint6",
         "prefix": "F22_",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 6 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 6,
+            "min_value": 0,
+            "max_value": 63
+          }
         ]
       },
       "value_flow": {
@@ -20111,7 +21474,13 @@
         "tlb": "#F26_ n:uint6",
         "prefix": "F26_",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 6 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 6,
+            "min_value": 0,
+            "max_value": 63
+          }
         ]
       },
       "value_flow": {
@@ -20139,7 +21508,13 @@
         "tlb": "#F2A_ n:uint6",
         "prefix": "F2A_",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 6 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 6,
+            "min_value": 0,
+            "max_value": 63
+          }
         ]
       },
       "value_flow": {
@@ -20167,7 +21542,13 @@
         "tlb": "#F2C4_ n:uint11",
         "prefix": "F2C4_",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 11 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 11,
+            "min_value": 0,
+            "max_value": 2047
+          }
         ]
       },
       "value_flow": {
@@ -20191,7 +21572,13 @@
         "tlb": "#F2CC_ n:uint11",
         "prefix": "F2CC_",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 11 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 11,
+            "min_value": 0,
+            "max_value": 2047
+          }
         ]
       },
       "value_flow": {
@@ -20215,7 +21602,13 @@
         "tlb": "#F2D4_ n:uint11",
         "prefix": "F2D4_",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 11 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 11,
+            "min_value": 0,
+            "max_value": 2047
+          }
         ]
       },
       "value_flow": {
@@ -20243,7 +21636,13 @@
         "tlb": "#F2DC_ n:uint11",
         "prefix": "F2DC_",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 11 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 11,
+            "min_value": 0,
+            "max_value": 2047
+          }
         ]
       },
       "value_flow": {
@@ -20272,7 +21671,13 @@
         "tlb": "#F2E4_ n:uint11",
         "prefix": "F2E4_",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 11 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 11,
+            "min_value": 0,
+            "max_value": 2047
+          }
         ]
       },
       "value_flow": {
@@ -20300,7 +21705,13 @@
         "tlb": "#F2EC_ n:uint11",
         "prefix": "F2EC_",
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 11 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 11,
+            "min_value": 0,
+            "max_value": 2047
+          }
         ]
       },
       "value_flow": {
@@ -20557,8 +21968,20 @@
         "tlb": "#F3 p:uint4 r:uint4",
         "prefix": "F3",
         "operands": [
-          { "name": "p", "loader": "uint", "loader_args": { "size": 4 } },
-          { "name": "r", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "p",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          },
+          {
+            "name": "r",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -26975,8 +28398,18 @@
         "tlb": "#F4A6_ d:^Cell n:uint10",
         "prefix": "F4A6_",
         "operands": [
-          { "name": "d", "loader": "ref", "loader_args": {} },
-          { "name": "n", "loader": "uint", "loader_args": { "size": 10 } }
+          {
+            "name": "d",
+            "type": "ref",
+            "decode_hint": { "type": "dictionary", "size_var": "n" }
+          },
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 10,
+            "min_value": 0,
+            "max_value": 1023
+          }
         ]
       },
       "value_flow": {
@@ -27167,8 +28600,18 @@
         "tlb": "#F4AE_ d:^Cell n:uint10",
         "prefix": "F4AE_",
         "operands": [
-          { "name": "d", "loader": "ref", "loader_args": {} },
-          { "name": "n", "loader": "uint", "loader_args": { "size": 10 } }
+          {
+            "name": "d",
+            "type": "ref",
+            "decode_hint": { "type": "dictionary", "size_var": "n" }
+          },
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 10,
+            "min_value": 0,
+            "max_value": 1023
+          }
         ]
       },
       "value_flow": {
@@ -27719,7 +29162,13 @@
         "tlb": "#F82 i:uint4",
         "prefix": "F82",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -27948,7 +29397,13 @@
         "prefix": "F85_",
         "operands_range_check": { "length": 5, "from": 1, "to": 31 },
         "operands": [
-          { "name": "k", "loader": "uint", "loader_args": { "size": 5 } }
+          {
+            "name": "k",
+            "type": "uint",
+            "size": 5,
+            "min_value": 1,
+            "max_value": 31
+          }
         ]
       },
       "value_flow": {
@@ -28000,7 +29455,13 @@
         "prefix": "F87_",
         "operands_range_check": { "length": 5, "from": 1, "to": 31 },
         "operands": [
-          { "name": "k", "loader": "uint", "loader_args": { "size": 5 } }
+          {
+            "name": "k",
+            "type": "uint",
+            "size": 5,
+            "min_value": 1,
+            "max_value": 31
+          }
         ]
       },
       "value_flow": {
@@ -31267,7 +32728,13 @@
         "prefix": "FE",
         "operands_range_check": { "length": 8, "from": 1, "to": 19 },
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 8,
+            "min_value": 1,
+            "max_value": 19
+          }
         ]
       },
       "value_flow": {
@@ -31314,7 +32781,13 @@
         "prefix": "FE",
         "operands_range_check": { "length": 8, "from": 21, "to": 31 },
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 8,
+            "min_value": 21,
+            "max_value": 31
+          }
         ]
       },
       "value_flow": {
@@ -31338,7 +32811,13 @@
         "tlb": "#FE2 i:uint4",
         "prefix": "FE2",
         "operands": [
-          { "name": "i", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "i",
+            "type": "uint",
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {
@@ -31363,7 +32842,13 @@
         "prefix": "FE",
         "operands_range_check": { "length": 8, "from": 48, "to": 239 },
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 8,
+            "min_value": 48,
+            "max_value": 239
+          }
         ]
       },
       "value_flow": {
@@ -31389,12 +32874,15 @@
         "operands": [
           {
             "name": "s",
-            "loader": "subslice",
-            "loader_args": {
-              "bits_length_var_size": 4,
-              "bits_padding": 8,
-              "completion_tag": false
-            }
+            "type": "subslice",
+            "bits_length_var_size": 4,
+            "bits_padding": 8,
+            "completion_tag": false,
+            "max_bits": 128,
+            "min_bits": 8,
+            "max_refs": 0,
+            "min_refs": 0,
+            "decode_hint": { "type": "plain" }
           }
         ]
       },
@@ -31420,7 +32908,13 @@
         "prefix": "FF",
         "operands_range_check": { "length": 8, "from": 0, "to": 239 },
         "operands": [
-          { "name": "n", "loader": "uint", "loader_args": { "size": 8 } }
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 239
+          }
         ]
       },
       "value_flow": {
@@ -31445,7 +32939,13 @@
         "prefix": "FFF",
         "operands_range_check": { "length": 4, "from": 1, "to": 15 },
         "operands": [
-          { "name": "z", "loader": "uint", "loader_args": { "size": 4 } }
+          {
+            "name": "z",
+            "type": "uint",
+            "size": 4,
+            "min_value": 1,
+            "max_value": 15
+          }
         ]
       },
       "value_flow": {

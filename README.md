@@ -15,7 +15,7 @@ Based on [instructions.csv](https://github.com/ton-community/ton-docs/blob/main/
 | JSON key     | Status      | Description
 | ------------ | ----------- | -----------
 | doc          | ✅ Implemented | Provides human-readable information about instructions. Can be useful to provide integrated docs to user, for example, in disassembler.
-| bytecode     | ✅ Implemented | Describes instruction encoding. It contains information to determine, which instruction we are currently decoding and how to parse its operands.
+| bytecode     | ✅ Implemented | Describes instruction encoding. It contains information to build assemblers and disassemblers.
 | value_flow   | ✅ Implemented | Describes how instruction changes current stack. This part of specification allows to analyze how instructions interact with each other, so it becomes possible to implement high-level tools such as decompilers.
 | control_flow | ✅ Implemented | Describes code flow (operations with cc register). It helps to reconstruct a control flow graph. This part mainly contains semantics of cont_* category instructions. For example, both JMPX and CALLX transfers execution to continuation on stack, but only CALLX returns and JMPX is not.
 | aliases | ✅ Implemented | Specifies instruction aliases. Can be used to provide to user information about special cases (for example, SWAP is a special case of XCHG_0i with i = 1).
@@ -138,97 +138,108 @@ However, nothing can stop you from just copying `cp0.json` (and `schema.json` if
 | Key | Description |
 | --- | ----------- |
 | mnemonic | How instruction is named in [original TVM implementation](https://github.com/ton-blockchain/ton/blob/master/crypto/vm). Not necessarily unique (currently only DEBUG is not unique). Required.
-| doc | Free-form human-friendly information which should be used for documentation purposes only.
+| doc | Free-form human-friendly information which should be used for documentation purposes only. Required.
 | doc.category | Category of instruction (examples: cont_loops, stack_basic, dict_get). Required.
-| doc.description | Free-form markdown description of instruction. Optional.
-| doc.gas | Free-form description of gas amount used by instruction. Optional.
-| doc.fift | Free-form fift usage description. Optional.
-| doc.fift_examples | Optional array of usage examples in Fift. Each array element is object with `fift` and `description` keys.
-| bytecode | Information related to bytecode format of an instruction. Assuming that each instruction has format `prefix || operand_1 || operand_2 || ...` (also some operands may be refs, not bitstring part).
-| bytecode.doc_opcode | Free-form bytecode format description. Optional.
+| doc.description | Free-form markdown description of instruction. Required.
+| doc.gas | Free-form description of gas amount used by instruction. Required.
+| doc.fift | Free-form fift usage description. Required.
+| doc.fift_examples | Array of usage examples in Fift. Each array element is object with `fift` and `description` keys. Required.
+| bytecode | Information related to bytecode format of an instruction. Assuming that each instruction has format `prefix || operand_1 || operand_2 || ...` (also some operands may be refs, not bitstring part). Required.
+| bytecode.doc_opcode | Free-form bytecode format description. Required.
 | bytecode.tlb | TL-b bytecode format description. Required.
 | bytecode.prefix | Prefix to determine next instruction to parse. It is a hex bitstring as in TL-b (suffixed with `_` if bit length is not divisible by 4, trailing `'1' + '0' * x` must be removed). Required.
 | bytecode.operands_range_check | In TVM, it is possible for instructions to have overlapping prefixes, so to determine actual instruction it is required to read next `length` bits after prefix as uint `i` and check `from <= i <= to`. Optional, there is no operands check in case of absence.
-| bytecode.operands | Describes how to parse operands. Order of objects in this array represents the actual order of operands in instruction. Optional, no operands in case of absence.
+| bytecode.operands | Describes how to parse operands. Order of objects in this array represents the actual order of operands in instruction. Required.
 | bytecode.operands[i].name | Operand variable name. Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore. Required.
-| bytecode.operands[i].loader | Loader function for operand. Must be one of `int`, `uint`, `ref`, `pushint_long`, `subslice`. Loaders are described below. Required.
-| bytecode.operands[i].loader_args | Arguments for loader function, specified below. Optional, no arguments in case of absence.
-| value_flow | Information related to usage of stack and registers by instruction. Optional.
-| value_flow.doc_stack | Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value). Optional.
-| value_flow.inputs | Incoming values constraints. Input is unconstrained if absent.
-| value_flow.inputs.stack | Defines how current stack is used by instruction. Instruction must not operate on stack entries other than defined here. Required.
+| bytecode.operands[i].type | Type of operand. Must be one of `int`, `uint`, `ref`, `pushint_long`, `subslice`. Types are described below. Required.
+| bytecode.operands[i].* | Additional options for types, specified below.
+| value_flow | Information related to usage of stack and registers by instruction. Required.
+| value_flow.doc_stack | Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value). Required.
+| value_flow.inputs | Incoming values constraints. Required.
+| value_flow.inputs.stack | Defines how current stack is used by instruction. Instruction must not operate on stack entries other than defined here. Optional, input stack is unconstrained if absent.
 | value_flow.inputs.stack[i] | Stack entry or group of stack entries.
 | value_flow.inputs.stack[i].type | Type of stack entry. Can be one of "simple", "const", "conditional", "array". Required. 
 | value_flow.inputs.stack[i].* | Properties for stack entries of each type are described below.
-| value_flow.outputs | Outgoing values constraints. Output is unconstrained if absent. Identical to value_flow.inputs.
-| control_flow | Information related to current cc modification by instruction. Optional.
-| control_flow.branches | Array of possible branches of an instruction. Specifies all possible values of cc after instruction execution. Empty by default (no branches can be taken by instruction). Each branch described by a `Continuation` object described below.
-| control_flow.nobranch | Can this instruction not perform any of specified branches in certain cases (do not modify cc)? False by default.
+| value_flow.outputs | Outgoing values constraints. Required. Identical to value_flow.inputs.
+| control_flow | Information related to current cc modification by instruction. Required.
+| control_flow.branches | Array of possible branches of an instruction. Specifies all possible values of cc after instruction execution. Required. Each branch described by a `Continuation` object described below.
+| control_flow.nobranch | Can this instruction not perform any of specified branches in certain cases (do not modify cc)? Required. If instruction has no control flow, nobranch is true and branches are empty.
 
-### Loaders Specification and Examples
+### Operand Types Specification and Examples
 #### uint
 ```json
 {
     "name": "i",
-    "loader": "uint",
-    "loader_args": {
-        "size": 4
-    }
+    "type": "uint",
+    "size": 4,
+    "min_value": 0,
+    "max_value": 15
 }
 ```
-Loads unsigned `size`-bit int from bytecode. Argument `size` of type `integer` is required.
+Type of unsigned `size`-bit integer. Arguments `size`, `min_value`, `max_value` of type `number` are required.
 #### int
 ```json
 {
     "name": "i",
-    "loader": "int",
-    "loader_args": {
-        "size": 4
-    }
+    "type": "int",
+    "size": 4,
+    "min_value": -8,
+    "max_value": 7
 }
 ```
-Loads signed `size`-bit int from bytecode. Argument `size` of type `integer` is required.
+Type of signed `size`-bit integer. Arguments `size`, `min_value`, `max_value` of type `number` are required.
 #### ref
 ```json
 {
     "name": "c",
-    "loader": "ref"
+    "type": "ref",
+    "decode_hint": {
+        "type": "continuation"
+    }
 }
 ```
-Loads a single reference from bytecode. Unlike `subslice` with `refs_add = 1`, should dereference instead of returning empty cell with a single reference. No arguments are required.
+Type of a single reference. Unlike `subslice` with `refs_add = 1`, should dereference instead of returning empty cell with a single reference. `decode_hint` is a (non-guarantee) hint for decoders for specific types of slices. `decode_hint.type` is `"plain" | "continuation" | "dictionary"`. For `dictionary` type there is `decode_hint.size_var` field, which specifies variable which stores dictionary key length.
 #### pushint_long
 ```json
 {
     "name": "x",
-    "loader": "pushint_long"
+    "type": "pushint_long"
 }
 ```
-Special loader which currently is used only in `PUSHINT_LONG` instruction. Loads 5-bit uint `size` and then loads and returns integer of bit size `8 * size + 19`. No arguments are required.
+Special type which currently is used only in `PUSHINT_LONG` instruction. Consists of 5-bit uint `size` and integer of bit size `8 * size + 19`.
 #### subslice
 ```json
 {
     "name": "slice",
-    "loader": "subslice",
-    "loader_args": {
-        "bits_length_var_size": 5,
-        "bits_padding": 1,
-        "refs_length_var_size": 2,
-        "refs_add": 1,
-        "completion_tag": true
-    }
+    "type": "subslice",
+    "bits_length_var_size": 5,
+    "refs_length_var_size": 2,
+    "bits_padding": 1,
+    "refs_add": 1,
+    "completion_tag": true,
+    "max_bits": 248,
+    "min_bits": 0,
+    "max_refs": 4,
+    "min_refs": 1,
+    "decode_hint": { "type": "plain" }
 }
 ```
 _TLB notation: `r:(## 2) xx:(## 5) c:((r + 1) * ^Cell) ssss:((8 * xx + 1) * Bit)`_
 
-Loads `r` uint of size `refs_length_var_size` (if present), `x` uint of size `bits_length_var_size` (if present). Then loads subslice of bit length `x * 8 + bits_padding` and ref count `r + refs_add`. If `completion_tag` argument with value `true` is passed, remove completion tag from bitstring (trailing `'1' + '0' * x`).
+Loads `r` uint of size `refs_length_var_size` (if present), `x` uint of size `bits_length_var_size`. Then loads subslice of bit length `x * 8 + bits_padding` and ref count `r + refs_add`. If `completion_tag` argument with value `true` is passed, remove completion tag from bitstring (trailing `'1' + '0' * x`).
 
 | Argument | Description
 | -------- | -----------
-| bits_length_var_size | Size of bit length operand. Optional, assuming this part of bit length is 0 if absent.
-| bits_padding | Constant integer value to add to length of bitstring to load. Optional, assuming 0 if absent.
-| refs_length_var_size | Size of ref count operand. Optional, assuming this part of ref count is 0 if absent.
+| bits_length_var_size | Size of bit length operand. Required.
+| bits_padding | Constant integer value to add to length of bitstring to load. Required.
+| refs_length_var_size | Size of ref count operand. Optional, assuming no refs if absent.
 | refs_add | Constant integer value to add to ref count. Optional, assuming 0 if absent.
-| completion_tag | Boolean flag, tells to remove trailing `'1' + '0' * x` from bitstring if true. Optional, assuming false if absent.
+| completion_tag | Boolean flag, tells to remove trailing `'1' + '0' * x` from bitstring if true. Required.
+| max_bits | Hint for maximum bits available to store for this operand. Required.
+| min_bits | Hint for minimum bits available to store for this operand. Required.
+| max_refs | Hint for maximum refs available to store for this operand. Required.
+| min_refs | Hint for minimum refs available to store for this operand. Required.
+| decode_hint | Hint for decoders for specific types of slices. Required. `decode_hint.type` is `"plain" | "continuation" | "dictionary"`. For `dictionary` type there is `decode_hint.size_var` field, which specifies variable which stores dictionary key length.
 
 ### Stack Entry Specification and Examples
 

@@ -144,10 +144,7 @@
             "type": {
               "const": "simple"
             },
-            "name": {
-              "type": "string",
-              "title": "Variable to pass"
-            },
+            "name": { "$ref": "#/definitions/var_name" },
             "value_types": {
               "title": "Possible value types",
               "type": "array",
@@ -207,10 +204,7 @@
             "type": {
               "const": "conditional"
             },
-            "name": {
-              "type": "string",
-              "title": "Variable to match"
-            },
+            "name": { "$ref": "#/definitions/var_name", "title": "Variable to match" },
             "match": {
               "type": "array",
               "additionalItems": false,
@@ -253,19 +247,173 @@
             "type": {
               "const": "array"
             },
-            "name": {
-              "title": "Variable name",
-              "type": "string"
-            },
+            "name": { "$ref": "#/definitions/var_name" },
             "length_var": {
               "title": "Variable which contains array length",
-              "type": "string"
+              "$ref": "#/definitions/var_name"
             },
             "array_entry": {
               "allOf": [{ "$ref": "#/definitions/stack" }],
               "title": "Array single entry definition",
               "description": "Array is a structure like `x1 y1 z1 x2 y2 z2 ... x_n y_n z_n n` which contains `n` entries of `x_i y_i z_i`. This property defines the structure of a single entry."
             }
+          }
+        }
+      ]
+    },
+    "var_name": {
+      "type": "string",
+      "title": "Variable name",
+      "description": "Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore.",
+      "markdownDescription": "Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore."
+    },
+    "decode_hint": {
+      "title": "Hint for disassembler to parse operand data",
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type"],
+          "properties": {
+            "type": { "const": "plain" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type"],
+          "properties": {
+            "type": { "const": "continuation" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "size_var"],
+          "properties": {
+            "type": { "const": "dictionary" },
+            "size_var": { "$ref": "#/definitions/var_name" }
+          }
+        }
+      ]
+    },
+    "operand": {
+      "title": "Operand",
+      "description": "Static instruction parameter serialized to bytecode.",
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "type", "size", "max_value", "min_value"],
+          "properties": {
+            "name": { "$ref": "#/definitions/var_name" },
+            "type": { "const": "uint" },
+            "size": {
+              "type": "number",
+              "title": "Integer size, bits"
+            },
+            "max_value": {
+              "type": "number",
+              "title": "Maximum integer value"
+            },
+            "min_value": {
+              "type": "number",
+              "title": "Minimum integer value"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "type", "size", "max_value", "min_value"],
+          "properties": {
+            "name": { "$ref": "#/definitions/var_name" },
+            "type": { "const": "int" },
+            "size": {
+              "type": "number",
+              "title": "Integer size, bits"
+            },
+            "max_value": {
+              "type": "number",
+              "title": "Maximum integer value"
+            },
+            "min_value": {
+              "type": "number",
+              "title": "Minimum integer value"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "type"],
+          "properties": {
+            "name": { "$ref": "#/definitions/var_name" },
+            "type": { "const": "pushint_long" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "type", "decode_hint"],
+          "properties": {
+            "name": { "$ref": "#/definitions/var_name" },
+            "type": { "const": "ref" },
+            "decode_hint": { "$ref": "#/definitions/decode_hint" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "type", "bits_length_var_size", "bits_padding", "completion_tag", "decode_hint", "max_bits", "min_bits", "max_refs", "min_refs"],
+          "properties": {
+            "name": { "$ref": "#/definitions/var_name" },
+            "type": { "const": "subslice" },
+            "bits_length_var_size": {
+              "type": "number",
+              "title": "Size of bit length operand"
+            },
+            "bits_padding": {
+              "type": "number",
+              "title": "Constant integer value to add to length of bitstring to load."
+            },
+            "refs_length_var_size": {
+              "type": "number",
+              "title": "Size of ref count operand",
+              "description": "Optional, no refs in this operand in case of absence."
+            },
+            "refs_add": {
+              "type": "number",
+              "title": "Constant integer value to add to ref count",
+              "default": 0
+            },
+            "completion_tag": {
+              "type": "boolean",
+              "title": "Completion tag flag",
+              "description": "Determines completion tag presense: trailing `'1' + '0' * x` in bitstring",
+              "markdownDescription": "Determines completion tag presense: trailing `'1' + '0' * x` in bitstring"
+            },
+            "max_bits": {
+              "type": "number",
+              "title": "Max bit size",
+              "description": "Hint for maximum bits available to store for this operand"
+            },
+            "min_bits": {
+              "type": "number",
+              "title": "Min bit size",
+              "description": "Hint for minimum bits available to store for this operand"
+            },
+            "max_refs": {
+              "type": "number",
+              "title": "Max ref size",
+              "description": "Hint for maximum refs available to store for this operand"
+            },
+            "min_refs": {
+              "type": "number",
+              "title": "Min ref size",
+              "description": "Hint for minimum refs available to store for this operand"
+            },
+            "decode_hint": { "$ref": "#/definitions/decode_hint" }
           }
         }
       ]
@@ -294,7 +442,7 @@
           ],
           "properties": {
             "type": { "const": "variable" },
-            "var_name": { "type": "string", "title": "Continuation variable name" },
+            "var_name": { "$ref": "#/definitions/var_name", "title": "Continuation variable name" },
             "save": { "$ref": "#/definitions/savelist" }
           }
         },
@@ -393,7 +541,7 @@
               "required": ["count", "body", "after"],
               "additionalProperties": false,
               "properties": {
-                "count": { "type": "string", "title": "Variable name" },
+                "count": { "$ref": "#/definitions/var_name", "title": "Variable name" },
                 "body": { "$ref": "#/definitions/continuation" },
                 "after": { "$ref": "#/definitions/continuation" }
               }
@@ -599,72 +747,10 @@
             "operands": {
               "type": "array",
               "title": "Instruction operands",
-              "description": "Describes how to parse operands. Order of objects in this array represents the actual order of operands in instruction. Optional, no operands in case of absence.",
+              "description": "Describes how to parse operands. Order of objects in this array represents the actual order of operands in instruction.",
               "default": [],
-              "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "title": "Operand variable name",
-                    "description": "Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore.",
-                    "markdownDescription": "Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore."
-                  },
-                  "loader": {
-                    "enum": [
-                      "int",
-                      "uint",
-                      "ref",
-                      "pushint_long",
-                      "subslice"
-                    ],
-                    "title": "Loader function for operand"
-                  },
-                  "loader_args": {
-                    "type": "object",
-                    "title": "Arguments for loader function. Optional, no arguments in case of absence.",
-                    "default": {}
-                  }
-                },
-                "required": [
-                  "name",
-                  "loader",
-                  "loader_args"
-                ],
-                "examples": [
-                  {
-                    "name": "x",
-                    "loader": "pushint_long",
-                    "loader_args": {}
-                  },
-                  {
-                    "name": "r",
-                    "loader": "uint",
-                    "loader_args": {
-                      "size": 2
-                    }
-                  },
-                  {
-                    "name": "x",
-                    "loader": "uint",
-                    "loader_args": {
-                      "size": 5
-                    }
-                  },
-                  {
-                    "name": "slice",
-                    "loader": "subslice",
-                    "loader_args": {
-                      "bits_length_var": "x",
-                      "bits_padding": 1,
-                      "refs_length_var": "r",
-                      "refs_add": 1,
-                      "completion_tag": true
-                    }
-                  }
-                ]
-              }
+              "additionalItems": false,
+              "items": { "$ref": "#/definitions/operand" }
             }
           },
           "required": [
@@ -690,12 +776,12 @@
             "inputs": {
               "$ref": "#/definitions/values",
               "title": "Instruction inputs",
-              "description": "Incoming values constraints. Input is unconstrained if absent."
+              "description": "Incoming values constraints."
             },
             "outputs": {
               "$ref": "#/definitions/values",
               "title": "Instruction outputs",
-              "description": "Outgoing values constraints. Output is unconstrained if absent."
+              "description": "Outgoing values constraints."
             }
           }
         },
