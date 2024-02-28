@@ -33569,168 +33569,34 @@
       "control_flow": { "branches": [], "nobranch": true }
     },
     {
-      "mnemonic": "DUMPSTK",
-      "since_version": 0,
-      "doc": {
-        "category": "debug",
-        "description": "Dumps the stack (at most the top 255 values) and shows the total stack depth.",
-        "gas": "26",
-        "fift": "DUMPSTK",
-        "fift_examples": []
-      },
-      "bytecode": {
-        "doc_opcode": "FE00",
-        "tlb": "#FE00",
-        "prefix": "FE00",
-        "operands": []
-      },
-      "value_flow": {
-        "doc_stack": "-",
-        "inputs": { "stack": [] },
-        "outputs": { "stack": [] }
-      },
-      "control_flow": { "branches": [], "nobranch": true }
-    },
-    {
       "mnemonic": "DEBUG",
       "since_version": 0,
       "doc": {
         "category": "debug",
         "description": "",
         "gas": "26",
-        "fift": "{nn} DEBUG",
+        "fift": "{i*16+j} DEBUG",
         "fift_examples": []
       },
       "bytecode": {
-        "doc_opcode": "FEnn",
-        "tlb": "#FE nn:(#<= 239)",
+        "doc_opcode": "FEij",
+        "tlb": "#FE i:(#<= 14) j:(## 4)",
         "prefix": "FE",
-        "operands_range_check": { "length": 8, "from": 1, "to": 19 },
-        "operands": [
-          {
-            "name": "n",
-            "type": "uint",
-            "size": 8,
-            "min_value": 1,
-            "max_value": 19
-          }
-        ]
-      },
-      "value_flow": {
-        "doc_stack": "-",
-        "inputs": { "stack": [] },
-        "outputs": { "stack": [] }
-      },
-      "control_flow": { "branches": [], "nobranch": true }
-    },
-    {
-      "mnemonic": "STRDUMP",
-      "since_version": 0,
-      "doc": {
-        "category": "debug",
-        "description": "",
-        "gas": "26",
-        "fift": "STRDUMP",
-        "fift_examples": []
-      },
-      "bytecode": {
-        "doc_opcode": "FE14",
-        "tlb": "#FE14",
-        "prefix": "FE14",
-        "operands": []
-      },
-      "value_flow": {
-        "doc_stack": "-",
-        "inputs": { "stack": [] },
-        "outputs": { "stack": [] }
-      },
-      "control_flow": { "branches": [], "nobranch": true }
-    },
-    {
-      "mnemonic": "DEBUG",
-      "since_version": 0,
-      "doc": {
-        "category": "debug",
-        "description": "",
-        "gas": "26",
-        "fift": "{nn} DEBUG",
-        "fift_examples": []
-      },
-      "bytecode": {
-        "doc_opcode": "FEnn",
-        "tlb": "#FE nn:(#<= 239)",
-        "prefix": "FE",
-        "operands_range_check": { "length": 8, "from": 21, "to": 31 },
-        "operands": [
-          {
-            "name": "n",
-            "type": "uint",
-            "size": 8,
-            "min_value": 21,
-            "max_value": 31
-          }
-        ]
-      },
-      "value_flow": {
-        "doc_stack": "-",
-        "inputs": { "stack": [] },
-        "outputs": { "stack": [] }
-      },
-      "control_flow": { "branches": [], "nobranch": true }
-    },
-    {
-      "mnemonic": "DUMP",
-      "since_version": 0,
-      "doc": {
-        "category": "debug",
-        "description": "Dumps `s[i]`.",
-        "gas": "26",
-        "fift": "s[i] DUMP",
-        "fift_examples": []
-      },
-      "bytecode": {
-        "doc_opcode": "FE2i",
-        "tlb": "#FE2 i:uint4",
-        "prefix": "FE2",
+        "operands_range_check": { "length": 4, "from": 0, "to": 14 },
         "operands": [
           {
             "name": "i",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
-          }
-        ]
-      },
-      "value_flow": {
-        "doc_stack": "-",
-        "inputs": { "stack": [] },
-        "outputs": { "stack": [] }
-      },
-      "control_flow": { "branches": [], "nobranch": true }
-    },
-    {
-      "mnemonic": "DEBUG",
-      "since_version": 0,
-      "doc": {
-        "category": "debug",
-        "description": "",
-        "gas": "26",
-        "fift": "{nn} DEBUG",
-        "fift_examples": []
-      },
-      "bytecode": {
-        "doc_opcode": "FEnn",
-        "tlb": "#FE nn:(#<= 239)",
-        "prefix": "FE",
-        "operands_range_check": { "length": 8, "from": 48, "to": 239 },
-        "operands": [
+            "max_value": 14
+          },
           {
-            "name": "n",
+            "name": "j",
             "type": "uint",
-            "size": 8,
-            "min_value": 48,
-            "max_value": 239
+            "size": 4,
+            "min_value": 0,
+            "max_value": 15
           }
         ]
       },
@@ -34397,6 +34263,30 @@
       "doc_stack": " - t",
       "description": "Retrives PrevBlocksInfo: `[last_mc_blocks, prev_key_block]` from c7. Equivalent to `13 GETPARAM `.",
       "operands": { "i": 13 }
+    },
+    {
+      "mnemonic": "DUMPSTK",
+      "alias_of": "DEBUG",
+      "doc_fift": "DUMPSTK",
+      "doc_stack": "-",
+      "description": "Dumps the stack (at most the top 255 values) and shows the total stack depth. Does nothing on production versions of TVM.",
+      "operands": { "i": 0, "j": 0 }
+    },
+    {
+      "mnemonic": "STRDUMP",
+      "alias_of": "DEBUG",
+      "doc_fift": "STRDUMP",
+      "doc_stack": "-",
+      "description": "Dumps slice with length divisible by 8 from top of stack as a string. Does nothing on production versions of TVM.",
+      "operands": { "i": 0, "j": 0 }
+    },
+    {
+      "mnemonic": "DUMP",
+      "alias_of": "DEBUG",
+      "doc_fift": "s[j] DUMP",
+      "doc_stack": "-",
+      "description": "Dumps slice with length divisible by 8 from top of stack as a string. Does nothing on production versions of TVM.",
+      "operands": { "i": 2 }
     },
     {
       "mnemonic": "SETCP0",
