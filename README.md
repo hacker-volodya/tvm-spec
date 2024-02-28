@@ -138,6 +138,7 @@ However, nothing can stop you from just copying `cp0.json` (and `schema.json` if
 | Key | Description |
 | --- | ----------- |
 | mnemonic | How instruction is named in [original TVM implementation](https://github.com/ton-blockchain/ton/blob/master/crypto/vm). Not necessarily unique (currently only DEBUG is not unique). Required.
+| since_version | Global version (ConfigParam 8) which enables this instruction. Version 9999 means that instruction has no global version and currently unavailable in mainnet.
 | doc | Free-form human-friendly information which should be used for documentation purposes only. Required.
 | doc.category | Category of instruction (examples: cont_loops, stack_basic, dict_get). Required.
 | doc.description | Free-form markdown description of instruction. Required.

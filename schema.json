@@ -598,6 +598,11 @@
             "PLDULE4"
           ]
         },
+        "since_version": {
+          "type": "number",
+          "title": "Since global version",
+          "description": "Global version (ConfigParam 8) which enables this instruction. Version 9999 means that instruction has no global version and currently unavailable in mainnet."
+        },
         "doc": {
           "type": "object",
           "title": "Documentation",
@@ -812,7 +817,8 @@
         "doc",
         "bytecode",
         "value_flow",
-        "control_flow"
+        "control_flow",
+        "since_version"
       ]
     }
   },
