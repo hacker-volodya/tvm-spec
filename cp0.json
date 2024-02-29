@@ -21128,7 +21128,7 @@
       },
       "value_flow": {
         "doc_stack": "- x",
-        "inputs": { "stack": [] },
+        "inputs": { "stack": [], "registers": [{ "type": "variable", "var_name": "i" }] },
         "outputs": { "stack": [{ "type": "simple", "name": "x" }] }
       },
       "control_flow": { "branches": [], "nobranch": true }
@@ -21160,7 +21160,7 @@
       "value_flow": {
         "doc_stack": "x - ",
         "inputs": { "stack": [{ "type": "simple", "name": "x" }] },
-        "outputs": { "stack": [] }
+        "outputs": { "stack": [], "registers": [{ "type": "variable", "var_name": "i" }] }
       },
       "control_flow": { "branches": [], "nobranch": true }
     },
@@ -21230,8 +21230,8 @@
       },
       "value_flow": {
         "doc_stack": "x - ",
-        "inputs": { "stack": [{ "type": "simple", "name": "x" }] },
-        "outputs": { "stack": [] }
+        "inputs": { "stack": [{ "type": "simple", "name": "x" }], "registers": [{ "type": "constant", "index": 0 }] },
+        "outputs": { "stack": [], "registers": [{ "type": "constant", "index": 0 }] }
       },
       "control_flow": { "branches": [], "nobranch": true }
     },
@@ -21261,8 +21261,8 @@
       },
       "value_flow": {
         "doc_stack": "x - ",
-        "inputs": { "stack": [{ "type": "simple", "name": "x" }] },
-        "outputs": { "stack": [] }
+        "inputs": { "stack": [{ "type": "simple", "name": "x" }], "registers": [{ "type": "constant", "index": 1 }] },
+        "outputs": { "stack": [], "registers": [{ "type": "constant", "index": 1 }] }
       },
       "control_flow": { "branches": [], "nobranch": true }
     },
