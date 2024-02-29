@@ -21240,7 +21240,7 @@
       "since_version": 0,
       "doc": {
         "category": "cont_registers",
-        "description": "Equivalent to `c1 PUSHCTR` `c[i] SETCONTCTR` `c0 POPCTR`.",
+        "description": "Equivalent to `c1 PUSHCTR` `c[i] SETCONTCTR` `c1 POPCTR`.",
         "gas": "26",
         "fift": "c[i] SETALTCTR",
         "fift_examples": []
