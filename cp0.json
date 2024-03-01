@@ -21397,7 +21397,7 @@
       "since_version": 0,
       "doc": {
         "category": "cont_registers",
-        "description": "Equivalent to `DUP` `c[i] SAVE` `c[i] SAVEALT`.",
+        "description": "Equivalent to `c[i] SAVE` `c[i] SAVEALT`.",
         "gas": "26",
         "fift": "c[i] SAVEBOTH\nc[i] SAVEBOTHCTR",
         "fift_examples": []
