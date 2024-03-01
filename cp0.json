@@ -21128,7 +21128,10 @@
       },
       "value_flow": {
         "doc_stack": "- x",
-        "inputs": { "stack": [], "registers": [{ "type": "variable", "var_name": "i" }] },
+        "inputs": {
+          "stack": [],
+          "registers": [{ "type": "variable", "var_name": "i" }]
+        },
         "outputs": { "stack": [{ "type": "simple", "name": "x" }] }
       },
       "control_flow": { "branches": [], "nobranch": true }
@@ -21160,7 +21163,10 @@
       "value_flow": {
         "doc_stack": "x - ",
         "inputs": { "stack": [{ "type": "simple", "name": "x" }] },
-        "outputs": { "stack": [], "registers": [{ "type": "variable", "var_name": "i" }] }
+        "outputs": {
+          "stack": [],
+          "registers": [{ "type": "variable", "var_name": "i" }]
+        }
       },
       "control_flow": { "branches": [], "nobranch": true }
     },
@@ -21230,8 +21236,14 @@
       },
       "value_flow": {
         "doc_stack": "x - ",
-        "inputs": { "stack": [{ "type": "simple", "name": "x" }], "registers": [{ "type": "constant", "index": 0 }] },
-        "outputs": { "stack": [], "registers": [{ "type": "constant", "index": 0 }] }
+        "inputs": {
+          "stack": [{ "type": "simple", "name": "x" }],
+          "registers": [{ "type": "constant", "index": 0 }]
+        },
+        "outputs": {
+          "stack": [],
+          "registers": [{ "type": "constant", "index": 0 }]
+        }
       },
       "control_flow": { "branches": [], "nobranch": true }
     },
@@ -21261,8 +21273,14 @@
       },
       "value_flow": {
         "doc_stack": "x - ",
-        "inputs": { "stack": [{ "type": "simple", "name": "x" }], "registers": [{ "type": "constant", "index": 1 }] },
-        "outputs": { "stack": [], "registers": [{ "type": "constant", "index": 1 }] }
+        "inputs": {
+          "stack": [{ "type": "simple", "name": "x" }],
+          "registers": [{ "type": "constant", "index": 1 }]
+        },
+        "outputs": {
+          "stack": [],
+          "registers": [{ "type": "constant", "index": 1 }]
+        }
       },
       "control_flow": { "branches": [], "nobranch": true }
     },
@@ -21292,8 +21310,17 @@
       },
       "value_flow": {
         "doc_stack": "x -",
-        "inputs": { "stack": [{ "type": "simple", "name": "x" }] },
-        "outputs": { "stack": [] }
+        "inputs": {
+          "stack": [{ "type": "simple", "name": "x" }],
+          "registers": [
+            { "type": "variable", "var_name": "i" },
+            { "type": "constant", "index": 0 }
+          ]
+        },
+        "outputs": {
+          "stack": [],
+          "registers": [{ "type": "constant", "index": 0 }]
+        }
       },
       "control_flow": { "branches": [], "nobranch": true }
     },
@@ -21323,7 +21350,13 @@
       },
       "value_flow": {
         "doc_stack": "",
-        "inputs": { "stack": [] },
+        "inputs": {
+          "stack": [],
+          "registers": [
+            { "type": "variable", "var_name": "i" },
+            { "type": "constant", "index": 0 }
+          ]
+        },
         "outputs": { "stack": [] }
       },
       "control_flow": { "branches": [], "nobranch": true }
