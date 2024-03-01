@@ -61,11 +61,53 @@
     "values": {
       "type": "object",
       "additionalProperties": false,
+      "required": ["registers"],
       "properties": {
         "stack": {
           "$ref": "#/definitions/stack"
+        },
+        "registers": {
+          "type": "array",
+          "title": "Register values",
+          "items": {
+            "$ref": "#/definitions/register_flow"
+          },
+          "additionalItems": false
         }
       }
+    },
+    "register_flow": {
+      "title": "Register",
+      "description": "Represents read/write access to a register",
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "index"],
+          "properties": {
+            "type": { "const": "constant" },
+            "index": { "type": "number" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "var_name"],
+          "properties": {
+            "type": { "const": "variable" },
+            "var_name": { "$ref": "#/definitions/var_name" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "name"],
+          "properties": {
+            "type": { "const": "special" },
+            "name": { "enum": ["gas", "cstate"] }
+          }
+        }
+      ]
     },
     "stack": {
       "type": "array",

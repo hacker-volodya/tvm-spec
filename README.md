@@ -157,6 +157,10 @@ However, nothing can stop you from just copying `cp0.json` (and `schema.json` if
 | value_flow | Information related to usage of stack and registers by instruction. Required.
 | value_flow.doc_stack | Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value). Required.
 | value_flow.inputs | Incoming values constraints. Required.
+| value_flow.inputs.registers | Defines how registers is used by instruction. Instruction must not operate on registers other than defined here. Required.
+| value_flow.inputs.registers[i] | Register which is access by instruction.
+| value_flow.inputs.registers[i].type | Type of register: "constant", "variable", "special". Required.
+| value_flow.inputs.registers[i].* | Properties for registers of each type are described below.
 | value_flow.inputs.stack | Defines how current stack is used by instruction. Instruction must not operate on stack entries other than defined here. Optional, input stack is unconstrained if absent.
 | value_flow.inputs.stack[i] | Stack entry or group of stack entries.
 | value_flow.inputs.stack[i].type | Type of stack entry. Can be one of "simple", "const", "conditional", "array". Required. 
@@ -349,6 +353,40 @@ Specifies a bunch of stack entries with length from variable `length_var`, usual
 #### Notes
 1. Each variable name is unique across `operands`, `value_flow`, and `control_flow` sections of each instruction. Assumed that variables are immutable, so if variable `x` is defined both in inputs and outputs, it goes to output without any modification.
 2. Value flow describes only `cc` stack usage before the actual jump or call. Subsequent continuations may have a separate stack, so this will be defined in control flow section of this spec.
+
+### Register Specification and Examples
+#### constant
+```json
+{
+    "type": "constant",
+    "index": 0
+}
+```
+Represents `c{index}` register.
+
+#### variable
+```json
+{
+    "type": "variable",
+    "var_name": "i"
+}
+```
+Represents `c{{var_name}}` register. Its number is taken from variable `var_name`, defined in stack inputs or operands.
+
+#### special
+```json
+{
+    "type": "special",
+    "name": "gas"
+}
+```
+```json
+{
+    "type": "special",
+    "name": "cstate"
+}
+```
+Represents gas registers (used by app_gas instructions) and cstate (used by COMMIT instruction).
 
 ### Continuations Specification and Examples
 Each object represents a continuation, which can be constructed in several ways: 
