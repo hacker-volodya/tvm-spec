@@ -22099,7 +22099,7 @@
         "inputs": { "stack": [] },
         "outputs": { "stack": [] }
       },
-      "control_flow": { "branches": [], "nobranch": true }
+      "control_flow": { "branches": [], "nobranch": false }
     },
     {
       "mnemonic": "THROWIF_SHORT",
@@ -22200,7 +22200,7 @@
         "inputs": { "stack": [] },
         "outputs": { "stack": [] }
       },
-      "control_flow": { "branches": [], "nobranch": true }
+      "control_flow": { "branches": [], "nobranch": false }
     },
     {
       "mnemonic": "THROWARG",
@@ -22231,7 +22231,7 @@
         "inputs": { "stack": [{ "type": "simple", "name": "x" }] },
         "outputs": { "stack": [] }
       },
-      "control_flow": { "branches": [], "nobranch": true }
+      "control_flow": { "branches": [], "nobranch": false }
     },
     {
       "mnemonic": "THROWIF",
@@ -22400,7 +22400,7 @@
         },
         "outputs": { "stack": [] }
       },
-      "control_flow": { "branches": [], "nobranch": true }
+      "control_flow": { "branches": [], "nobranch": false }
     },
     {
       "mnemonic": "THROWARGANY",
@@ -22428,7 +22428,7 @@
         },
         "outputs": { "stack": [] }
       },
-      "control_flow": { "branches": [], "nobranch": true }
+      "control_flow": { "branches": [], "nobranch": false }
     },
     {
       "mnemonic": "THROWANYIF",
