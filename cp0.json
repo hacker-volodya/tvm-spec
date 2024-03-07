@@ -31509,9 +31509,9 @@
         "fift_examples": []
       },
       "bytecode": {
-        "doc_opcode": "F802",
-        "tlb": "#F802",
-        "prefix": "F802",
+        "doc_opcode": "F807",
+        "tlb": "#F807",
+        "prefix": "F807",
         "operands": []
       },
       "value_flow": {
