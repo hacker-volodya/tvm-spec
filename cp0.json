@@ -20350,7 +20350,15 @@
         "doc_opcode": "DB4fff",
         "tlb": "#DB4 flags:(## 12)",
         "prefix": "DB4",
-        "operands": []
+        "operands": [
+          {
+            "name": "flags",
+            "type": "uint",
+            "size": 12,
+            "min_value": 0,
+            "max_value": 4095
+          }
+        ]
       },
       "value_flow": {
         "doc_stack": "x_1 ... x_n n code [r] [c4] [c7] [g_l] [g_m] - x'_1 ... x'_m exitcode [data'] [c4'] [c5] [g_c]",
