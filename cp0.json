@@ -15299,7 +15299,10 @@
         "doc_opcode": "CF21",
         "tlb": "#CF21 c1:^Cell c2:^Cell",
         "prefix": "CF21",
-        "operands": []
+        "operands": [
+          { "name": "c1", "type": "ref", "decode_hint": { "type": "plain" } },
+          { "name": "c2", "type": "ref", "decode_hint": { "type": "plain" } }
+        ]
       },
       "value_flow": {
         "doc_stack": "b - b╨▓╨ВтДв",
