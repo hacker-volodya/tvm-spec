@@ -6227,7 +6227,15 @@
         "doc_opcode": "A9BC",
         "tlb": "#A9BC",
         "prefix": "A9BC",
-        "operands": []
+        "operands": [
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
+        ]
       },
       "value_flow": {
         "doc_stack": "x y - q=floor(x*y/2^(tt+1)) r=xy-q*2^(tt+1)",
@@ -6261,7 +6269,15 @@
         "doc_opcode": "A9BD",
         "tlb": "#A9BD",
         "prefix": "A9BD",
-        "operands": []
+        "operands": [
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
+        ]
       },
       "value_flow": {
         "doc_stack": "x y - q=round(x*y/2^(tt+1)) r=xy-q*2^(tt+1)",
@@ -6295,7 +6311,15 @@
         "doc_opcode": "A9BE",
         "tlb": "#A9BE",
         "prefix": "A9BE",
-        "operands": []
+        "operands": [
+          {
+            "name": "t",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255
+          }
+        ]
       },
       "value_flow": {
         "doc_stack": "x y - q=ceil(x*y/2^(tt+1)) r=xy-q*2^(tt+1)",
