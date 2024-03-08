@@ -46,7 +46,7 @@
             "size": 4,
             "min_value": 1,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           }
         ]
       },
@@ -79,7 +79,7 @@
             "size": 4,
             "min_value": 1,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "j",
@@ -87,7 +87,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           }
         ]
       },
@@ -119,7 +119,7 @@
             "size": 8,
             "min_value": 0,
             "max_value": 255,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           }
         ]
       },
@@ -152,7 +152,7 @@
             "size": 4,
             "min_value": 2,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           }
         ]
       },
@@ -184,7 +184,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           }
         ]
       },
@@ -216,7 +216,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           }
         ]
       },
@@ -248,7 +248,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "j",
@@ -256,7 +256,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "k",
@@ -264,7 +264,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           }
         ]
       },
@@ -296,7 +296,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "j",
@@ -304,7 +304,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           }
         ]
       },
@@ -336,7 +336,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "j",
@@ -344,7 +344,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           }
         ]
       },
@@ -376,7 +376,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "j",
@@ -384,7 +384,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }, { "type": "add", "value": -1 }]
           }
         ]
       },
@@ -416,7 +416,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "j",
@@ -424,7 +424,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           }
         ]
       },
@@ -456,7 +456,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "j",
@@ -464,7 +464,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "k",
@@ -472,7 +472,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           }
         ]
       },
@@ -504,7 +504,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "j",
@@ -512,7 +512,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "k",
@@ -520,7 +520,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           }
         ]
       },
@@ -552,7 +552,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "j",
@@ -560,7 +560,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "k",
@@ -568,7 +568,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }, { "type": "add", "value": -1 }]
           }
         ]
       },
@@ -600,7 +600,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "j",
@@ -608,7 +608,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "k",
@@ -616,7 +616,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           }
         ]
       },
@@ -648,7 +648,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "j",
@@ -656,7 +656,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }, { "type": "add", "value": -1 }]
           },
           {
             "name": "k",
@@ -664,7 +664,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }, { "type": "add", "value": -1 }]
           }
         ]
       },
@@ -696,7 +696,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "j",
@@ -704,7 +704,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }, { "type": "add", "value": -1 }]
           },
           {
             "name": "k",
@@ -712,7 +712,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }, { "type": "add", "value": -1 }]
           }
         ]
       },
@@ -744,7 +744,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "j",
@@ -752,7 +752,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }, { "type": "add", "value": -1 }]
           },
           {
             "name": "k",
@@ -760,7 +760,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }, { "type": "add", "value": -2 }]
           }
         ]
       },
@@ -792,7 +792,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "j",
@@ -800,7 +800,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           },
           {
             "name": "k",
@@ -808,7 +808,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           }
         ]
       },
@@ -840,7 +840,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }, { "type": "add", "value": 1 }]
           },
           {
             "name": "j",
@@ -848,7 +848,7 @@
             "size": 4,
             "min_value": 0,
             "max_value": 15,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }, { "type": "add", "value": 1 }]
           }
         ]
       },
@@ -880,7 +880,7 @@
             "size": 8,
             "min_value": 0,
             "max_value": 255,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           }
         ]
       },
@@ -912,7 +912,7 @@
             "size": 8,
             "min_value": 0,
             "max_value": 255,
-            "display_hints": []
+            "display_hints": [{ "type": "stack" }]
           }
         ]
       },
