@@ -145,8 +145,9 @@ However, nothing can stop you from just copying `cp0.json` (and `schema.json` if
 | doc.gas | Free-form description of gas amount used by instruction. Required.
 | doc.fift | Free-form fift usage description. Required.
 | doc.fift_examples | Array of usage examples in Fift. Each array element is object with `fift` and `description` keys. Required.
+| doc.opcode | Free-form bytecode format description. Required.
+| doc.stack | Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value). Required.
 | bytecode | Information related to bytecode format of an instruction. Assuming that each instruction has format `prefix || operand_1 || operand_2 || ...` (also some operands may be refs, not bitstring part). Required.
-| bytecode.doc_opcode | Free-form bytecode format description. Required.
 | bytecode.tlb | TL-b bytecode format description. Required.
 | bytecode.prefix | Prefix to determine next instruction to parse. It is a hex bitstring as in TL-b (suffixed with `_` if bit length is not divisible by 4, trailing `'1' + '0' * x` must be removed). Required.
 | bytecode.operands_range_check | In TVM, it is possible for instructions to have overlapping prefixes, so to determine actual instruction it is required to read next `length` bits after prefix as uint `i` and check `from <= i <= to`. Optional, there is no operands check in case of absence.
@@ -155,7 +156,6 @@ However, nothing can stop you from just copying `cp0.json` (and `schema.json` if
 | bytecode.operands[i].type | Type of operand. Must be one of `int`, `uint`, `ref`, `pushint_long`, `subslice`. Types are described below. Required.
 | bytecode.operands[i].* | Additional options for types, specified below.
 | value_flow | Information related to usage of stack and registers by instruction. Required.
-| value_flow.doc_stack | Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value). Required.
 | value_flow.inputs | Incoming values constraints. Required.
 | value_flow.inputs.registers | Defines how registers is used by instruction. Instruction must not operate on registers other than defined here. Required.
 | value_flow.inputs.registers[i] | Register which is access by instruction.
@@ -171,6 +171,18 @@ However, nothing can stop you from just copying `cp0.json` (and `schema.json` if
 | control_flow.nobranch | Can this instruction not perform any of specified branches in certain cases (do not modify cc)? Required. If instruction has no control flow, nobranch is true and branches are empty.
 
 ### Operand Types Specification and Examples
+`display_hints` property is available for `uint`, `int`, `ref` and `subslice` operand types. For `ref` and `subslice` there is `continuation` and `dictionary` hint types, and for `uint` there is `add`, `stack`, `register`, `pushint4`, `optional_nargs` and `plduz` hints.
+| display_hints[i].type | Description
+| --------------------- | -----------
+| continuation   | Slice from this operand (type = ref, subslice) is a continuation.
+| dictionary     | Slice from this operand (type = ref, subslice) is a dictionary with key size defined in `size_var` property of a hint.
+| add            | Some constant must be added in order to correctly display this operand (type = uint). `[cc+1] LDU` <=> `{ "type": "add", "value": 1 }`.
+| stack          | This operand (type = uint) is a stack entry reference (`s0` for example).
+| register       | This operand (type = uint) is a register reference (`c0` for example).
+| pushint4       | To display this operand (type = uint), 16 must be substracted, but only if operand value > 10. For example, 0xF displayed as -1, 0xA is 10 and 0xB is -5.
+| optional_nargs | 0xF is displayed as -1, other values left untouched (type = uint).
+| plduz          | This operand (type = uint) is displayed as `32*(c+1)`. If value is not divisible by 32 during assembly, error should be raised.
+
 #### uint
 ```json
 {
@@ -178,10 +190,11 @@ However, nothing can stop you from just copying `cp0.json` (and `schema.json` if
     "type": "uint",
     "size": 4,
     "min_value": 0,
-    "max_value": 15
+    "max_value": 15,
+    "display_hints": [{ "type": "stack" }, { "type": "add", "value": 1 }]
 }
 ```
-Type of unsigned `size`-bit integer. Arguments `size`, `min_value`, `max_value` of type `number` are required.
+Type of unsigned `size`-bit integer with valid values in range `min_value`...`max_value`. Arguments `size`, `min_value`, `max_value` of type `number` and `display_hints` of type `array` are required.
 #### int
 ```json
 {
@@ -189,21 +202,20 @@ Type of unsigned `size`-bit integer. Arguments `size`, `min_value`, `max_value` 
     "type": "int",
     "size": 4,
     "min_value": -8,
-    "max_value": 7
+    "max_value": 7,
+    "display_hints": []
 }
 ```
-Type of signed `size`-bit integer. Arguments `size`, `min_value`, `max_value` of type `number` are required.
+Type of signed `size`-bit integer with valid values in range `min_value`...`max_value`. Arguments `size`, `min_value`, `max_value` of type `number` and `display_hints` of type `array` are required.
 #### ref
 ```json
 {
     "name": "c",
     "type": "ref",
-    "decode_hint": {
-        "type": "continuation"
-    }
+    "display_hints": [{ "type": "continuation" }]
 }
 ```
-Type of a single reference. Unlike `subslice` with `refs_add = 1`, should dereference instead of returning empty cell with a single reference. `decode_hint` is a (non-guarantee) hint for decoders for specific types of slices. `decode_hint.type` is `"plain" | "continuation" | "dictionary"`. For `dictionary` type there is `decode_hint.size_var` field, which specifies variable which stores dictionary key length.
+Type of a single reference. Unlike `subslice` with `refs_add = 1`, should dereference instead of returning empty cell with a single reference.
 #### pushint_long
 ```json
 {
@@ -226,7 +238,7 @@ Special type which currently is used only in `PUSHINT_LONG` instruction. Consist
     "min_bits": 0,
     "max_refs": 4,
     "min_refs": 1,
-    "decode_hint": { "type": "plain" }
+    "display_hints": []
 }
 ```
 _TLB notation: `r:(## 2) xx:(## 5) c:((r + 1) * ^Cell) ssss:((8 * xx + 1) * Bit)`_
@@ -244,7 +256,7 @@ Loads `r` uint of size `refs_length_var_size` (if present), `x` uint of size `bi
 | min_bits | Hint for minimum bits available to store for this operand. Required.
 | max_refs | Hint for maximum refs available to store for this operand. Required.
 | min_refs | Hint for minimum refs available to store for this operand. Required.
-| decode_hint | Hint for decoders for specific types of slices. Required. `decode_hint.type` is `"plain" | "continuation" | "dictionary"`. For `dictionary` type there is `decode_hint.size_var` field, which specifies variable which stores dictionary key length.
+| display_hints | Set of hints for converters between Asm.fif and bytecode representations. Required.
 
 ### Stack Entry Specification and Examples
 
