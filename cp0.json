@@ -45,7 +45,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 1,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -77,14 +78,16 @@
             "type": "uint",
             "size": 4,
             "min_value": 1,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -115,7 +118,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -147,7 +151,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 2,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -178,7 +183,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -209,7 +215,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -240,21 +247,24 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "k",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -285,14 +295,16 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -323,14 +335,16 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -361,14 +375,16 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -399,14 +415,16 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -437,21 +455,24 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "k",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -482,21 +503,24 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "k",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -527,21 +551,24 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "k",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -572,21 +599,24 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "k",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -617,21 +647,24 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "k",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -662,21 +695,24 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "k",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -707,21 +743,24 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "k",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -752,21 +791,24 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "k",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -797,14 +839,16 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -835,7 +879,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -866,7 +911,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -1035,14 +1081,16 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -1073,7 +1121,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -1105,14 +1154,16 @@
             "type": "uint",
             "size": 4,
             "min_value": 1,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -1430,14 +1481,16 @@
             "type": "uint",
             "size": 4,
             "min_value": 1,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -1527,7 +1580,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -1573,7 +1627,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -1612,7 +1667,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -1658,7 +1714,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -1704,7 +1761,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -1751,7 +1809,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -1793,7 +1852,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -1832,7 +1892,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -2719,14 +2780,16 @@
             "type": "uint",
             "size": 2,
             "min_value": 0,
-            "max_value": 3
+            "max_value": 3,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 2,
             "min_value": 0,
-            "max_value": 3
+            "max_value": 3,
+            "display_hints": []
           }
         ]
       },
@@ -2765,21 +2828,24 @@
             "type": "uint",
             "size": 2,
             "min_value": 0,
-            "max_value": 3
+            "max_value": 3,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 2,
             "min_value": 0,
-            "max_value": 3
+            "max_value": 3,
+            "display_hints": []
           },
           {
             "name": "k",
             "type": "uint",
             "size": 2,
             "min_value": 0,
-            "max_value": 3
+            "max_value": 3,
+            "display_hints": []
           }
         ]
       },
@@ -2818,7 +2884,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -2854,7 +2921,8 @@
             "type": "int",
             "size": 8,
             "min_value": -128,
-            "max_value": 127
+            "max_value": 127,
+            "display_hints": []
           }
         ]
       },
@@ -2890,7 +2958,8 @@
             "type": "int",
             "size": 16,
             "min_value": -32768,
-            "max_value": 32767
+            "max_value": 32767,
+            "display_hints": []
           }
         ]
       },
@@ -2921,7 +2990,9 @@
         "tlb": "#82 l:(## 5) xxx:(int (8 * l + 19))",
         "prefix": "82",
         "operands_range_check": { "length": 5, "from": 0, "to": 30 },
-        "operands": [{ "name": "x", "type": "pushint_long" }]
+        "operands": [
+          { "name": "x", "type": "pushint_long" }
+        ]
       },
       "value_flow": {
         "doc_stack": "- xxx",
@@ -2956,7 +3027,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 254
+            "max_value": 254,
+            "display_hints": []
           }
         ]
       },
@@ -3020,7 +3092,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -3056,7 +3129,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -3086,7 +3160,7 @@
         "doc_opcode": "88",
         "tlb": "#88 c:^Cell",
         "prefix": "88",
-        "operands": [{ "name": "c", "type": "ref" }]
+        "operands": [{ "name": "c", "type": "ref", "display_hints": [] }]
       },
       "value_flow": {
         "doc_stack": "- c",
@@ -3114,7 +3188,7 @@
         "doc_opcode": "89",
         "tlb": "#89 c:^Cell",
         "prefix": "89",
-        "operands": [{ "name": "c", "type": "ref" }]
+        "operands": [{ "name": "c", "type": "ref", "display_hints": [] }]
       },
       "value_flow": {
         "doc_stack": "- s",
@@ -3190,7 +3264,8 @@
             "max_bits": 123,
             "min_bits": 0,
             "max_refs": 0,
-            "min_refs": 0
+            "min_refs": 0,
+            "display_hints": []
           }
         ]
       },
@@ -3232,7 +3307,8 @@
             "max_bits": 248,
             "min_bits": 0,
             "max_refs": 4,
-            "min_refs": 1
+            "min_refs": 1,
+            "display_hints": []
           }
         ]
       },
@@ -3284,7 +3360,8 @@
             "max_bits": 1021,
             "min_bits": 0,
             "max_refs": 4,
-            "min_refs": 0
+            "min_refs": 0,
+            "display_hints": []
           }
         ]
       },
@@ -3326,7 +3403,8 @@
             "max_bits": 1016,
             "min_bits": 0,
             "max_refs": 3,
-            "min_refs": 0
+            "min_refs": 0,
+            "display_hints": []
           }
         ]
       },
@@ -3375,7 +3453,8 @@
             "max_bits": 120,
             "min_bits": 0,
             "max_refs": 0,
-            "min_refs": 0
+            "min_refs": 0,
+            "display_hints": []
           }
         ]
       },
@@ -3612,7 +3691,8 @@
             "type": "int",
             "size": 8,
             "min_value": -128,
-            "max_value": 127
+            "max_value": 127,
+            "display_hints": []
           }
         ]
       },
@@ -3653,7 +3733,8 @@
             "type": "int",
             "size": 8,
             "min_value": -128,
-            "max_value": 127
+            "max_value": 127,
+            "display_hints": []
           }
         ]
       },
@@ -4528,7 +4609,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -4571,7 +4653,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -4614,7 +4697,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -4657,7 +4741,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -4698,7 +4783,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -4739,7 +4825,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -4780,7 +4867,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -4821,7 +4909,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -4862,7 +4951,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -4904,7 +4994,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -4946,7 +5037,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -5843,7 +5935,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -5886,7 +5979,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -5929,7 +6023,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -5972,7 +6067,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -6014,7 +6110,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -6056,7 +6153,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -6098,7 +6196,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -6140,7 +6239,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -6182,7 +6282,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -6224,7 +6325,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -6266,7 +6368,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -6308,7 +6411,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -6773,7 +6877,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -6816,7 +6921,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -6859,7 +6965,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -6902,7 +7009,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -6944,7 +7052,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -6986,7 +7095,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -7028,7 +7138,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -7070,7 +7181,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -7112,7 +7224,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -7154,7 +7267,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -7196,7 +7310,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -7238,7 +7353,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -7280,7 +7396,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -7321,7 +7438,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -7598,7 +7716,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -7639,7 +7758,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -8985,7 +9105,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -9028,7 +9149,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -9071,7 +9193,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -9114,7 +9237,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -9155,7 +9279,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -9196,7 +9321,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -9237,7 +9363,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -9278,7 +9405,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -9319,7 +9447,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -9361,7 +9490,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -9403,7 +9533,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -10299,7 +10430,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -10342,7 +10474,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -10385,7 +10518,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -10428,7 +10562,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -10470,7 +10605,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -10512,7 +10648,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -10554,7 +10691,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -10596,7 +10734,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -10638,7 +10777,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -11205,7 +11345,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -11248,7 +11389,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -11291,7 +11433,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -11334,7 +11477,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -11376,7 +11520,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -11418,7 +11563,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -11460,7 +11606,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -11502,7 +11649,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -11544,7 +11692,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -11586,7 +11735,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -11628,7 +11778,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -11670,7 +11821,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -11712,7 +11864,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -11753,7 +11906,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -12030,7 +12184,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -12071,7 +12226,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -12451,7 +12607,8 @@
             "type": "int",
             "size": 8,
             "min_value": -128,
-            "max_value": 127
+            "max_value": 127,
+            "display_hints": []
           }
         ]
       },
@@ -12492,7 +12649,8 @@
             "type": "int",
             "size": 8,
             "min_value": -128,
-            "max_value": 127
+            "max_value": 127,
+            "display_hints": []
           }
         ]
       },
@@ -12533,7 +12691,8 @@
             "type": "int",
             "size": 8,
             "min_value": -128,
-            "max_value": 127
+            "max_value": 127,
+            "display_hints": []
           }
         ]
       },
@@ -12574,7 +12733,8 @@
             "type": "int",
             "size": 8,
             "min_value": -128,
-            "max_value": 127
+            "max_value": 127,
+            "display_hints": []
           }
         ]
       },
@@ -13339,7 +13499,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -13381,7 +13542,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -13989,7 +14151,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -14031,7 +14194,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -14073,7 +14237,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -14115,7 +14280,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -14157,7 +14323,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -14245,7 +14412,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -14333,7 +14501,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -14421,7 +14590,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -15279,7 +15449,7 @@
         "doc_opcode": "CF20",
         "tlb": "#CF20 c:^Cell",
         "prefix": "CF20",
-        "operands": [{ "name": "c", "type": "ref" }]
+        "operands": [{ "name": "c", "type": "ref", "display_hints": [] }]
       },
       "value_flow": {
         "doc_stack": "b - b'",
@@ -15313,8 +15483,8 @@
         "tlb": "#CF21 c1:^Cell c2:^Cell",
         "prefix": "CF21",
         "operands": [
-          { "name": "c1", "type": "ref" },
-          { "name": "c2", "type": "ref" }
+          { "name": "c1", "type": "ref", "display_hints": [] },
+          { "name": "c2", "type": "ref", "display_hints": [] }
         ]
       },
       "value_flow": {
@@ -15755,7 +15925,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -15879,7 +16050,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -16132,7 +16304,8 @@
             "max_bits": 57,
             "min_bits": 0,
             "max_refs": 3,
-            "min_refs": 0
+            "min_refs": 0,
+            "display_hints": []
           }
         ]
       },
@@ -16232,7 +16405,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -16274,7 +16448,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -16384,7 +16559,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -16780,7 +16956,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -16822,7 +16999,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -16864,7 +17042,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -16905,7 +17084,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -16946,7 +17126,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -17010,7 +17191,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -17074,7 +17256,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -17132,7 +17315,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -17190,7 +17374,8 @@
             "type": "uint",
             "size": 3,
             "min_value": 0,
-            "max_value": 7
+            "max_value": 7,
+            "display_hints": []
           }
         ]
       },
@@ -17405,7 +17590,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -17447,7 +17633,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -17488,7 +17675,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -17552,7 +17740,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -17867,7 +18056,8 @@
             "max_bits": 1018,
             "min_bits": 0,
             "max_refs": 0,
-            "min_refs": 0
+            "min_refs": 0,
+            "display_hints": []
           }
         ]
       },
@@ -17912,7 +18102,8 @@
             "max_bits": 1018,
             "min_bits": 0,
             "max_refs": 0,
-            "min_refs": 0
+            "min_refs": 0,
+            "display_hints": []
           }
         ]
       },
@@ -18677,7 +18868,8 @@
             "type": "uint",
             "size": 2,
             "min_value": 0,
-            "max_value": 3
+            "max_value": 3,
+            "display_hints": []
           }
         ]
       },
@@ -19648,14 +19840,16 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "r",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -19711,7 +19905,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -19767,7 +19962,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -19812,7 +20008,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -20004,14 +20201,16 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "r",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -20366,7 +20565,8 @@
             "type": "uint",
             "size": 12,
             "min_value": 0,
-            "max_value": 4095
+            "max_value": 4095,
+            "display_hints": []
           }
         ]
       },
@@ -21190,7 +21390,8 @@
             "type": "uint",
             "size": 5,
             "min_value": 0,
-            "max_value": 31
+            "max_value": 31,
+            "display_hints": []
           }
         ]
       },
@@ -21235,7 +21436,8 @@
             "type": "uint",
             "size": 5,
             "min_value": 0,
-            "max_value": 31
+            "max_value": 31,
+            "display_hints": []
           }
         ]
       },
@@ -21280,7 +21482,8 @@
             "type": "uint",
             "size": 5,
             "min_value": 0,
-            "max_value": 31
+            "max_value": 31,
+            "display_hints": []
           },
           {
             "name": "c",
@@ -21329,7 +21532,8 @@
             "type": "uint",
             "size": 5,
             "min_value": 0,
-            "max_value": 31
+            "max_value": 31,
+            "display_hints": []
           },
           {
             "name": "c",
@@ -22112,14 +22316,16 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "n",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -22166,7 +22372,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -22369,14 +22576,16 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "n",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -22423,7 +22632,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -22460,7 +22670,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -22497,7 +22708,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -22539,7 +22751,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -22576,7 +22789,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -22613,7 +22827,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -22653,7 +22868,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -22693,7 +22909,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -22733,7 +22950,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -23319,7 +23537,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 255
+            "max_value": 255,
+            "display_hints": []
           }
         ]
       },
@@ -23369,7 +23588,8 @@
             "type": "uint",
             "size": 14,
             "min_value": 0,
-            "max_value": 16383
+            "max_value": 16383,
+            "display_hints": []
           }
         ]
       },
@@ -23419,7 +23639,8 @@
             "type": "uint",
             "size": 14,
             "min_value": 0,
-            "max_value": 16383
+            "max_value": 16383,
+            "display_hints": []
           }
         ]
       },
@@ -23458,7 +23679,8 @@
             "type": "uint",
             "size": 14,
             "min_value": 0,
-            "max_value": 16383
+            "max_value": 16383,
+            "display_hints": []
           }
         ]
       },
@@ -23498,7 +23720,8 @@
             "type": "uint",
             "size": 6,
             "min_value": 0,
-            "max_value": 63
+            "max_value": 63,
+            "display_hints": []
           }
         ]
       },
@@ -23529,7 +23752,8 @@
             "type": "uint",
             "size": 6,
             "min_value": 0,
-            "max_value": 63
+            "max_value": 63,
+            "display_hints": []
           }
         ]
       },
@@ -23565,7 +23789,8 @@
             "type": "uint",
             "size": 6,
             "min_value": 0,
-            "max_value": 63
+            "max_value": 63,
+            "display_hints": []
           }
         ]
       },
@@ -23601,7 +23826,8 @@
             "type": "uint",
             "size": 11,
             "min_value": 0,
-            "max_value": 2047
+            "max_value": 2047,
+            "display_hints": []
           }
         ]
       },
@@ -23632,7 +23858,8 @@
             "type": "uint",
             "size": 11,
             "min_value": 0,
-            "max_value": 2047
+            "max_value": 2047,
+            "display_hints": []
           }
         ]
       },
@@ -23666,7 +23893,8 @@
             "type": "uint",
             "size": 11,
             "min_value": 0,
-            "max_value": 2047
+            "max_value": 2047,
+            "display_hints": []
           }
         ]
       },
@@ -23702,7 +23930,8 @@
             "type": "uint",
             "size": 11,
             "min_value": 0,
-            "max_value": 2047
+            "max_value": 2047,
+            "display_hints": []
           }
         ]
       },
@@ -23739,7 +23968,8 @@
             "type": "uint",
             "size": 11,
             "min_value": 0,
-            "max_value": 2047
+            "max_value": 2047,
+            "display_hints": []
           }
         ]
       },
@@ -23775,7 +24005,8 @@
             "type": "uint",
             "size": 11,
             "min_value": 0,
-            "max_value": 2047
+            "max_value": 2047,
+            "display_hints": []
           }
         ]
       },
@@ -24054,14 +24285,16 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           },
           {
             "name": "r",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -30878,7 +31111,8 @@
             "type": "uint",
             "size": 10,
             "min_value": 0,
-            "max_value": 1023
+            "max_value": 1023,
+            "display_hints": []
           }
         ]
       },
@@ -31092,7 +31326,8 @@
             "type": "uint",
             "size": 10,
             "min_value": 0,
-            "max_value": 1023
+            "max_value": 1023,
+            "display_hints": []
           }
         ]
       },
@@ -31714,7 +31949,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -31989,7 +32225,8 @@
             "type": "uint",
             "size": 5,
             "min_value": 1,
-            "max_value": 31
+            "max_value": 31,
+            "display_hints": []
           }
         ]
       },
@@ -32059,7 +32296,8 @@
             "type": "uint",
             "size": 5,
             "min_value": 1,
-            "max_value": 31
+            "max_value": 31,
+            "display_hints": []
           }
         ]
       },
@@ -35647,14 +35885,16 @@
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 14
+            "max_value": 14,
+            "display_hints": []
           },
           {
             "name": "j",
             "type": "uint",
             "size": 4,
             "min_value": 0,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
@@ -35689,7 +35929,8 @@
             "max_bits": 128,
             "min_bits": 8,
             "max_refs": 0,
-            "min_refs": 0
+            "min_refs": 0,
+            "display_hints": []
           }
         ]
       },
@@ -35721,7 +35962,8 @@
             "type": "uint",
             "size": 8,
             "min_value": 0,
-            "max_value": 239
+            "max_value": 239,
+            "display_hints": []
           }
         ]
       },
@@ -35753,7 +35995,8 @@
             "type": "uint",
             "size": 4,
             "min_value": 1,
-            "max_value": 15
+            "max_value": 15,
+            "display_hints": []
           }
         ]
       },
