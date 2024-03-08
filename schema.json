@@ -309,17 +309,10 @@
       "description": "Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore.",
       "markdownDescription": "Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore."
     },
-    "decode_hint": {
-      "title": "Hint for disassembler to parse operand data",
+    "display_hint": {
+      "title": "Display Hint",
+      "description": "Hint for converting operands between raw values and Asm.fif display format",
       "oneOf": [
-        {
-          "type": "object",
-          "additionalProperties": false,
-          "required": ["type"],
-          "properties": {
-            "type": { "const": "plain" }
-          }
-        },
         {
           "type": "object",
           "additionalProperties": false,
@@ -336,8 +329,40 @@
             "type": { "const": "dictionary" },
             "size_var": { "$ref": "#/definitions/var_name" }
           }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "value"],
+          "properties": {
+            "type": { "const": "add" },
+            "value": { "type": "number" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type"],
+          "properties": {
+            "type": { "const": "stack" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type"],
+          "properties": {
+            "type": { "const": "register" }
+          }
         }
       ]
+    },
+    "display_hints": {
+      "type": "array",
+      "additionalItems": false,
+      "title": "Display Hints",
+      "description": "Set of hints to convert between Asm.fif representation and raw bytecode",
+      "items": { "$ref": "#/definitions/display_hint" }
     },
     "operand": {
       "title": "Operand",
@@ -346,10 +371,11 @@
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["name", "type", "size", "max_value", "min_value"],
+          "required": ["name", "type", "display_hints", "size", "max_value", "min_value"],
           "properties": {
             "name": { "$ref": "#/definitions/var_name" },
             "type": { "const": "uint" },
+            "display_hints": { "$ref": "#/definitions/display_hints" },
             "size": {
               "type": "number",
               "title": "Integer size, bits"
@@ -367,10 +393,11 @@
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["name", "type", "size", "max_value", "min_value"],
+          "required": ["name", "type", "display_hints", "size", "max_value", "min_value"],
           "properties": {
             "name": { "$ref": "#/definitions/var_name" },
             "type": { "const": "int" },
+            "display_hints": { "$ref": "#/definitions/display_hints" },
             "size": {
               "type": "number",
               "title": "Integer size, bits"
@@ -397,20 +424,21 @@
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["name", "type", "decode_hint"],
+          "required": ["name", "type", "display_hints"],
           "properties": {
             "name": { "$ref": "#/definitions/var_name" },
             "type": { "const": "ref" },
-            "decode_hint": { "$ref": "#/definitions/decode_hint" }
+            "display_hints": { "$ref": "#/definitions/display_hints" }
           }
         },
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["name", "type", "bits_length_var_size", "bits_padding", "completion_tag", "decode_hint", "max_bits", "min_bits", "max_refs", "min_refs"],
+          "required": ["name", "type", "display_hints", "bits_length_var_size", "bits_padding", "completion_tag", "max_bits", "min_bits", "max_refs", "min_refs"],
           "properties": {
             "name": { "$ref": "#/definitions/var_name" },
             "type": { "const": "subslice" },
+            "display_hints": { "$ref": "#/definitions/display_hints" },
             "bits_length_var_size": {
               "type": "number",
               "title": "Size of bit length operand"
@@ -454,8 +482,7 @@
               "type": "number",
               "title": "Min ref size",
               "description": "Hint for minimum refs available to store for this operand"
-            },
-            "decode_hint": { "$ref": "#/definitions/decode_hint" }
+            }
           }
         }
       ]

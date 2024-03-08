@@ -782,7 +782,7 @@
       "since_version": 0,
       "doc": {
         "category": "stack_complex",
-        "description": "Permutes two blocks `s[j+i+1] вЂ¦ s[j+1]` and `s[j] вЂ¦ s0`.\n`0 <= i,j <= 15`\nEquivalent to `[i+1] [j+1] REVERSE` `[j+1] 0 REVERSE` `[i+j+2] 0 REVERSE`.",
+        "description": "Permutes two blocks `s[j+i+1] ... s[j+1]` and `s[j] ... s0`.\n`0 <= i,j <= 15`\nEquivalent to `[i+1] [j+1] REVERSE` `[j+1] 0 REVERSE` `[i+j+2] 0 REVERSE`.",
         "gas": "26",
         "fift": "[i+1] [j+1] BLKSWAP",
         "fift_examples": []
@@ -1020,7 +1020,7 @@
       "since_version": 0,
       "doc": {
         "category": "stack_complex",
-        "description": "Reverses the order of `s[j+i+1] вЂ¦ s[j]`.",
+        "description": "Reverses the order of `s[j+i+1] ... s[j]`.",
         "gas": "26",
         "fift": "[i+2] [j] REVERSE",
         "fift_examples": []
@@ -1512,7 +1512,7 @@
       "since_version": 0,
       "doc": {
         "category": "tuple",
-        "description": "Creates a new _Tuple_ `t=(x_1, вЂ¦ ,x_n)` containing `n` values `x_1`,..., `x_n`.\n`0 <= n <= 15`",
+        "description": "Creates a new _Tuple_ `t=(x_1, ... ,x_n)` containing `n` values `x_1`,..., `x_n`.\n`0 <= n <= 15`",
         "gas": "26+n",
         "fift": "[n] TUPLE",
         "fift_examples": []
@@ -1817,8 +1817,8 @@
       "since_version": 0,
       "doc": {
         "category": "tuple",
-        "description": "Sets the `k`-th component of _Tuple_ `t` to `x`, where `0 <= k < 16`, and returns the resulting _Tuple_ `t'`.\nIf `|t| <= k`, first extends the original _Tuple_ to length `n╨▓╨ВтДв=k+1` by setting all new components to _Null_. If the original value of `t` is _Null_, treats it as an empty _Tuple_. If `t` is not _Null_ or _Tuple_, throws an exception. If `x` is _Null_ and either `|t| <= k` or `t` is _Null_, then always returns `t'=t` (and does not consume tuple creation gas).",
-        "gas": "26+|t╨▓╨ВтДв|",
+        "description": "Sets the `k`-th component of _Tuple_ `t` to `x`, where `0 <= k < 16`, and returns the resulting _Tuple_ `t'`.\nIf `|t| <= k`, first extends the original _Tuple_ to length `n'=k+1` by setting all new components to _Null_. If the original value of `t` is _Null_, treats it as an empty _Tuple_. If `t` is not _Null_ or _Tuple_, throws an exception. If `x` is _Null_ and either `|t| <= k` or `t` is _Null_, then always returns `t'=t` (and does not consume tuple creation gas).",
+        "gas": "26+|t'|",
         "fift": "[k] SETINDEXQ",
         "fift_examples": []
       },
@@ -2049,7 +2049,7 @@
       "doc": {
         "category": "tuple",
         "description": "Similar to `k SETINDEX`, but with `0 <= k <= 254` taken from the stack.",
-        "gas": "26+|t╨▓╨ВтДв|",
+        "gas": "26+|t'|",
         "fift": "SETINDEXVAR",
         "fift_examples": []
       },
@@ -2116,7 +2116,7 @@
       "doc": {
         "category": "tuple",
         "description": "Similar to `k SETINDEXQ`, but with `0 <= k <= 254` taken from the stack.",
-        "gas": "26+|tвЂ™|",
+        "gas": "26+|t'|",
         "fift": "SETINDEXVARQ",
         "fift_examples": []
       },
@@ -2281,7 +2281,7 @@
       "doc": {
         "category": "tuple",
         "description": "Appends a value `x` to a _Tuple_ `t=(x_1,...,x_n)`, but only if the resulting _Tuple_ `t'=(x_1,...,x_n,x)` is of length at most 255. Otherwise throws a type check exception.",
-        "gas": "26+|tвЂ™|",
+        "gas": "26+|t'|",
         "fift": "TPUSH\nCOMMA",
         "fift_examples": []
       },
@@ -2315,7 +2315,7 @@
       "doc": {
         "category": "tuple",
         "description": "Detaches the last element `x=x_n` from a non-empty _Tuple_ `t=(x_1,...,x_n)`, and returns both the resulting _Tuple_ `t'=(x_1,...,x_{n-1})` and the original last element `x`.",
-        "gas": "26+|tвЂ™|",
+        "gas": "26+|t'|",
         "fift": "TPOP",
         "fift_examples": []
       },
@@ -3086,9 +3086,7 @@
         "doc_opcode": "88",
         "tlb": "#88 c:^Cell",
         "prefix": "88",
-        "operands": [
-          { "name": "c", "type": "ref", "decode_hint": { "type": "plain" } }
-        ]
+        "operands": [{ "name": "c", "type": "ref" }]
       },
       "value_flow": {
         "doc_stack": "- c",
@@ -3116,9 +3114,7 @@
         "doc_opcode": "89",
         "tlb": "#89 c:^Cell",
         "prefix": "89",
-        "operands": [
-          { "name": "c", "type": "ref", "decode_hint": { "type": "plain" } }
-        ]
+        "operands": [{ "name": "c", "type": "ref" }]
       },
       "value_flow": {
         "doc_stack": "- s",
@@ -3150,7 +3146,7 @@
           {
             "name": "c",
             "type": "ref",
-            "decode_hint": { "type": "continuation" }
+            "display_hints": [{ "type": "continuation" }]
           }
         ]
       },
@@ -3194,8 +3190,7 @@
             "max_bits": 123,
             "min_bits": 0,
             "max_refs": 0,
-            "min_refs": 0,
-            "decode_hint": { "type": "plain" }
+            "min_refs": 0
           }
         ]
       },
@@ -3237,8 +3232,7 @@
             "max_bits": 248,
             "min_bits": 0,
             "max_refs": 4,
-            "min_refs": 1,
-            "decode_hint": { "type": "plain" }
+            "min_refs": 1
           }
         ]
       },
@@ -3265,7 +3259,7 @@
         "fift_examples": [
           {
             "fift": "x{} PUSHSLICE x{ABCD1234} PUSHSLICE b{01101} PUSHSLICE",
-            "description": "Examples of `PUSHSLICE`. `x{}` is an empty slice. `x{...}` is a hexadecimal literal. `b{...}` is a binary literal. More on slice literals [here](https://github.com/Piterden/TON-docs/blob/master/Fift.%20A%20Brief%20Introduction.md#user-content-51-slice-literals). Note that the assembler can replace `PUSHSLICE` with `PUSHREFSLICE` in certain situations (e.g. if there’s not enough space in the current continuation)."
+            "description": "Examples of `PUSHSLICE`. `x{}` is an empty slice. `x{...}` is a hexadecimal literal. `b{...}` is a binary literal. More on slice literals [here](https://github.com/Piterden/TON-docs/blob/master/Fift.%20A%20Brief%20Introduction.md#user-content-51-slice-literals). Note that the assembler can replace `PUSHSLICE` with `PUSHREFSLICE` in certain situations (e.g. if there's not enough space in the current continuation)."
           },
           {
             "fift": "<b x{AB12} s, b> PUSHREF <b x{AB12} s, b> PUSHREFSLICE",
@@ -3290,8 +3284,7 @@
             "max_bits": 1021,
             "min_bits": 0,
             "max_refs": 4,
-            "min_refs": 0,
-            "decode_hint": { "type": "plain" }
+            "min_refs": 0
           }
         ]
       },
@@ -3333,8 +3326,7 @@
             "max_bits": 1016,
             "min_bits": 0,
             "max_refs": 3,
-            "min_refs": 0,
-            "decode_hint": { "type": "plain" }
+            "min_refs": 0
           }
         ]
       },
@@ -3365,7 +3357,7 @@
         "fift_examples": [
           {
             "fift": "<{ code }> PUSHCONT <{ code }> CONT CONT:<{ code }>",
-            "description": "Pushes a continuation with code `code`. Note that the assembler can replace `PUSHCONT` with `PUSHREFCONT` in certain situations (e.g. if there’s not enough space in the current continuation)."
+            "description": "Pushes a continuation with code `code`. Note that the assembler can replace `PUSHCONT` with `PUSHREFCONT` in certain situations (e.g. if there's not enough space in the current continuation)."
           }
         ]
       },
@@ -3383,8 +3375,7 @@
             "max_bits": 120,
             "min_bits": 0,
             "max_refs": 0,
-            "min_refs": 0,
-            "decode_hint": { "type": "plain" }
+            "min_refs": 0
           }
         ]
       },
@@ -3864,7 +3855,7 @@
       "since_version": 0,
       "doc": {
         "category": "arithm_div",
-        "description": "`qвЂ™=round(x/y)`, `rвЂ™=x-y*qвЂ™`",
+        "description": "`q'=round(x/y)`, `r'=x-y*q'`",
         "gas": "26",
         "fift": "DIVR",
         "fift_examples": []
@@ -3876,7 +3867,7 @@
         "operands": []
       },
       "value_flow": {
-        "doc_stack": "x y - qвЂ™",
+        "doc_stack": "x y - q'",
         "inputs": {
           "stack": [
             { "type": "simple", "name": "x", "value_types": ["Integer"] },
@@ -3898,7 +3889,7 @@
       "since_version": 0,
       "doc": {
         "category": "arithm_div",
-        "description": "`qвЂ™вЂ™=ceil(x/y)`, `rвЂ™вЂ™=x-y*qвЂ™вЂ™`",
+        "description": "`q''=ceil(x/y)`, `r''=x-y*q''`",
         "gas": "26",
         "fift": "DIVC",
         "fift_examples": []
@@ -8333,7 +8324,7 @@
         "operands": []
       },
       "value_flow": {
-        "doc_stack": "x y - qвЂ™",
+        "doc_stack": "x y - q'",
         "inputs": {
           "stack": [
             { "type": "simple", "name": "x", "value_types": ["Integer"] },
@@ -15288,12 +15279,10 @@
         "doc_opcode": "CF20",
         "tlb": "#CF20 c:^Cell",
         "prefix": "CF20",
-        "operands": [
-          { "name": "c", "type": "ref", "decode_hint": { "type": "plain" } }
-        ]
+        "operands": [{ "name": "c", "type": "ref" }]
       },
       "value_flow": {
-        "doc_stack": "b - b╨▓╨ВтДв",
+        "doc_stack": "b - b'",
         "inputs": {
           "stack": [
             { "type": "simple", "name": "b", "value_types": ["Builder"] }
@@ -15324,12 +15313,12 @@
         "tlb": "#CF21 c1:^Cell c2:^Cell",
         "prefix": "CF21",
         "operands": [
-          { "name": "c1", "type": "ref", "decode_hint": { "type": "plain" } },
-          { "name": "c2", "type": "ref", "decode_hint": { "type": "plain" } }
+          { "name": "c1", "type": "ref" },
+          { "name": "c2", "type": "ref" }
         ]
       },
       "value_flow": {
-        "doc_stack": "b - b╨▓╨ВтДв",
+        "doc_stack": "b - b'",
         "inputs": {
           "stack": [
             { "type": "simple", "name": "b", "value_types": ["Builder"] }
@@ -16143,8 +16132,7 @@
             "max_bits": 57,
             "min_bits": 0,
             "max_refs": 3,
-            "min_refs": 0,
-            "decode_hint": { "type": "plain" }
+            "min_refs": 0
           }
         ]
       },
@@ -17879,8 +17867,7 @@
             "max_bits": 1018,
             "min_bits": 0,
             "max_refs": 0,
-            "min_refs": 0,
-            "decode_hint": { "type": "plain" }
+            "min_refs": 0
           }
         ]
       },
@@ -17925,8 +17912,7 @@
             "max_bits": 1018,
             "min_bits": 0,
             "max_refs": 0,
-            "min_refs": 0,
-            "decode_hint": { "type": "plain" }
+            "min_refs": 0
           }
         ]
       },
@@ -20245,7 +20231,7 @@
           {
             "name": "c",
             "type": "ref",
-            "decode_hint": { "type": "continuation" }
+            "display_hints": [{ "type": "continuation" }]
           }
         ]
       },
@@ -20288,7 +20274,7 @@
           {
             "name": "c",
             "type": "ref",
-            "decode_hint": { "type": "continuation" }
+            "display_hints": [{ "type": "continuation" }]
           }
         ]
       },
@@ -20320,7 +20306,7 @@
           {
             "name": "c",
             "type": "ref",
-            "decode_hint": { "type": "continuation" }
+            "display_hints": [{ "type": "continuation" }]
           }
         ]
       },
@@ -20723,7 +20709,7 @@
           {
             "name": "c",
             "type": "ref",
-            "decode_hint": { "type": "continuation" }
+            "display_hints": [{ "type": "continuation" }]
           }
         ]
       },
@@ -20771,7 +20757,7 @@
           {
             "name": "c",
             "type": "ref",
-            "decode_hint": { "type": "continuation" }
+            "display_hints": [{ "type": "continuation" }]
           }
         ]
       },
@@ -20819,7 +20805,7 @@
           {
             "name": "c",
             "type": "ref",
-            "decode_hint": { "type": "continuation" }
+            "display_hints": [{ "type": "continuation" }]
           }
         ]
       },
@@ -20856,7 +20842,7 @@
           {
             "name": "c",
             "type": "ref",
-            "decode_hint": { "type": "continuation" }
+            "display_hints": [{ "type": "continuation" }]
           }
         ]
       },
@@ -21021,7 +21007,7 @@
           {
             "name": "c",
             "type": "ref",
-            "decode_hint": { "type": "continuation" }
+            "display_hints": [{ "type": "continuation" }]
           }
         ]
       },
@@ -21080,7 +21066,7 @@
           {
             "name": "c",
             "type": "ref",
-            "decode_hint": { "type": "continuation" }
+            "display_hints": [{ "type": "continuation" }]
           }
         ]
       },
@@ -21139,12 +21125,12 @@
           {
             "name": "c1",
             "type": "ref",
-            "decode_hint": { "type": "continuation" }
+            "display_hints": [{ "type": "continuation" }]
           },
           {
             "name": "c2",
             "type": "ref",
-            "decode_hint": { "type": "continuation" }
+            "display_hints": [{ "type": "continuation" }]
           }
         ]
       },
@@ -21299,7 +21285,7 @@
           {
             "name": "c",
             "type": "ref",
-            "decode_hint": { "type": "continuation" }
+            "display_hints": [{ "type": "continuation" }]
           }
         ]
       },
@@ -21348,7 +21334,7 @@
           {
             "name": "c",
             "type": "ref",
-            "decode_hint": { "type": "continuation" }
+            "display_hints": [{ "type": "continuation" }]
           }
         ]
       },
@@ -22112,7 +22098,7 @@
       "doc": {
         "category": "cont_stack",
         "description": "Pushes `0 <= r <= 15` values `x_1...x_r` into the stack of (a copy of) the continuation `c`, starting with `x_1`. When `n` is 15 (-1 in Fift notation), does nothing with `c.nargs`. For `0 <= n <= 14`, sets `c.nargs` to the final size of the stack of `c'` plus `n`. In other words, transforms `c` into a _closure_ or a _partially applied function_, with `0 <= n <= 14` arguments missing.",
-        "gas": "26+s╨▓╨В╤Ь",
+        "gas": "26+s''",
         "fift": "[r] [n] SETCONTARGS",
         "fift_examples": []
       },
@@ -22166,7 +22152,7 @@
       "doc": {
         "category": "cont_stack",
         "description": "Leaves only the top `0 <= p <= 15` values in the current stack (somewhat similarly to `ONLYTOPX`), with all the unused bottom values not discarded, but saved into continuation `c0` in the same way as `SETCONTARGS` does.",
-        "gas": "26+s╨▓╨В╤Ь",
+        "gas": "26+s''",
         "fift": "[p] RETURNARGS",
         "fift_examples": []
       },
@@ -22197,7 +22183,7 @@
       "doc": {
         "category": "cont_stack",
         "description": "Similar to `RETURNARGS`, but with Integer `0 <= p <= 255` taken from the stack.",
-        "gas": "26+s╨▓╨В╤Ь",
+        "gas": "26+s''",
         "fift": "RETURNVARARGS",
         "fift_examples": []
       },
@@ -22220,7 +22206,7 @@
       "doc": {
         "category": "cont_stack",
         "description": "Similar to `SETCONTARGS`, but with `0 <= r <= 255` and `-1 <= n <= 255` taken from the stack.",
-        "gas": "26+s╨▓╨В╤Ь",
+        "gas": "26+s''",
         "fift": "SETCONTVARARGS",
         "fift_examples": []
       },
@@ -22328,7 +22314,7 @@
       "doc": {
         "category": "cont_create",
         "description": "Equivalent to `ROT` `BLESS` `ROTREV` `SETCONTVARARGS`.",
-        "gas": "26+sвЂќ",
+        "gas": "26+s''",
         "fift": "BLESSVARARGS",
         "fift_examples": []
       },
@@ -22776,7 +22762,7 @@
       "since_version": 0,
       "doc": {
         "category": "cont_registers",
-        "description": "Similar to `c[i] PUSHCTR`, but with `i`, `0 <= i <= 255`, taken from the stack.\nNotice that this primitive is one of the few вЂњexotic'' primitives, which are not polymorphic like stack manipulation primitives, and at the same time do not have well-defined types of parameters and return values, because the type of `x` depends on `i`.",
+        "description": "Similar to `c[i] PUSHCTR`, but with `i`, `0 <= i <= 255`, taken from the stack.\nNotice that this primitive is one of the few ''exotic'' primitives, which are not polymorphic like stack manipulation primitives, and at the same time do not have well-defined types of parameters and return values, because the type of `x` depends on `i`.",
         "gas": "26",
         "fift": "PUSHCTRX",
         "fift_examples": []
@@ -22874,7 +22860,7 @@
       "since_version": 0,
       "doc": {
         "category": "cont_registers",
-        "description": "Computes the composition `compose0(c, cвЂ™)`, which has the meaning of вЂњperform `c`, and, if successful, perform `c'`'' (if `c` is a boolean circuit) or simply вЂњperform `c`, then `c'`''. Equivalent to `SWAP` `c0 SETCONT`.",
+        "description": "Computes the composition `compose0(c, c')`, which has the meaning of ''perform `c`, and, if successful, perform `c'`'' (if `c` is a boolean circuit) or simply ''perform `c`, then `c'`''. Equivalent to `SWAP` `c0 SETCONT`.",
         "gas": "26",
         "fift": "COMPOS\nBOOLAND",
         "fift_examples": []
@@ -22908,7 +22894,7 @@
       "since_version": 0,
       "doc": {
         "category": "cont_registers",
-        "description": "Computes the alternative composition `compose1(c, cвЂ™)`, which has the meaning of вЂњperform `c`, and, if not successful, perform `c'`'' (if `c` is a boolean circuit). Equivalent to `SWAP` `c1 SETCONT`.",
+        "description": "Computes the alternative composition `compose1(c, c')`, which has the meaning of ''perform `c`, and, if not successful, perform `c'`'' (if `c` is a boolean circuit). Equivalent to `SWAP` `c1 SETCONT`.",
         "gas": "26",
         "fift": "COMPOSALT\nBOOLOR",
         "fift_examples": []
@@ -22942,7 +22928,7 @@
       "since_version": 0,
       "doc": {
         "category": "cont_registers",
-        "description": "Computes composition `compose1(compose0(c, cвЂ™), cвЂ™)`, which has the meaning of вЂњcompute boolean circuit `c`, then compute `c'`, regardless of the result of `c`''.",
+        "description": "Computes composition `compose1(compose0(c, c'), c')`, which has the meaning of ''compute boolean circuit `c`, then compute `c'`, regardless of the result of `c`''.",
         "gas": "26",
         "fift": "COMPOSBOTH",
         "fift_examples": []
@@ -24203,7 +24189,7 @@
       "since_version": 0,
       "doc": {
         "category": "dict_serial",
-        "description": "Loads (parses) a (_Slice_-represented) dictionary `s'` from _Slice_ `s`, and returns the remainder of `s` as `s''`.\nThis is a вЂњsplit function'' for all `HashmapE(n,X)` dictionary types.",
+        "description": "Loads (parses) a (_Slice_-represented) dictionary `s'` from _Slice_ `s`, and returns the remainder of `s` as `s''`.\nThis is a ''split function'' for all `HashmapE(n,X)` dictionary types.",
         "gas": "26",
         "fift": "LDDICTS",
         "fift_examples": []
@@ -27697,7 +27683,7 @@
       "since_version": 0,
       "doc": {
         "category": "dict_delete",
-        "description": "A version of `DICTDEL` with the key represented by a signed `n`-bit _Integer_ `i`. If `i` does not fit into `n` bits, simply returns `D` `0` (вЂњkey not found, dictionary unmodified'').",
+        "description": "A version of `DICTDEL` with the key represented by a signed `n`-bit _Integer_ `i`. If `i` does not fit into `n` bits, simply returns `D` `0` (''key not found, dictionary unmodified'').",
         "gas": "",
         "fift": "DICTIDEL",
         "fift_examples": []
@@ -30885,7 +30871,7 @@
           {
             "name": "d",
             "type": "ref",
-            "decode_hint": { "type": "dictionary", "size_var": "n" }
+            "display_hints": [{ "type": "dictionary", "size_var": "n" }]
           },
           {
             "name": "n",
@@ -31099,7 +31085,7 @@
           {
             "name": "d",
             "type": "ref",
-            "decode_hint": { "type": "dictionary", "size_var": "n" }
+            "display_hints": [{ "type": "dictionary", "size_var": "n" }]
           },
           {
             "name": "n",
@@ -31555,7 +31541,7 @@
       "since_version": 0,
       "doc": {
         "category": "app_gas",
-        "description": "Commits the current state of registers `c4` (вЂњpersistent data'') and `c5` (вЂњactions'') so that the current execution is considered вЂњsuccessful'' with the saved values even if an exception is thrown later.",
+        "description": "Commits the current state of registers `c4` (''persistent data'') and `c5` (''actions'') so that the current execution is considered ''successful'' with the saved values even if an exception is thrown later.",
         "gas": "26",
         "fift": "COMMIT",
         "fift_examples": []
@@ -32026,7 +32012,7 @@
       "doc": {
         "category": "app_global",
         "description": "Assigns `x` to the `k`-th global variable for `0 <= k < 255`.\nEquivalent to `c7 PUSHCTR` `ROTREV` `SETINDEXVARQ` `c7 POPCTR`.",
-        "gas": "26+|c7вЂ™|",
+        "gas": "26+|c7'|",
         "fift": "SETGLOBVAR",
         "fift_examples": []
       },
@@ -32058,7 +32044,7 @@
       "doc": {
         "category": "app_global",
         "description": "Assigns `x` to the `k`-th global variable for `1 <= k <= 31`.\nEquivalent to `c7 PUSHCTR` `SWAP` `k SETINDEXQ` `c7 POPCTR`.",
-        "gas": "26+|c7╨▓╨ВтДв|",
+        "gas": "26+|c7'|",
         "fift": "[k] SETGLOB",
         "fift_examples": []
       },
@@ -35703,8 +35689,7 @@
             "max_bits": 128,
             "min_bits": 8,
             "max_refs": 0,
-            "min_refs": 0,
-            "decode_hint": { "type": "plain" }
+            "min_refs": 0
           }
         ]
       },
@@ -36110,7 +36095,7 @@
       "alias_of": "FITS",
       "doc_fift": "CHKBOOL",
       "doc_stack": "x - x",
-      "description": "Checks whether `x` is a вЂњboolean value'' (i.e., either 0 or -1).",
+      "description": "Checks whether `x` is a ''boolean value'' (i.e., either 0 or -1).",
       "operands": { "c": 0 }
     },
     {
@@ -36214,7 +36199,7 @@
       "alias_of": "PUSHCTR",
       "doc_fift": "c4 PUSHCTR\nc4 PUSH",
       "doc_stack": "- x",
-      "description": "Pushes the вЂњglobal data root'' cell reference, thus enabling access to persistent smart-contract data.",
+      "description": "Pushes the ''global data root'' cell reference, thus enabling access to persistent smart-contract data.",
       "operands": { "i": 4 }
     },
     {
@@ -36222,7 +36207,7 @@
       "alias_of": "POPCTR",
       "doc_fift": "c4 POPCTR\nc4 POP",
       "doc_stack": "x -",
-      "description": "Sets the вЂњglobal data root'' cell reference, thus allowing modification of persistent smart-contract data.",
+      "description": "Sets the ''global data root'' cell reference, thus allowing modification of persistent smart-contract data.",
       "operands": { "i": 4 }
     },
     {
@@ -36286,7 +36271,7 @@
       "alias_of": "GETPARAM",
       "doc_fift": "BALANCE",
       "doc_stack": " - t",
-      "description": "Returns the remaining balance of the smart contract as a _Tuple_ consisting of an _Integer_ (the remaining Gram balance in nanograms) and a _Maybe Cell_ (a dictionary with 32-bit keys representing the balance of вЂњextra currencies'').\nEquivalent to `7 GETPARAM`.\nNote that `RAW` primitives such as `SENDRAWMSG` do not update this field.",
+      "description": "Returns the remaining balance of the smart contract as a _Tuple_ consisting of an _Integer_ (the remaining Gram balance in nanograms) and a _Maybe Cell_ (a dictionary with 32-bit keys representing the balance of ''extra currencies'').\nEquivalent to `7 GETPARAM`.\nNote that `RAW` primitives such as `SENDRAWMSG` do not update this field.",
       "operands": { "i": 7 }
     },
     {
