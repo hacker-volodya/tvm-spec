@@ -61,13 +61,52 @@
     "values": {
       "type": "object",
       "additionalProperties": false,
+      "required": ["registers"],
       "properties": {
         "stack": {
           "$ref": "#/definitions/stack"
+        },
+        "registers": {
+          "type": "array",
+          "title": "Register values",
+          "items": {
+            "$ref": "#/definitions/register_flow"
+          },
+          "additionalItems": false
         }
-      },
-      "required": [
-        "stack"
+      }
+    },
+    "register_flow": {
+      "title": "Register",
+      "description": "Represents read/write access to a register",
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "index"],
+          "properties": {
+            "type": { "const": "constant" },
+            "index": { "type": "number" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "var_name"],
+          "properties": {
+            "type": { "const": "variable" },
+            "var_name": { "$ref": "#/definitions/var_name" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "name"],
+          "properties": {
+            "type": { "const": "special" },
+            "name": { "enum": ["gas", "cstate"] }
+          }
+        }
       ]
     },
     "stack": {
@@ -147,10 +186,7 @@
             "type": {
               "const": "simple"
             },
-            "name": {
-              "type": "string",
-              "title": "Variable to pass"
-            },
+            "name": { "$ref": "#/definitions/var_name" },
             "value_types": {
               "title": "Possible value types",
               "type": "array",
@@ -210,10 +246,7 @@
             "type": {
               "const": "conditional"
             },
-            "name": {
-              "type": "string",
-              "title": "Variable to match"
-            },
+            "name": { "$ref": "#/definitions/var_name", "title": "Variable to match" },
             "match": {
               "type": "array",
               "additionalItems": false,
@@ -256,18 +289,223 @@
             "type": {
               "const": "array"
             },
-            "name": {
-              "title": "Variable name",
-              "type": "string"
-            },
+            "name": { "$ref": "#/definitions/var_name" },
             "length_var": {
               "title": "Variable which contains array length",
-              "type": "string"
+              "$ref": "#/definitions/var_name"
             },
             "array_entry": {
               "allOf": [{ "$ref": "#/definitions/stack" }],
               "title": "Array single entry definition",
               "description": "Array is a structure like `x1 y1 z1 x2 y2 z2 ... x_n y_n z_n n` which contains `n` entries of `x_i y_i z_i`. This property defines the structure of a single entry."
+            }
+          }
+        }
+      ]
+    },
+    "var_name": {
+      "type": "string",
+      "title": "Variable name",
+      "description": "Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore.",
+      "markdownDescription": "Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore."
+    },
+    "display_hint": {
+      "title": "Display Hint",
+      "description": "Hint for converting operands between raw values and Asm.fif display format",
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type"],
+          "properties": {
+            "type": { "const": "continuation" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "size_var"],
+          "properties": {
+            "type": { "const": "dictionary" },
+            "size_var": { "$ref": "#/definitions/var_name" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "value"],
+          "properties": {
+            "type": { "const": "add" },
+            "value": { "type": "number" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type"],
+          "properties": {
+            "type": { "const": "stack" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type"],
+          "properties": {
+            "type": { "const": "register" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type"],
+          "properties": {
+            "type": { "const": "pushint4" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type"],
+          "properties": {
+            "type": { "const": "optional_nargs" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type"],
+          "properties": {
+            "type": { "const": "plduz" }
+          }
+        }
+      ]
+    },
+    "display_hints": {
+      "type": "array",
+      "additionalItems": false,
+      "title": "Display Hints",
+      "description": "Set of hints to convert between Asm.fif representation and raw bytecode",
+      "items": { "$ref": "#/definitions/display_hint" }
+    },
+    "operand": {
+      "title": "Operand",
+      "description": "Static instruction parameter serialized to bytecode.",
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "type", "display_hints", "size", "max_value", "min_value"],
+          "properties": {
+            "name": { "$ref": "#/definitions/var_name" },
+            "type": { "const": "uint" },
+            "display_hints": { "$ref": "#/definitions/display_hints" },
+            "size": {
+              "type": "number",
+              "title": "Integer size, bits"
+            },
+            "max_value": {
+              "type": "number",
+              "title": "Maximum integer value"
+            },
+            "min_value": {
+              "type": "number",
+              "title": "Minimum integer value"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "type", "display_hints", "size", "max_value", "min_value"],
+          "properties": {
+            "name": { "$ref": "#/definitions/var_name" },
+            "type": { "const": "int" },
+            "display_hints": { "$ref": "#/definitions/display_hints" },
+            "size": {
+              "type": "number",
+              "title": "Integer size, bits"
+            },
+            "max_value": {
+              "type": "number",
+              "title": "Maximum integer value"
+            },
+            "min_value": {
+              "type": "number",
+              "title": "Minimum integer value"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "type"],
+          "properties": {
+            "name": { "$ref": "#/definitions/var_name" },
+            "type": { "const": "pushint_long" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "type", "display_hints"],
+          "properties": {
+            "name": { "$ref": "#/definitions/var_name" },
+            "type": { "const": "ref" },
+            "display_hints": { "$ref": "#/definitions/display_hints" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "type", "display_hints", "bits_length_var_size", "bits_padding", "completion_tag", "max_bits", "min_bits", "max_refs", "min_refs"],
+          "properties": {
+            "name": { "$ref": "#/definitions/var_name" },
+            "type": { "const": "subslice" },
+            "display_hints": { "$ref": "#/definitions/display_hints" },
+            "bits_length_var_size": {
+              "type": "number",
+              "title": "Size of bit length operand"
+            },
+            "bits_padding": {
+              "type": "number",
+              "title": "Constant integer value to add to length of bitstring to load."
+            },
+            "refs_length_var_size": {
+              "type": "number",
+              "title": "Size of ref count operand",
+              "description": "Optional, no refs in this operand in case of absence."
+            },
+            "refs_add": {
+              "type": "number",
+              "title": "Constant integer value to add to ref count",
+              "default": 0
+            },
+            "completion_tag": {
+              "type": "boolean",
+              "title": "Completion tag flag",
+              "description": "Determines completion tag presense: trailing `'1' + '0' * x` in bitstring",
+              "markdownDescription": "Determines completion tag presense: trailing `'1' + '0' * x` in bitstring"
+            },
+            "max_bits": {
+              "type": "number",
+              "title": "Max bit size",
+              "description": "Hint for maximum bits available to store for this operand"
+            },
+            "min_bits": {
+              "type": "number",
+              "title": "Min bit size",
+              "description": "Hint for minimum bits available to store for this operand"
+            },
+            "max_refs": {
+              "type": "number",
+              "title": "Max ref size",
+              "description": "Hint for maximum refs available to store for this operand"
+            },
+            "min_refs": {
+              "type": "number",
+              "title": "Min ref size",
+              "description": "Hint for minimum refs available to store for this operand"
             }
           }
         }
@@ -297,7 +535,7 @@
           ],
           "properties": {
             "type": { "const": "variable" },
-            "var_name": { "type": "string", "title": "Continuation variable name" },
+            "var_name": { "$ref": "#/definitions/var_name", "title": "Continuation variable name" },
             "save": { "$ref": "#/definitions/savelist" }
           }
         },
@@ -396,7 +634,7 @@
               "required": ["count", "body", "after"],
               "additionalProperties": false,
               "properties": {
-                "count": { "type": "string", "title": "Variable name" },
+                "count": { "$ref": "#/definitions/var_name", "title": "Variable name" },
                 "body": { "$ref": "#/definitions/continuation" },
                 "after": { "$ref": "#/definitions/continuation" }
               }
@@ -453,12 +691,33 @@
             "PLDULE4"
           ]
         },
+        "since_version": {
+          "type": "number",
+          "title": "Since global version",
+          "description": "Global version (ConfigParam 8) which enables this instruction. Version 9999 means that instruction has no global version and currently unavailable in mainnet."
+        },
         "doc": {
           "type": "object",
           "title": "Documentation",
           "description": "Free-form human-friendly information which should be used for documentation purposes only.",
           "additionalProperties": false,
           "properties": {
+            "opcode": {
+              "type": "string",
+              "title": "Opcode format documentation",
+              "description": "Free-form bytecode format description.",
+              "examples": [
+                "F2FF",
+                "F3pr",
+                "FEFnssss"
+              ]
+            },
+            "stack": {
+              "type": "string",
+              "title": "Stack usage description",
+              "description": "Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value).",
+              "markdownDescription": "Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value)."
+            },
             "category": {
               "type": "string",
               "title": "Category of instruction",
@@ -500,6 +759,7 @@
               "items": {
                 "type": "object",
                 "additionalProperties": false,
+                "required": ["fift", "description"],
                 "properties": {
                   "fift": {
                     "type": "string",
@@ -520,7 +780,11 @@
             }
           },
           "required": [
-            "category"
+            "category",
+            "description",
+            "gas",
+            "fift",
+            "fift_examples"
           ]
         },
         "bytecode": {
@@ -530,16 +794,6 @@
           "markdownDescription": "Information related to bytecode format of an instruction. Assuming that each instruction has format `prefix || operand_1 || operand_2 || ...` (also some operands may be refs, not bitstring part).",
           "additionalProperties": false,
           "properties": {
-            "doc_opcode": {
-              "type": "string",
-              "title": "Opcode format documentation",
-              "description": "Free-form bytecode format description.",
-              "examples": [
-                "F2FF",
-                "F3pr",
-                "FEFnssss"
-              ]
-            },
             "tlb": {
               "type": "string",
               "title": "TL-b schema",
@@ -597,82 +851,16 @@
             "operands": {
               "type": "array",
               "title": "Instruction operands",
-              "description": "Describes how to parse operands. Order of objects in this array represents the actual order of operands in instruction. Optional, no operands in case of absence.",
+              "description": "Describes how to parse operands. Order of objects in this array represents the actual order of operands in instruction.",
               "default": [],
-              "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "title": "Operand variable name",
-                    "description": "Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore.",
-                    "markdownDescription": "Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore."
-                  },
-                  "loader": {
-                    "enum": [
-                      "int",
-                      "uint",
-                      "ref",
-                      "pushint_long",
-                      "subslice"
-                    ],
-                    "title": "Loader function for operand"
-                  },
-                  "loader_args": {
-                    "type": "object",
-                    "title": "Arguments for loader function. Optional, no arguments in case of absence.",
-                    "default": {}
-                  },
-                  "internal": {
-                    "type": "boolean",
-                    "title": "Internal flag",
-                    "description": "If true, this operand is used as a subslice length variable, should be used only for serialization/deserialization, humans and implementations do not need them.",
-                    "default": false
-                  }
-                },
-                "required": [
-                  "name",
-                  "loader"
-                ],
-                "examples": [
-                  {
-                    "name": "x",
-                    "loader": "pushint_long",
-                    "loader_args": {}
-                  },
-                  {
-                    "name": "r",
-                    "loader": "uint",
-                    "loader_args": {
-                      "size": 2
-                    }
-                  },
-                  {
-                    "name": "x",
-                    "loader": "uint",
-                    "loader_args": {
-                      "size": 5
-                    }
-                  },
-                  {
-                    "name": "slice",
-                    "loader": "subslice",
-                    "loader_args": {
-                      "bits_length_var": "x",
-                      "bits_padding": 1,
-                      "refs_length_var": "r",
-                      "refs_add": 1,
-                      "completion_tag": true
-                    }
-                  }
-                ]
-              }
+              "additionalItems": false,
+              "items": { "$ref": "#/definitions/operand" }
             }
           },
           "required": [
             "prefix",
-            "tlb"
+            "tlb",
+            "operands"
           ]
         },
         "value_flow": {
@@ -680,22 +868,17 @@
           "title": "Value flow of instruction",
           "description": "Information related to usage of stack and registers by instruction.",
           "additionalProperties": false,
+          "required": ["inputs", "outputs"],
           "properties": {
-            "doc_stack": {
-              "type": "string",
-              "title": "Stack usage description",
-              "description": "Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value).",
-              "markdownDescription": "Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value)."
-            },
             "inputs": {
               "$ref": "#/definitions/values",
               "title": "Instruction inputs",
-              "description": "Incoming values constraints. Input is unconstrained if absent."
+              "description": "Incoming values constraints."
             },
             "outputs": {
               "$ref": "#/definitions/values",
               "title": "Instruction outputs",
-              "description": "Outgoing values constraints. Output is unconstrained if absent."
+              "description": "Outgoing values constraints."
             }
           }
         },
@@ -704,18 +887,17 @@
           "title": "Control flow of instruction",
           "description": "Information related to current cc modification by instruction",
           "additionalProperties": false,
+          "required": ["branches", "nobranch"],
           "properties": {
             "branches": {
               "type": "array",
               "title": "Possible branches of an instruction",
               "description": "Array of current continuation possible values after current instruction execution",
-              "default": [],
               "items": { "$ref": "#/definitions/continuation" },
               "additionalItems": false
             },
             "nobranch": {
               "type": "boolean",
-              "default": false,
               "title": "No branch possibility",
               "description": "Can this instruction not perform any of specified branches in certain cases (do not modify cc)?"
             }
@@ -725,7 +907,10 @@
       "required": [
         "mnemonic",
         "doc",
-        "bytecode"
+        "bytecode",
+        "value_flow",
+        "control_flow",
+        "since_version"
       ]
     }
   },

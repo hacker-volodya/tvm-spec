@@ -15,7 +15,7 @@ Based on [instructions.csv](https://github.com/ton-community/ton-docs/blob/main/
 | JSON key     | Status      | Description
 | ------------ | ----------- | -----------
 | doc          | ✅ Implemented | Provides human-readable information about instructions. Can be useful to provide integrated docs to user, for example, in disassembler.
-| bytecode     | ✅ Implemented | Describes instruction encoding. It contains information to determine, which instruction we are currently decoding and how to parse its operands.
+| bytecode     | ✅ Implemented | Describes instruction encoding. It contains information to build assemblers and disassemblers.
 | value_flow   | ✅ Implemented | Describes how instruction changes current stack. This part of specification allows to analyze how instructions interact with each other, so it becomes possible to implement high-level tools such as decompilers.
 | control_flow | ✅ Implemented | Describes code flow (operations with cc register). It helps to reconstruct a control flow graph. This part mainly contains semantics of cont_* category instructions. For example, both JMPX and CALLX transfers execution to continuation on stack, but only CALLX returns and JMPX is not.
 | aliases | ✅ Implemented | Specifies instruction aliases. Can be used to provide to user information about special cases (for example, SWAP is a special case of XCHG_0i with i = 1).
@@ -36,100 +36,85 @@ However, nothing can stop you from just copying `cp0.json` (and `schema.json` if
 ```json
 [
     {
-        "mnemonic": "LDU",
-        "doc": {
-            "category": "cell_parse",
-            "description": "Loads an unsigned `cc+1`-bit integer `x` from _Slice_ `s`.",
-            "gas": "26",
-            "fift": "[cc+1] LDU"
+      "mnemonic": "LDU",
+      "since_version": 0,
+      "doc": {
+        "category": "cell_parse",
+        "description": "Loads an unsigned `cc+1`-bit integer `x` from _Slice_ `s`.",
+        "gas": "26",
+        "fift": "[cc+1] LDU",
+        "fift_examples": [],
+        "opcode": "D3cc",
+        "stack": "s - x s'"
+      },
+      "bytecode": {
+        "tlb": "#D3 cc:uint8",
+        "prefix": "D3",
+        "operands": [
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255,
+            "display_hints": [{ "type": "add", "value": 1 }]
+          }
+        ]
+      },
+      "value_flow": {
+        "inputs": {
+          "stack": [
+            { "type": "simple", "name": "s", "value_types": ["Slice"] }
+          ],
+          "registers": []
         },
-        "bytecode": {
-            "doc_opcode": "D3cc",
-            "tlb": "#D3 cc:uint8",
-            "prefix": "D3",
-            "operands": [
-                {
-                    "name": "c",
-                    "loader": "uint",
-                    "loader_args": {
-                        "size": 8
-                    }
-                }
-            ]
-        },
-        "value_flow": {
-            "doc_stack": "s - x s'",
-            "inputs": {
-                "stack": [
-                    {
-                        "type": "simple",
-                        "name": "s",
-                        "value_types": ["Slice"]
-                    }
-                ]
-            },
-            "outputs": {
-                "stack": [
-                    {
-                        "type": "simple",
-                        "name": "x",
-                        "value_types": ["Integer"]
-                    },
-                    {
-                        "type": "simple",
-                        "name": "s2",
-                        "value_types": ["Slice"]
-                    }
-                ]
-            }
+        "outputs": {
+          "stack": [
+            { "type": "simple", "name": "x", "value_types": ["Integer"] },
+            { "type": "simple", "name": "s2", "value_types": ["Slice"] }
+          ],
+          "registers": []
         }
+      },
+      "control_flow": { "branches": [], "nobranch": true }
     },
     {
-        "mnemonic": "EXECUTE",
-        "doc": {
-            "category": "cont_basic",
-            "description": "_Calls_, or _executes_, continuation `c`.",
-            "gas": "18",
-            "fift": "EXECUTE\nCALLX"
+      "mnemonic": "EXECUTE",
+      "since_version": 0,
+      "doc": {
+        "category": "cont_basic",
+        "description": "_Calls_, or _executes_, continuation `c`.",
+        "gas": "18",
+        "fift": "EXECUTE\nCALLX",
+        "fift_examples": [],
+        "opcode": "D8",
+        "stack": "c - "
+      },
+      "bytecode": { "tlb": "#D8", "prefix": "D8", "operands": [] },
+      "value_flow": {
+        "inputs": {
+          "stack": [
+            { "type": "simple", "name": "c", "value_types": ["Continuation"] }
+          ],
+          "registers": []
         },
-        "bytecode": {
-            "doc_opcode": "D8",
-            "tlb": "#D8",
-            "prefix": "D8",
-            "operands": []
-        },
-        "value_flow": {
-            "doc_stack": "c - ",
-            "inputs": {
-                "stack": [
-                    {
-                        "type": "simple",
-                        "name": "c",
-                        "value_types": ["Continuation"]
-                    }
-                ]
-            },
-            "outputs": {
-                "stack": [
-                ]
+        "outputs": { "stack": [], "registers": [] }
+      },
+      "control_flow": {
+        "branches": [
+          {
+            "type": "variable",
+            "var_name": "c",
+            "save": {
+              "c0": {
+                "type": "cc",
+                "save": { "c0": { "type": "register", "index": 0 } }
+              }
             }
-        },
-        "control_flow": {
-            "branches": [
-                {
-                    "type": "variable",
-                    "var_name": "c",
-                    "save": {
-                        "c0": {
-                            "type": "cc",
-                            "save": {
-                                "c0": { "type": "register", "index": 0 }
-                            }
-                        }
-                    }
-                }
-            ]
-        }
+          }
+        ],
+        "nobranch": false
+      }
     }
 ]
 ```
@@ -138,115 +123,125 @@ However, nothing can stop you from just copying `cp0.json` (and `schema.json` if
 | Key | Description |
 | --- | ----------- |
 | mnemonic | How instruction is named in [original TVM implementation](https://github.com/ton-blockchain/ton/blob/master/crypto/vm). Not necessarily unique (currently only DEBUG is not unique). Required.
-| doc | Free-form human-friendly information which should be used for documentation purposes only.
+| since_version | Global version (ConfigParam 8) which enables this instruction. Version 9999 means that instruction has no global version and currently unavailable in mainnet.
+| doc | Free-form human-friendly information which should be used for documentation purposes only. Required.
 | doc.category | Category of instruction (examples: cont_loops, stack_basic, dict_get). Required.
-| doc.description | Free-form markdown description of instruction. Optional.
-| doc.gas | Free-form description of gas amount used by instruction. Optional.
-| doc.fift | Free-form fift usage description. Optional.
-| doc.fift_examples | Optional array of usage examples in Fift. Each array element is object with `fift` and `description` keys.
-| bytecode | Information related to bytecode format of an instruction. Assuming that each instruction has format `prefix || operand_1 || operand_2 || ...` (also some operands may be refs, not bitstring part).
-| bytecode.doc_opcode | Free-form bytecode format description. Optional.
+| doc.description | Free-form markdown description of instruction. Required.
+| doc.gas | Free-form description of gas amount used by instruction. Required.
+| doc.fift | Free-form fift usage description. Required.
+| doc.fift_examples | Array of usage examples in Fift. Each array element is object with `fift` and `description` keys. Required.
+| doc.opcode | Free-form bytecode format description. Required.
+| doc.stack | Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value). Required.
+| bytecode | Information related to bytecode format of an instruction. Assuming that each instruction has format `prefix || operand_1 || operand_2 || ...` (also some operands may be refs, not bitstring part). Required.
 | bytecode.tlb | TL-b bytecode format description. Required.
 | bytecode.prefix | Prefix to determine next instruction to parse. It is a hex bitstring as in TL-b (suffixed with `_` if bit length is not divisible by 4, trailing `'1' + '0' * x` must be removed). Required.
 | bytecode.operands_range_check | In TVM, it is possible for instructions to have overlapping prefixes, so to determine actual instruction it is required to read next `length` bits after prefix as uint `i` and check `from <= i <= to`. Optional, there is no operands check in case of absence.
-| bytecode.operands | Describes how to parse operands. Order of objects in this array represents the actual order of operands in instruction. Optional, no operands in case of absence.
+| bytecode.operands | Describes how to parse operands. Order of objects in this array represents the actual order of operands in instruction. Required.
 | bytecode.operands[i].name | Operand variable name. Allowed chars are `a-zA-Z0-9_`, must not begin with digit or underscore and must not end with underscore. Required.
-| bytecode.operands[i].loader | Loader function for operand. Must be one of `int`, `uint`, `ref`, `pushint_long`, `subslice`. Loaders are described below. Required.
-| bytecode.operands[i].loader_args | Arguments for loader function, specified below. Optional, no arguments in case of absence.
-| bytecode.operands[i].internal | Internal flag. If true, this operand is used as a subslice length variable, should be used only for serialization/deserialization, humans and implementations do not need them. Optional, default is false.
-| value_flow | Information related to usage of stack and registers by instruction. Optional.
-| value_flow.doc_stack | Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value). Optional.
-| value_flow.inputs | Incoming values constraints. Input is unconstrained if absent.
-| value_flow.inputs.stack | Defines how current stack is used by instruction. Instruction must not operate on stack entries other than defined here. Required.
+| bytecode.operands[i].type | Type of operand. Must be one of `int`, `uint`, `ref`, `pushint_long`, `subslice`. Types are described below. Required.
+| bytecode.operands[i].* | Additional options for types, specified below.
+| value_flow | Information related to usage of stack and registers by instruction. Required.
+| value_flow.inputs | Incoming values constraints. Required.
+| value_flow.inputs.registers | Defines how registers is used by instruction. Instruction must not operate on registers other than defined here. Required.
+| value_flow.inputs.registers[i] | Register which is access by instruction.
+| value_flow.inputs.registers[i].type | Type of register: "constant", "variable", "special". Required.
+| value_flow.inputs.registers[i].* | Properties for registers of each type are described below.
+| value_flow.inputs.stack | Defines how current stack is used by instruction. Instruction must not operate on stack entries other than defined here. Optional, input stack is unconstrained if absent.
 | value_flow.inputs.stack[i] | Stack entry or group of stack entries.
 | value_flow.inputs.stack[i].type | Type of stack entry. Can be one of "simple", "const", "conditional", "array". Required. 
 | value_flow.inputs.stack[i].* | Properties for stack entries of each type are described below.
-| value_flow.outputs | Outgoing values constraints. Output is unconstrained if absent. Identical to value_flow.inputs.
-| control_flow | Information related to current cc modification by instruction. Optional.
-| control_flow.branches | Array of possible branches of an instruction. Specifies all possible values of cc after instruction execution. Empty by default (no branches can be taken by instruction). Each branch described by a `Continuation` object described below.
-| control_flow.nobranch | Can this instruction not perform any of specified branches in certain cases (do not modify cc)? False by default.
+| value_flow.outputs | Outgoing values constraints. Required. Identical to value_flow.inputs.
+| control_flow | Information related to current cc modification by instruction. Required.
+| control_flow.branches | Array of possible branches of an instruction. Specifies all possible values of cc after instruction execution. Required. Each branch described by a `Continuation` object described below.
+| control_flow.nobranch | Can this instruction not perform any of specified branches in certain cases (do not modify cc)? Required. If instruction has no control flow, nobranch is true and branches are empty.
 
-### Loaders Specification and Examples
+### Operand Types Specification and Examples
+`display_hints` property is available for `uint`, `int`, `ref` and `subslice` operand types. For `ref` and `subslice` there is `continuation` and `dictionary` hint types, and for `uint` there is `add`, `stack`, `register`, `pushint4`, `optional_nargs` and `plduz` hints.
+| display_hints[i].type | Description
+| --------------------- | -----------
+| continuation   | Slice from this operand (type = ref, subslice) is a continuation.
+| dictionary     | Slice from this operand (type = ref, subslice) is a dictionary with key size defined in `size_var` property of a hint.
+| add            | Some constant must be added in order to correctly display this operand (type = uint). `[cc+1] LDU` <=> `{ "type": "add", "value": 1 }`.
+| stack          | This operand (type = uint) is a stack entry reference (`s0` for example).
+| register       | This operand (type = uint) is a register reference (`c0` for example).
+| pushint4       | To display this operand (type = uint), 16 must be substracted, but only if operand value > 10. For example, 0xF displayed as -1, 0xA is 10 and 0xB is -5.
+| optional_nargs | 0xF is displayed as -1, other values left untouched (type = uint).
+| plduz          | This operand (type = uint) is displayed as `32*(c+1)`. If value is not divisible by 32 during assembly, error should be raised.
+
 #### uint
 ```json
 {
     "name": "i",
-    "loader": "uint",
-    "loader_args": {
-        "size": 4
-    }
+    "type": "uint",
+    "size": 4,
+    "min_value": 0,
+    "max_value": 15,
+    "display_hints": [{ "type": "stack" }, { "type": "add", "value": 1 }]
 }
 ```
-Loads unsigned `size`-bit int from bytecode. Argument `size` of type `integer` is required.
+Type of unsigned `size`-bit integer with valid values in range `min_value`...`max_value`. Arguments `size`, `min_value`, `max_value` of type `number` and `display_hints` of type `array` are required.
 #### int
 ```json
 {
     "name": "i",
-    "loader": "int",
-    "loader_args": {
-        "size": 4
-    }
+    "type": "int",
+    "size": 4,
+    "min_value": -8,
+    "max_value": 7,
+    "display_hints": []
 }
 ```
-Loads signed `size`-bit int from bytecode. Argument `size` of type `integer` is required.
+Type of signed `size`-bit integer with valid values in range `min_value`...`max_value`. Arguments `size`, `min_value`, `max_value` of type `number` and `display_hints` of type `array` are required.
 #### ref
 ```json
 {
     "name": "c",
-    "loader": "ref"
+    "type": "ref",
+    "display_hints": [{ "type": "continuation" }]
 }
 ```
-Loads a single reference from bytecode. Unlike `subslice` with `refs_add = 1`, should dereference instead of returning empty cell with a single reference. No arguments are required.
+Type of a single reference. Unlike `subslice` with `refs_add = 1`, should dereference instead of returning empty cell with a single reference.
 #### pushint_long
 ```json
 {
     "name": "x",
-    "loader": "pushint_long"
+    "type": "pushint_long"
 }
 ```
-Special loader which currently is used only in `PUSHINT_LONG` instruction. Loads 5-bit uint `size` and then loads and returns integer of bit size `8 * size + 19`. No arguments are required.
+Special type which currently is used only in `PUSHINT_LONG` instruction. Consists of 5-bit uint `size` and integer of bit size `8 * size + 19`.
 #### subslice
 ```json
-[
-    {
-        "name": "r",
-        "loader": "uint",
-        "loader_args": {
-            "size": 2
-        },
-        "internal": true
-    },
-    {
-        "name": "x",
-        "loader": "uint",
-        "loader_args": {
-            "size": 5
-        },
-        "internal": true
-    },
-    {
-        "name": "slice",
-        "loader": "subslice",
-        "loader_args": {
-            "bits_length_var": "x",
-            "bits_padding": 1,
-            "refs_length_var": "r",
-            "refs_add": 1,
-            "completion_tag": true
-        }
-    }
-]
+{
+    "name": "slice",
+    "type": "subslice",
+    "bits_length_var_size": 5,
+    "refs_length_var_size": 2,
+    "bits_padding": 1,
+    "refs_add": 1,
+    "completion_tag": true,
+    "max_bits": 248,
+    "min_bits": 0,
+    "max_refs": 4,
+    "min_refs": 1,
+    "display_hints": []
+}
 ```
+_TLB notation: `r:(## 2) xx:(## 5) c:((r + 1) * ^Cell) ssss:((8 * xx + 1) * Bit)`_
 
-Loads subslice of bit length `{bits_length_var} * 8 + bits_padding` and ref count `{refs_length_var} + refs_add`. If `completion_tag` argument with value `true` is passed, remove completion tag from bitstring (trailing `'1' + '0' * x`). Length variables are usually `"internal": true` because they should not be showed to user or provided to an implementation.
+Loads `r` uint of size `refs_length_var_size` (if present), `x` uint of size `bits_length_var_size`. Then loads subslice of bit length `x * 8 + bits_padding` and ref count `r + refs_add`. If `completion_tag` argument with value `true` is passed, remove completion tag from bitstring (trailing `'1' + '0' * x`).
 
 | Argument | Description
 | -------- | -----------
-| bits_length_var | Name of (previously parsed) operand which contains bit length to load. Optional, assuming this part of bit length is 0 if absent.
-| bits_padding | Constant integer value to add to length of bitstring to load. Optional, assuming 0 if absent.
-| refs_length_var | Name of (previously parsed) operand which contains ref count to load. Optional, assuming this part of ref count is 0 if absent.
-| refs_add | Constant integer value to add to ref count. Optional, assuming 1 if absent.
-| completion_tag | Boolean flag, tells to remove trailing `'1' + '0' * x` from bitstring if true. Optional, assuming false if absent.
+| bits_length_var_size | Size of bit length operand. Required.
+| bits_padding | Constant integer value to add to length of bitstring to load. Required.
+| refs_length_var_size | Size of ref count operand. Optional, assuming no refs if absent.
+| refs_add | Constant integer value to add to ref count. Optional, assuming 0 if absent.
+| completion_tag | Boolean flag, tells to remove trailing `'1' + '0' * x` from bitstring if true. Required.
+| max_bits | Hint for maximum bits available to store for this operand. Required.
+| min_bits | Hint for minimum bits available to store for this operand. Required.
+| max_refs | Hint for maximum refs available to store for this operand. Required.
+| min_refs | Hint for minimum refs available to store for this operand. Required.
+| display_hints | Set of hints for converters between Asm.fif and bytecode representations. Required.
 
 ### Stack Entry Specification and Examples
 
@@ -355,6 +350,40 @@ Specifies a bunch of stack entries with length from variable `length_var`, usual
 #### Notes
 1. Each variable name is unique across `operands`, `value_flow`, and `control_flow` sections of each instruction. Assumed that variables are immutable, so if variable `x` is defined both in inputs and outputs, it goes to output without any modification.
 2. Value flow describes only `cc` stack usage before the actual jump or call. Subsequent continuations may have a separate stack, so this will be defined in control flow section of this spec.
+
+### Register Specification and Examples
+#### constant
+```json
+{
+    "type": "constant",
+    "index": 0
+}
+```
+Represents `c{index}` register.
+
+#### variable
+```json
+{
+    "type": "variable",
+    "var_name": "i"
+}
+```
+Represents `c{{var_name}}` register. Its number is taken from variable `var_name`, defined in stack inputs or operands.
+
+#### special
+```json
+{
+    "type": "special",
+    "name": "gas"
+}
+```
+```json
+{
+    "type": "special",
+    "name": "cstate"
+}
+```
+Represents gas registers (used by app_gas instructions) and cstate (used by COMMIT instruction).
 
 ### Continuations Specification and Examples
 Each object represents a continuation, which can be constructed in several ways: 
