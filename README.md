@@ -36,100 +36,85 @@ However, nothing can stop you from just copying `cp0.json` (and `schema.json` if
 ```json
 [
     {
-        "mnemonic": "LDU",
-        "doc": {
-            "category": "cell_parse",
-            "description": "Loads an unsigned `cc+1`-bit integer `x` from _Slice_ `s`.",
-            "gas": "26",
-            "fift": "[cc+1] LDU"
+      "mnemonic": "LDU",
+      "since_version": 0,
+      "doc": {
+        "category": "cell_parse",
+        "description": "Loads an unsigned `cc+1`-bit integer `x` from _Slice_ `s`.",
+        "gas": "26",
+        "fift": "[cc+1] LDU",
+        "fift_examples": [],
+        "opcode": "D3cc",
+        "stack": "s - x s'"
+      },
+      "bytecode": {
+        "tlb": "#D3 cc:uint8",
+        "prefix": "D3",
+        "operands": [
+          {
+            "name": "c",
+            "type": "uint",
+            "size": 8,
+            "min_value": 0,
+            "max_value": 255,
+            "display_hints": [{ "type": "add", "value": 1 }]
+          }
+        ]
+      },
+      "value_flow": {
+        "inputs": {
+          "stack": [
+            { "type": "simple", "name": "s", "value_types": ["Slice"] }
+          ],
+          "registers": []
         },
-        "bytecode": {
-            "doc_opcode": "D3cc",
-            "tlb": "#D3 cc:uint8",
-            "prefix": "D3",
-            "operands": [
-                {
-                    "name": "c",
-                    "loader": "uint",
-                    "loader_args": {
-                        "size": 8
-                    }
-                }
-            ]
-        },
-        "value_flow": {
-            "doc_stack": "s - x s'",
-            "inputs": {
-                "stack": [
-                    {
-                        "type": "simple",
-                        "name": "s",
-                        "value_types": ["Slice"]
-                    }
-                ]
-            },
-            "outputs": {
-                "stack": [
-                    {
-                        "type": "simple",
-                        "name": "x",
-                        "value_types": ["Integer"]
-                    },
-                    {
-                        "type": "simple",
-                        "name": "s2",
-                        "value_types": ["Slice"]
-                    }
-                ]
-            }
+        "outputs": {
+          "stack": [
+            { "type": "simple", "name": "x", "value_types": ["Integer"] },
+            { "type": "simple", "name": "s2", "value_types": ["Slice"] }
+          ],
+          "registers": []
         }
+      },
+      "control_flow": { "branches": [], "nobranch": true }
     },
     {
-        "mnemonic": "EXECUTE",
-        "doc": {
-            "category": "cont_basic",
-            "description": "_Calls_, or _executes_, continuation `c`.",
-            "gas": "18",
-            "fift": "EXECUTE\nCALLX"
+      "mnemonic": "EXECUTE",
+      "since_version": 0,
+      "doc": {
+        "category": "cont_basic",
+        "description": "_Calls_, or _executes_, continuation `c`.",
+        "gas": "18",
+        "fift": "EXECUTE\nCALLX",
+        "fift_examples": [],
+        "opcode": "D8",
+        "stack": "c - "
+      },
+      "bytecode": { "tlb": "#D8", "prefix": "D8", "operands": [] },
+      "value_flow": {
+        "inputs": {
+          "stack": [
+            { "type": "simple", "name": "c", "value_types": ["Continuation"] }
+          ],
+          "registers": []
         },
-        "bytecode": {
-            "doc_opcode": "D8",
-            "tlb": "#D8",
-            "prefix": "D8",
-            "operands": []
-        },
-        "value_flow": {
-            "doc_stack": "c - ",
-            "inputs": {
-                "stack": [
-                    {
-                        "type": "simple",
-                        "name": "c",
-                        "value_types": ["Continuation"]
-                    }
-                ]
-            },
-            "outputs": {
-                "stack": [
-                ]
+        "outputs": { "stack": [], "registers": [] }
+      },
+      "control_flow": {
+        "branches": [
+          {
+            "type": "variable",
+            "var_name": "c",
+            "save": {
+              "c0": {
+                "type": "cc",
+                "save": { "c0": { "type": "register", "index": 0 } }
+              }
             }
-        },
-        "control_flow": {
-            "branches": [
-                {
-                    "type": "variable",
-                    "var_name": "c",
-                    "save": {
-                        "c0": {
-                            "type": "cc",
-                            "save": {
-                                "c0": { "type": "register", "index": 0 }
-                            }
-                        }
-                    }
-                }
-            ]
-        }
+          }
+        ],
+        "nobranch": false
+      }
     }
 ]
 ```
