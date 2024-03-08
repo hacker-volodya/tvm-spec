@@ -702,6 +702,22 @@
           "description": "Free-form human-friendly information which should be used for documentation purposes only.",
           "additionalProperties": false,
           "properties": {
+            "opcode": {
+              "type": "string",
+              "title": "Opcode format documentation",
+              "description": "Free-form bytecode format description.",
+              "examples": [
+                "F2FF",
+                "F3pr",
+                "FEFnssss"
+              ]
+            },
+            "stack": {
+              "type": "string",
+              "title": "Stack usage description",
+              "description": "Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value).",
+              "markdownDescription": "Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value)."
+            },
             "category": {
               "type": "string",
               "title": "Category of instruction",
@@ -778,16 +794,6 @@
           "markdownDescription": "Information related to bytecode format of an instruction. Assuming that each instruction has format `prefix || operand_1 || operand_2 || ...` (also some operands may be refs, not bitstring part).",
           "additionalProperties": false,
           "properties": {
-            "doc_opcode": {
-              "type": "string",
-              "title": "Opcode format documentation",
-              "description": "Free-form bytecode format description.",
-              "examples": [
-                "F2FF",
-                "F3pr",
-                "FEFnssss"
-              ]
-            },
             "tlb": {
               "type": "string",
               "title": "TL-b schema",
@@ -854,8 +860,7 @@
           "required": [
             "prefix",
             "tlb",
-            "operands",
-            "doc_opcode"
+            "operands"
           ]
         },
         "value_flow": {
@@ -863,14 +868,8 @@
           "title": "Value flow of instruction",
           "description": "Information related to usage of stack and registers by instruction.",
           "additionalProperties": false,
-          "required": ["doc_stack", "inputs", "outputs"],
+          "required": ["inputs", "outputs"],
           "properties": {
-            "doc_stack": {
-              "type": "string",
-              "title": "Stack usage description",
-              "description": "Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value).",
-              "markdownDescription": "Free-form description of stack inputs and outputs. Usually the form is `[inputs] - [outputs]` where `[inputs]` are consumed stack values and `outputs` are produced stack values (top of stack is the last value)."
-            },
             "inputs": {
               "$ref": "#/definitions/values",
               "title": "Instruction inputs",
