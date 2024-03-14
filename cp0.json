@@ -18396,6 +18396,220 @@
       "control_flow": { "branches": [], "nobranch": true }
     },
     {
+      "mnemonic": "CLEVEL",
+      "since_version": 6,
+      "doc": {
+        "category": "cell_parse",
+        "description": "Returns level of the cell.",
+        "gas": "26",
+        "fift": "CLEVEL",
+        "fift_examples": [],
+        "opcode": "D766",
+        "stack": "cell - level"
+      },
+      "bytecode": { "tlb": "#D766", "prefix": "D766", "operands": [] },
+      "value_flow": {
+        "inputs": {
+          "stack": [
+            { "type": "simple", "name": "cell", "value_types": ["Cell"] }
+          ],
+          "registers": []
+        },
+        "outputs": {
+          "stack": [
+            { "type": "simple", "name": "level", "value_types": ["Integer"] }
+          ],
+          "registers": []
+        }
+      },
+      "control_flow": { "branches": [], "nobranch": true }
+    },
+    {
+      "mnemonic": "CLEVELMASK",
+      "since_version": 6,
+      "doc": {
+        "category": "cell_parse",
+        "description": "Returns level mask of the cell.",
+        "gas": "26",
+        "fift": "CLEVELMASK",
+        "fift_examples": [],
+        "opcode": "D767",
+        "stack": "cell - level_mask"
+      },
+      "bytecode": { "tlb": "#D767", "prefix": "D767", "operands": [] },
+      "value_flow": {
+        "inputs": {
+          "stack": [
+            { "type": "simple", "name": "cell", "value_types": ["Cell"] }
+          ],
+          "registers": []
+        },
+        "outputs": {
+          "stack": [
+            {
+              "type": "simple",
+              "name": "level_mask",
+              "value_types": ["Integer"]
+            }
+          ],
+          "registers": []
+        }
+      },
+      "control_flow": { "branches": [], "nobranch": true }
+    },
+    {
+      "mnemonic": "CHASHI",
+      "since_version": 6,
+      "doc": {
+        "category": "cell_parse",
+        "description": "Returns `i`th hash of the cell.",
+        "gas": "26",
+        "fift": "[i] CHASHI",
+        "fift_examples": [],
+        "opcode": "D76A_",
+        "stack": "cell - hash"
+      },
+      "bytecode": {
+        "tlb": "#D76A_ i:uint2",
+        "prefix": "D76A_",
+        "operands": [
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 2,
+            "min_value": 0,
+            "max_value": 3,
+            "display_hints": []
+          }
+        ]
+      },
+      "value_flow": {
+        "inputs": {
+          "stack": [
+            { "type": "simple", "name": "cell", "value_types": ["Cell"] }
+          ],
+          "registers": []
+        },
+        "outputs": {
+          "stack": [
+            { "type": "simple", "name": "hash", "value_types": ["Integer"] }
+          ],
+          "registers": []
+        }
+      },
+      "control_flow": { "branches": [], "nobranch": true }
+    },
+    {
+      "mnemonic": "CDEPTHI",
+      "since_version": 6,
+      "doc": {
+        "category": "cell_parse",
+        "description": "Returns `i`th depth of the cell.",
+        "gas": "26",
+        "fift": "[i] CDEPTHI",
+        "fift_examples": [],
+        "opcode": "D76E_",
+        "stack": "cell - depth"
+      },
+      "bytecode": {
+        "tlb": "#D76E_ i:uint2",
+        "prefix": "D76E_",
+        "operands": [
+          {
+            "name": "n",
+            "type": "uint",
+            "size": 2,
+            "min_value": 0,
+            "max_value": 3,
+            "display_hints": []
+          }
+        ]
+      },
+      "value_flow": {
+        "inputs": {
+          "stack": [
+            { "type": "simple", "name": "cell", "value_types": ["Cell"] }
+          ],
+          "registers": []
+        },
+        "outputs": {
+          "stack": [
+            { "type": "simple", "name": "depth", "value_types": ["Integer"] }
+          ],
+          "registers": []
+        }
+      },
+      "control_flow": { "branches": [], "nobranch": true }
+    },
+    {
+      "mnemonic": "CHASHIX",
+      "since_version": 6,
+      "doc": {
+        "category": "cell_parse",
+        "description": "Returns `i`th hash of the cell.",
+        "gas": "26",
+        "fift": "CHASHIX",
+        "fift_examples": [],
+        "opcode": "D770",
+        "stack": "cell i - hash"
+      },
+      "bytecode": { "tlb": "#D770", "prefix": "D770", "operands": [] },
+      "value_flow": {
+        "inputs": {
+          "stack": [
+            { "type": "simple", "name": "cell", "value_types": ["Cell"] },
+            { "type": "simple", "name": "i", "value_types": ["Cell"] }
+          ],
+          "registers": []
+        },
+        "outputs": {
+          "stack": [
+            {
+              "type": "simple",
+              "name": "hash",
+              "value_types": ["Integer"]
+            }
+          ],
+          "registers": []
+        }
+      },
+      "control_flow": { "branches": [], "nobranch": true }
+    },
+    {
+      "mnemonic": "CDEPTHIX",
+      "since_version": 6,
+      "doc": {
+        "category": "cell_parse",
+        "description": "Returns `i`th depth of the cell.",
+        "gas": "26",
+        "fift": "CDEPTHIX",
+        "fift_examples": [],
+        "opcode": "D771",
+        "stack": "cell i - depth"
+      },
+      "bytecode": { "tlb": "#D771", "prefix": "D771", "operands": [] },
+      "value_flow": {
+        "inputs": {
+          "stack": [
+            { "type": "simple", "name": "cell", "value_types": ["Cell"] },
+            { "type": "simple", "name": "i", "value_types": ["Cell"] }
+          ],
+          "registers": []
+        },
+        "outputs": {
+          "stack": [
+            {
+              "type": "simple",
+              "name": "depth",
+              "value_types": ["Integer"]
+            }
+          ],
+          "registers": []
+        }
+      },
+      "control_flow": { "branches": [], "nobranch": true }
+    },
+    {
       "mnemonic": "EXECUTE",
       "since_version": 0,
       "doc": {
@@ -29927,6 +30141,229 @@
         "outputs": {
           "stack": [
             { "type": "simple", "name": "i", "value_types": ["Integer"] }
+          ],
+          "registers": []
+        }
+      },
+      "control_flow": { "branches": [], "nobranch": true }
+    },
+    {
+      "mnemonic": "GETGASFEE",
+      "since_version": 6,
+      "doc": {
+        "category": "app_config",
+        "description": "Calculates gas fee",
+        "gas": "",
+        "fift": "GETGASFEE",
+        "fift_examples": [],
+        "opcode": "F836",
+        "stack": "gas_used is_mc - price"
+      },
+      "bytecode": { "tlb": "#F836", "prefix": "F836", "operands": [] },
+      "value_flow": {
+        "inputs": {
+          "stack": [
+            {
+              "type": "simple",
+              "name": "gas_used",
+              "value_types": ["Integer"]
+            },
+            { "type": "simple", "name": "is_mc", "value_types": ["Integer"] }
+          ],
+          "registers": [{ "type": "constant", "index": 7 }]
+        },
+        "outputs": {
+          "stack": [
+            { "type": "simple", "name": "price", "value_types": ["Integer"] }
+          ],
+          "registers": []
+        }
+      },
+      "control_flow": { "branches": [], "nobranch": true }
+    },
+    {
+      "mnemonic": "GETSTORAGEFEE",
+      "since_version": 6,
+      "doc": {
+        "category": "app_config",
+        "description": "Calculates storage fees (only current StoragePrices entry is used).",
+        "gas": "",
+        "fift": "GETSTORAGEFEE",
+        "fift_examples": [],
+        "opcode": "F837",
+        "stack": "cells bits seconds is_mc - price"
+      },
+      "bytecode": { "tlb": "#F837", "prefix": "F837", "operands": [] },
+      "value_flow": {
+        "inputs": {
+          "stack": [
+            { "type": "simple", "name": "cells", "value_types": ["Integer"] },
+            { "type": "simple", "name": "bits", "value_types": ["Integer"] },
+            { "type": "simple", "name": "seconds", "value_types": ["Integer"] },
+            { "type": "simple", "name": "is_mc", "value_types": ["Integer"] }
+          ],
+          "registers": [{ "type": "constant", "index": 7 }]
+        },
+        "outputs": {
+          "stack": [
+            { "type": "simple", "name": "price", "value_types": ["Integer"] }
+          ],
+          "registers": []
+        }
+      },
+      "control_flow": { "branches": [], "nobranch": true }
+    },
+    {
+      "mnemonic": "GETFORWARDFEE",
+      "since_version": 6,
+      "doc": {
+        "category": "app_config",
+        "description": "Calculates forward fee.",
+        "gas": "",
+        "fift": "GETFORWARDFEE",
+        "fift_examples": [],
+        "opcode": "F838",
+        "stack": "cells bits is_mc - price"
+      },
+      "bytecode": { "tlb": "#F838", "prefix": "F838", "operands": [] },
+      "value_flow": {
+        "inputs": {
+          "stack": [
+            { "type": "simple", "name": "cells", "value_types": ["Integer"] },
+            { "type": "simple", "name": "bits", "value_types": ["Integer"] },
+            { "type": "simple", "name": "is_mc", "value_types": ["Integer"] }
+          ],
+          "registers": [{ "type": "constant", "index": 7 }]
+        },
+        "outputs": {
+          "stack": [
+            { "type": "simple", "name": "price", "value_types": ["Integer"] }
+          ],
+          "registers": []
+        }
+      },
+      "control_flow": { "branches": [], "nobranch": true }
+    },
+    {
+      "mnemonic": "GETPRECOMPILEDGAS",
+      "since_version": 6,
+      "doc": {
+        "category": "app_config",
+        "description": "Returns gas usage for the current contract if it is precompiled, `null` otherwise.",
+        "gas": "",
+        "fift": "GETPRECOMPILEDGAS",
+        "fift_examples": [],
+        "opcode": "F839",
+        "stack": "- x"
+      },
+      "bytecode": { "tlb": "#F839", "prefix": "F839", "operands": [] },
+      "value_flow": {
+        "inputs": {
+          "stack": [],
+          "registers": [{ "type": "constant", "index": 7 }]
+        },
+        "outputs": {
+          "stack": [
+            { "type": "simple", "name": "x", "value_types": ["Integer"] }
+          ],
+          "registers": []
+        }
+      },
+      "control_flow": { "branches": [], "nobranch": true }
+    },
+    {
+      "mnemonic": "GETORIGINALFWDFEE",
+      "since_version": 6,
+      "doc": {
+        "category": "app_config",
+        "description": "Calculate `fwd_fee * 2^16 / first_frac`. Can be used to get the original `fwd_fee` of the message.",
+        "gas": "",
+        "fift": "GETORIGINALFWDFEE",
+        "fift_examples": [],
+        "opcode": "F83A",
+        "stack": "fwd_fee is_mc - orig_fwd_fee"
+      },
+      "bytecode": { "tlb": "#F83A", "prefix": "F83A", "operands": [] },
+      "value_flow": {
+        "inputs": {
+          "stack": [
+            { "type": "simple", "name": "fwd_fee", "value_types": ["Integer"] },
+            { "type": "simple", "name": "is_mc", "value_types": ["Integer"] }
+          ],
+          "registers": [{ "type": "constant", "index": 7 }]
+        },
+        "outputs": {
+          "stack": [
+            {
+              "type": "simple",
+              "name": "orig_fwd_fee",
+              "value_types": ["Integer"]
+            }
+          ],
+          "registers": []
+        }
+      },
+      "control_flow": { "branches": [], "nobranch": true }
+    },
+    {
+      "mnemonic": "GETGASFEESIMPLE",
+      "since_version": 6,
+      "doc": {
+        "category": "app_config",
+        "description": "Same as `GETGASFEE`, but without flat price (just `(gas_used * price) / 2^16)`.",
+        "gas": "",
+        "fift": "GETGASFEESIMPLE",
+        "fift_examples": [],
+        "opcode": "F83B",
+        "stack": "gas_used is_mc - price"
+      },
+      "bytecode": { "tlb": "#F83B", "prefix": "F83B", "operands": [] },
+      "value_flow": {
+        "inputs": {
+          "stack": [
+            {
+              "type": "simple",
+              "name": "gas_used",
+              "value_types": ["Integer"]
+            },
+            { "type": "simple", "name": "is_mc", "value_types": ["Integer"] }
+          ],
+          "registers": [{ "type": "constant", "index": 7 }]
+        },
+        "outputs": {
+          "stack": [
+            { "type": "simple", "name": "price", "value_types": ["Integer"] }
+          ],
+          "registers": []
+        }
+      },
+      "control_flow": { "branches": [], "nobranch": true }
+    },
+    {
+      "mnemonic": "GETFORWARDFEESIMPLE",
+      "since_version": 6,
+      "doc": {
+        "category": "app_config",
+        "description": "Same as `GETFORWARDFEE`, but without lump price (just (`bits*bit_price + cells*cell_price) / 2^16`).",
+        "gas": "",
+        "fift": "GETFORWARDFEESIMPLE",
+        "fift_examples": [],
+        "opcode": "F83C",
+        "stack": "cells bits is_mc - price"
+      },
+      "bytecode": { "tlb": "#F83C", "prefix": "F83C", "operands": [] },
+      "value_flow": {
+        "inputs": {
+          "stack": [
+            { "type": "simple", "name": "cells", "value_types": ["Integer"] },
+            { "type": "simple", "name": "bits", "value_types": ["Integer"] },
+            { "type": "simple", "name": "is_mc", "value_types": ["Integer"] }
+          ],
+          "registers": [{ "type": "constant", "index": 7 }]
+        },
+        "outputs": {
+          "stack": [
+            { "type": "simple", "name": "price", "value_types": ["Integer"] }
           ],
           "registers": []
         }
